@@ -12,11 +12,11 @@ require("plugins/sniprun")
 require("plugins/rainbow")
 require("plugins/colorizer")
 require("plugins/alpha")
-require("plugins/closetags")
 require("plugins/alternate")
 require("plugins/todo-comments")
 require("plugins/fidget")
 require("plugins/bookmarks")
+require("plugins/indent")
 
 require("plugins/lspconfig")
 

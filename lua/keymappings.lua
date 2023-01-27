@@ -39,25 +39,35 @@ nnoremap("<leader>;", "$a;<Esc><CR>")
 nnoremap("J", "10<C-e>") -- Up 10 lines
 nnoremap("K", "10<C-y>") -- Down 10 lines
 
+nnoremap("<A-h>", "5h") -- LEFT
+nnoremap("<A-j>", "5j") -- UP
+nnoremap("<A-k>", "5k") -- DOWN
+nnoremap("<A-l>", "5l") -- RIGHT
+
+vnoremap("<A-h>", "5h") -- LEFT
+vnoremap("<A-j>", "5j") -- UP
+vnoremap("<A-k>", "5k") -- DOWN
+vnoremap("<A-l>", "5l") -- RIGHT
+
 -- 5. Move around windows
 
 tnoremap("<C-h>", "<C-\\><C-n><C-w>h") -- LEFT / Terminal mode
 tnoremap("<C-j>", "<C-\\><C-n><C-w>j") -- UP / Terminal mode
 tnoremap("<C-k>", "<C-\\><C-n><C-w>k") -- DOWN / Terminal mode
 tnoremap("<C-l>", "<C-\\><C-n><C-w>l") -- RIGHT / Terminal mode
-tnoremap("<A-h>", "<C-\\><C-n><C-w>h") -- LEFT / Terminal mode
-tnoremap("<A-j>", "<C-\\><C-n><C-w>j") -- UP / Terminal mode
-tnoremap("<A-k>", "<C-\\><C-n><C-w>k") -- DOWN / Terminal mode
-tnoremap("<A-l>", "<C-\\><C-n><C-w>l") -- RIGHT / Terminal mode
+-- tnoremap("<A-h>", "<C-\\><C-n><C-w>h") -- LEFT / Terminal mode
+-- tnoremap("<A-j>", "<C-\\><C-n><C-w>j") -- UP / Terminal mode
+-- tnoremap("<A-k>", "<C-\\><C-n><C-w>k") -- DOWN / Terminal mode
+-- tnoremap("<A-l>", "<C-\\><C-n><C-w>l") -- RIGHT / Terminal mode
 
 nnoremap("<C-h>", "<C-w>h") -- LEFT
 nnoremap("<C-j>", "<C-w>j") -- UP
 nnoremap("<C-k>", "<C-w>k") -- DOWN
 nnoremap("<C-l>", "<C-w>l") -- RIGHT
-nnoremap("<A-h>", "<C-w>h") -- LEFT
-nnoremap("<A-j>", "<C-w>j") -- UP
-nnoremap("<A-k>", "<C-w>k") -- DOWN
-nnoremap("<A-l>", "<C-w>l") -- RIGHT
+-- nnoremap("<A-h>", "<C-w>h") -- LEFT
+-- nnoremap("<A-j>", "<C-w>j") -- UP
+-- nnoremap("<A-k>", "<C-w>k") -- DOWN
+-- nnoremap("<A-l>", "<C-w>l") -- RIGHT
 
 -- 6. Buffers
 
