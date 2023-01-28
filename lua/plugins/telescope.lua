@@ -3,6 +3,8 @@ if not status_ok then
 	return
 end
 
+local builtin = require("telescope.builtin")
+
 telescope.load_extension("buffer_lines")
 telescope.load_extension("media_files")
 telescope.load_extension("emoji")
@@ -71,3 +73,11 @@ telescope.setup({
 		},
 	},
 })
+
+-- Keymaps
+
+vim.keymap.set("n", "<C-p>", function()
+	builtin.grep_string({ search = vim.fn.input("Grep > ") })
+end)
+
+-- vim.keymap.set("n", "<C-p>", builtin.git_files, {})

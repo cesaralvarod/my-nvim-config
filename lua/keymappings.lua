@@ -6,7 +6,7 @@ local Utils = require("utils")
 -- local exprnnoremap = Utils.exprnnoremap
 local nnoremap = Utils.nnoremap
 local vnoremap = Utils.vnoremap
--- local xnoremap = Utils.xnoremap
+local xnoremap = Utils.xnoremap
 local inoremap = Utils.inoremap
 local tnoremap = Utils.tnoremap
 -- local nmap = Utils.nmap
@@ -55,57 +55,53 @@ tnoremap("<C-h>", "<C-\\><C-n><C-w>h") -- LEFT / Terminal mode
 tnoremap("<C-j>", "<C-\\><C-n><C-w>j") -- UP / Terminal mode
 tnoremap("<C-k>", "<C-\\><C-n><C-w>k") -- DOWN / Terminal mode
 tnoremap("<C-l>", "<C-\\><C-n><C-w>l") -- RIGHT / Terminal mode
--- tnoremap("<A-h>", "<C-\\><C-n><C-w>h") -- LEFT / Terminal mode
--- tnoremap("<A-j>", "<C-\\><C-n><C-w>j") -- UP / Terminal mode
--- tnoremap("<A-k>", "<C-\\><C-n><C-w>k") -- DOWN / Terminal mode
--- tnoremap("<A-l>", "<C-\\><C-n><C-w>l") -- RIGHT / Terminal mode
 
 nnoremap("<C-h>", "<C-w>h") -- LEFT
 nnoremap("<C-j>", "<C-w>j") -- UP
 nnoremap("<C-k>", "<C-w>k") -- DOWN
 nnoremap("<C-l>", "<C-w>l") -- RIGHT
--- nnoremap("<A-h>", "<C-w>h") -- LEFT
--- nnoremap("<A-j>", "<C-w>j") -- UP
--- nnoremap("<A-k>", "<C-w>k") -- DOWN
--- nnoremap("<A-l>", "<C-w>l") -- RIGHT
 
--- 6. Buffers
+-- 6. Move lines
+
+vnoremap("<C-j>", ":m '>+1<cr>gv=gv")
+vnoremap("<C-k>", ":m '<-2<cr>gv=gv")
+
+-- 7. Replace word fast
+
+nnoremap("<C-l>", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- 7. Move with cursor in the middle
+nnoremap("<C-d>", "<C-d>zz")
+nnoremap("<C-u>", "<C-u>zz")
+
+-- 7. Buffers
 
 nnoremap("<leader>k", ":bnext<CR>") -- Next buffer
 nnoremap("<leader>j", ":bprevious<CR>") -- Previous buffer
 nnoremap("<leader>0", ":bdelete<CR>") -- Delete buffer
 
--- 7. Yank to end of line
+-- 8. Yank to end of line
 
 nnoremap("Y", "$")
 
--- 8. Splits
+-- 9. Splits
 
 nnoremap("<leader>ws", ":split<CR>")
 nnoremap("<leader>vs", ":vsplit<CR>")
 
--- 9. Telescope
+-- 10. Terminal
 
-nnoremap("<leader>f", ":Telescope find_files hidden=false<CR>")
-nnoremap("<leader>fhf", ":Telescope find_files hidden=true<CR>")
-nnoremap("<leader>b", ":Telescope buffers<CR>")
-nnoremap("<leader>F", ":Telescope live_grep<CR>")
-nnoremap("<leader>G", ":Telescope current_buffer_fuzzy_find<CR>")
-
--- 10. Codi
-
-nnoremap("<leader>d", "<Cmd>Codi<CR>")
-
--- 11. Terminal
+nnoremap("<C-l>a", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+nnoremap("<C-l>", [[:s/\<<C-r><C-w>\>/<C-r><C-w>/g<Left><Left><Left>]])
 
 nnoremap("<C-c>", ":sp term://fish<CR>")
 nnoremap("<C-z>", ":vsp term://fish<CR>")
 
--- 12. Nvim Tree
+-- 11. Nvim Tree
 
 nnoremap("nt", "<Cmd>NvimTreeToggle<CR>")
 
--- 13. Bufferline
+-- 12. Bufferline
 
 -- - Move to previous/next
 nnoremap("<A-,>", "<Cmd>BufferLineCyclePrev<CR>")
@@ -127,11 +123,7 @@ nnoremap("<A-8>", "<Cmd>BufferLineGoToBuffer 8<CR>")
 nnoremap("<A-9>", "<Cmd>BufferLineGoToBuffer 9<CR>")
 nnoremap("<A-0>", "<Cmd>BufferLast<CR>")
 
--- 14. Sniprun
-
-vnoremap("<leader>x", "<Cmd>SnipRun<CR>")
-
--- 15. LSP and diagnostics
+-- 13. LSP and diagnostics
 
 nnoremap("gK", "<Cmd>:lua vim.lsp.buf.hover()<CR>")
 nnoremap("gd", "<Cmd>:lua vim.lsp.buf.definition()<CR>")
@@ -143,14 +135,20 @@ nnoremap("<space>K", "<Cmd>:lua vim.lsp.buf.signature_help()<CR>")
 nnoremap("gt", "<Cmd>:lua vim.lsp.buf.type_definition()<CR>")
 nnoremap("<leader>rn", "<Cmd>:lua vim.lsp.buf.rename()<CR>")
 nnoremap("<leader>ca", "<Cmd>:lua vim.lsp.buf.code_action()<CR>")
-nnoremap("ff", "<Cmd>:lua vim.lsp.buf.format({async=true})<CR>")
+nnoremap("<C-f>", "<Cmd>:lua vim.lsp.buf.format({async=true})<CR>")
 nnoremap("<leader>e", "<Cmd>:lua vim.diagnostic.open_float()<CR>")
 
 nnoremap("[e", "<Cmd>lua vim.diagnostic.goto_prev()<CR>")
 nnoremap("]e", "<Cmd>lua vim.diagnostic.goto_next()<CR>")
 
--- 16. Alternate Toggler
+-- 14. Alternate Toggler
 nnoremap("<leader><space>", "<cmd>lua require('alternate-toggler').toggleAlternate()<CR>")
 
--- 17. Bookmarks
+-- 15. Bookmarks
 nnoremap("ma", "<cmd>lua require('telescope').extensions.vim_bookmarks.all()<CR>")
+
+-- 16.TodoTelescope
+nnoremap("<leader><tab>", "<cmd>TodoTelescope<CR>")
+
+-- 17. Undotree
+nnoremap("<leader>u", "<cmd>UndotreeToggle<cr>")

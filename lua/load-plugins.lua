@@ -17,6 +17,7 @@ require("plugins/todo-comments")
 require("plugins/fidget")
 require("plugins/bookmarks")
 require("plugins/indent")
+require("plugins/harpoon")
 
 require("plugins/lspconfig")
 
