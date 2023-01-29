@@ -91,8 +91,8 @@ nnoremap("<leader>vs", ":vsplit<CR>")
 
 -- 10. Terminal
 
-nnoremap("<C-l>a", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-nnoremap("<C-l>", [[:s/\<<C-r><C-w>\>/<C-r><C-w>/g<Left><Left><Left>]])
+nnoremap("la", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+nnoremap("ls", [[:s/\<<C-r><C-w>\>/<C-r><C-w>/g<Left><Left><Left>]])
 
 nnoremap("<C-c>", ":sp term://fish<CR>")
 nnoremap("<C-z>", ":vsp term://fish<CR>")
