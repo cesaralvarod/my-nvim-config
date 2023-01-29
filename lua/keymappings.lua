@@ -68,7 +68,8 @@ vnoremap("<C-k>", ":m '<-2<cr>gv=gv")
 
 -- 7. Replace word fast
 
-nnoremap("<C-l>", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+nnoremap("la", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+nnoremap("ls", [[:s/\<<C-r><C-w>\>/<C-r><C-w>/g<Left><Left><Left>]])
 
 -- 7. Move with cursor in the middle
 nnoremap("<C-d>", "<C-d>zz")
