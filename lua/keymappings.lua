@@ -68,8 +68,8 @@ vnoremap("<C-k>", ":m '<-2<cr>gv=gv")
 
 -- 7. Replace word fast
 
-nnoremap("la", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-nnoremap("ls", [[:s/\<<C-r><C-w>\>/<C-r><C-w>/g<Left><Left><Left>]])
+nnoremap(";a", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+nnoremap(";s", [[:s/\<<C-r><C-w>\>/<C-r><C-w>/g<Left><Left><Left>]])
 
 -- 7. Move with cursor in the middle
 nnoremap("<C-d>", "<C-d>zz")
@@ -91,9 +91,6 @@ nnoremap("<leader>ws", ":split<CR>")
 nnoremap("<leader>vs", ":vsplit<CR>")
 
 -- 10. Terminal
-
-nnoremap("la", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-nnoremap("ls", [[:s/\<<C-r><C-w>\>/<C-r><C-w>/g<Left><Left><Left>]])
 
 nnoremap("<C-c>", ":sp term://fish<CR>")
 nnoremap("<C-z>", ":vsp term://fish<CR>")
