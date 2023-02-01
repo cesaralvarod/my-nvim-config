@@ -35,8 +35,9 @@ local sources = {
 	formatting.beautysh, -- sh file
 	formatting.clang_format, -- java, cpp, c, cuda files
 	formatting.phpcsfixer, -- php files
-	formatting.astyle, -- java files
+	formatting.astyle, -- java, c and c++ files
 	formatting.fixjson, -- json files
+	formatting.rustfmt, -- rust files
 }
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})

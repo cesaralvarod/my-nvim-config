@@ -33,6 +33,9 @@ local servers = {
 	"tailwindcss",
 	"cssmodules_ls",
 	"jdtls",
+	"volar",
+	"vuels",
+	"emmet_ls",
 	-- "diagnosticls", -- Falta configurarlo bien
 }
 
@@ -44,6 +47,15 @@ for _, lsp in ipairs(servers) do
 		end,
 	})
 end
+
+-- Emmet
+require("lspconfig").emmet_ls.setup({
+	capabilities = capabilities,
+	filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "eruby", "vue" },
+	root_dir = function(fname)
+		return vim.fn.getcwd()
+	end,
+})
 
 ----------------------------------------------------------------------
 
