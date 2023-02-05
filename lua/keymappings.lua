@@ -39,15 +39,8 @@ nnoremap("<leader>;", "$a;<Esc><CR>")
 nnoremap("J", "10<C-e>") -- Up 10 lines
 nnoremap("K", "10<C-y>") -- Down 10 lines
 
-nnoremap("<A-h>", "5h") -- LEFT
-nnoremap("<A-j>", "5j") -- UP
-nnoremap("<A-k>", "5k") -- DOWN
-nnoremap("<A-l>", "5l") -- RIGHT
-
-vnoremap("<A-h>", "5h") -- LEFT
-vnoremap("<A-j>", "5j") -- UP
-vnoremap("<A-k>", "5k") -- DOWN
-vnoremap("<A-l>", "5l") -- RIGHT
+nnoremap("H", "5j")
+nnoremap("L", "5k")
 
 -- 5. Move around windows
 
@@ -63,8 +56,8 @@ nnoremap("<C-l>", "<C-w>l") -- RIGHT
 
 -- 6. Move lines
 
-vnoremap("<C-j>", ":m '>+1<cr>gv=gv")
-vnoremap("<C-k>", ":m '<-2<cr>gv=gv")
+-- vnoremap("<C-j>", ":m '>+1<cr>gv=gv")
+-- vnoremap("<C-k>", ":m '<-2<cr>gv=gv")
 
 -- 7. Replace word fast
 
@@ -140,13 +133,27 @@ nnoremap("[e", "<Cmd>lua vim.diagnostic.goto_prev()<CR>")
 nnoremap("]e", "<Cmd>lua vim.diagnostic.goto_next()<CR>")
 
 -- 14. Alternate Toggler
+
 nnoremap("<leader><space>", "<cmd>lua require('alternate-toggler').toggleAlternate()<CR>")
 
 -- 15. Bookmarks
+
 nnoremap("ma", "<cmd>lua require('telescope').extensions.vim_bookmarks.all()<CR>")
 
 -- 16.TodoTelescope
+
 nnoremap("<leader><tab>", "<cmd>TodoTelescope<CR>")
 
 -- 17. Undotree
+
 nnoremap("<leader>u", "<cmd>UndotreeToggle<cr>")
+
+-- 18. Hop
+
+nnoremap("f", "<cmd>HopPattern<cr>")
+nnoremap("fw", "<cmd>HopWord<cr>")
+nnoremap("fv", "<cmd>HopVertical<cr>")
+
+-- 19. diffview
+nnoremap("dv", "<cmd>DiffviewOpen<CR>")
+nnoremap("dc", "<cmd>DiffviewClose<CR>")

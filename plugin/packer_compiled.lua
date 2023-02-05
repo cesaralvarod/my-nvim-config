@@ -129,6 +129,11 @@ _G.packer_plugins = {
     path = "/home/andres/.local/share/nvim/site/pack/packer/start/codi.vim",
     url = "https://github.com/metakirby5/codi.vim"
   },
+  ["diffview.nvim"] = {
+    loaded = true,
+    path = "/home/andres/.local/share/nvim/site/pack/packer/start/diffview.nvim",
+    url = "https://github.com/sindrets/diffview.nvim"
+  },
   ["fidget.nvim"] = {
     loaded = true,
     path = "/home/andres/.local/share/nvim/site/pack/packer/start/fidget.nvim",
@@ -139,6 +144,11 @@ _G.packer_plugins = {
     path = "/home/andres/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
+  ["fzf-lua"] = {
+    loaded = true,
+    path = "/home/andres/.local/share/nvim/site/pack/packer/start/fzf-lua",
+    url = "https://github.com/ibhagwan/fzf-lua"
+  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/home/andres/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
@@ -148,6 +158,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/andres/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/theprimeagen/harpoon"
+  },
+  ["hop.nvim"] = {
+    loaded = true,
+    path = "/home/andres/.local/share/nvim/site/pack/packer/start/hop.nvim",
+    url = "https://github.com/phaazon/hop.nvim"
   },
   ["indent-blankline.nvim"] = {
     loaded = true,
@@ -163,6 +178,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/andres/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
+  ["markdown-preview.nvim"] = {
+    loaded = true,
+    path = "/home/andres/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
+    url = "https://github.com/iamcco/markdown-preview.nvim"
   },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
@@ -224,6 +244,11 @@ _G.packer_plugins = {
     path = "/home/andres/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag",
     url = "https://github.com/windwp/nvim-ts-autotag"
   },
+  ["nvim-ts-context-commentstring"] = {
+    loaded = true,
+    path = "/home/andres/.local/share/nvim/site/pack/packer/start/nvim-ts-context-commentstring",
+    url = "https://github.com/JoosepAlviste/nvim-ts-context-commentstring"
+  },
   ["nvim-ts-rainbow"] = {
     loaded = true,
     path = "/home/andres/.local/share/nvim/site/pack/packer/start/nvim-ts-rainbow",
@@ -238,11 +263,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/andres/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
-  },
-  playground = {
-    loaded = true,
-    path = "/home/andres/.local/share/nvim/site/pack/packer/start/playground",
-    url = "https://github.com/nvim-treesitter/playground"
   },
   ["plenary.nvim"] = {
     loaded = true,
@@ -309,6 +329,11 @@ _G.packer_plugins = {
     path = "/home/andres/.local/share/nvim/site/pack/packer/start/vim-bookmarks",
     url = "https://github.com/MattesGroeger/vim-bookmarks"
   },
+  ["vim-doge"] = {
+    loaded = true,
+    path = "/home/andres/.local/share/nvim/site/pack/packer/start/vim-doge",
+    url = "https://github.com/kkoomen/vim-doge"
+  },
   ["vim-eunuch"] = {
     loaded = true,
     path = "/home/andres/.local/share/nvim/site/pack/packer/start/vim-eunuch",
@@ -319,10 +344,10 @@ _G.packer_plugins = {
     path = "/home/andres/.local/share/nvim/site/pack/packer/start/vim-matchit",
     url = "https://github.com/adelarsq/vim-matchit"
   },
-  ["vim-rainbow"] = {
+  ["vim-move"] = {
     loaded = true,
-    path = "/home/andres/.local/share/nvim/site/pack/packer/start/vim-rainbow",
-    url = "https://github.com/frazrepo/vim-rainbow"
+    path = "/home/andres/.local/share/nvim/site/pack/packer/start/vim-move",
+    url = "https://github.com/matze/vim-move"
   },
   ["vim-surround"] = {
     loaded = true,

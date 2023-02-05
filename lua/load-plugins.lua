@@ -18,11 +18,13 @@ require("plugins/fidget")
 require("plugins/bookmarks")
 require("plugins/indent")
 require("plugins/harpoon")
+require("plugins/hop")
 
 require("plugins/lspconfig")
 
--- No mover orden en que se cargan mason y cmo
+-- No mover orden en que se cargan mason y cmp
 require("plugins/mason")
 require("plugins/cmp")
 require("plugins/luasnip")
 require("plugins/null-ls")
+require("plugins/lsp-signature")

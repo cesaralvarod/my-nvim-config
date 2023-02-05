@@ -98,10 +98,7 @@ local mappings = {
 	["G"] = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Find Text In The File" },
 
 	-- Codi
-	["d"] = { "<cmd>Codi<cr>", "Debug code with Codi" },
-
-	-- Sniprun
-	["x"] = { "<cmd>SnipRun<cr>", "Debug line code with Sniprun" },
+	["x"] = { "<cmd>Codi<cr>", "Debug code with Codi" },
 
 	p = {
 		name = "Packer",
