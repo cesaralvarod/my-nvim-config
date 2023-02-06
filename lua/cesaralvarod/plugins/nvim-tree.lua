@@ -18,6 +18,9 @@ if not web_devicons_ok then
 end
 
 local material_icon_ok, material_icon = pcall(require, "nvim-material-icon")
+if not material_icon_ok then
+	return
+end
 
 material_icon.setup({
 	-- your personnal icons can go here (to override)
@@ -37,6 +40,15 @@ material_icon.setup({
 	},
 	color_icons = true,
 	default = true,
+})
+
+require("nvim-material-icon").set_icon({
+	astro = {
+		icon = "󱓞",
+		color = "#ff5e00",
+		cterm_color = "65",
+		name = "Astro",
+	},
 })
 
 web_devicons.setup({

@@ -34,6 +34,7 @@ local startup = function(use)
 		"akinsho/bufferline.nvim", -- buferrline in top
 		tag = "v3.*",
 	})
+	use("nvim-pack/nvim-spectre") -- search panel
 	use({
 		"nvim-treesitter/nvim-treesitter", -- syntax highlight
 		requires = {

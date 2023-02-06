@@ -3,6 +3,9 @@ if not status_ok then
 	return
 end
 
+local parser_mapping = require("nvim-treesitter.parsers").filetype_to_parsername
+parser_mapping.xml = "html" -- map the html parser to be used when using xml files
+
 configs.setup({
 	ensure_installed = {
 		"lua",

@@ -21,11 +21,10 @@ require(plugins_path .. "bookmarks")
 require(plugins_path .. "indent")
 require(plugins_path .. "harpoon")
 require(plugins_path .. "hop")
-
+require(plugins_path .. "spectre")
 
 require(lsp_path .. "lspconfig")
 require(lsp_path .. "mason")
 require(lsp_path .. "cmp")
 require(lsp_path .. "null-ls")
 require(lsp_path .. "lsp-signature")
-
