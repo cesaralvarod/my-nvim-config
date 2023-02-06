@@ -116,7 +116,7 @@ nnoremap("<A-0>", "<Cmd>BufferLast<CR>")
 
 -- 13. LSP and diagnostics
 
-nnoremap("gK", "<Cmd>:lua vim.lsp.buf.hover()<CR>")
+nnoremap("<leader>h", "<Cmd>:lua vim.lsp.buf.hover()<CR>")
 nnoremap("gd", "<Cmd>:lua vim.lsp.buf.definition()<CR>")
 nnoremap("gi", "<Cmd>:lua vim.lsp.buf.implementation()<CR>")
 nnoremap("gr", "<Cmd>:lua vim.lsp.buf.references()<CR>")

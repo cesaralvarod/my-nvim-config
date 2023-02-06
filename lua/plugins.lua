@@ -91,6 +91,7 @@ local startup = function(use)
 		"kkoomen/vim-doge", -- Generate documentation
 		run = ":call doge#install()",
 	})
+
 	use("williamboman/mason.nvim") -- Install LSP servers
 	use("williamboman/mason-lspconfig.nvim") -- Mason config
 	use("neovim/nvim-lspconfig") -- LSP Config
