@@ -10,7 +10,7 @@ end
 
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
-local icons = require("icons")
+local icons = require("cesaralvarod.icons")
 
 local web_devicons_ok, web_devicons = pcall(require, "nvim-web-devicons")
 if not web_devicons_ok then

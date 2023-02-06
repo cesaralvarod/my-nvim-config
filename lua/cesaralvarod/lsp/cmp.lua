@@ -9,10 +9,17 @@ if not snip_status_ok then
 	return
 end
 
+luasnip.filetype_extend("javascript", { "javascriptreact" })
+luasnip.filetype_extend("javascript", { "html" })
+luasnip.filetype_extend("typescript", { "typescriptreact" })
+luasnip.filetype_extend("typescript", { "html" })
+
 local cmp_status_ok, lspconfig = pcall(require, "lspconfig")
 if not cmp_status_ok then
 	return
 end
+
+local icons = require("cesaralvarod.icons")
 
 require("luasnip/loaders/from_vscode").lazy_load()
 
@@ -63,8 +70,6 @@ local check_backspace = function()
 	local col = vim.fn.col(".") - 1
 	return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
 end
-
-local icons = require("icons")
 
 local cfg = {
 	snippet = {

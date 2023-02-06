@@ -1,5 +1,7 @@
 local mason = require("mason")
 
+local icons = require("cesaralvarod.icons")
+
 local servers = {
 	"sumneko_lua",
 	"blade-formatter",
@@ -20,7 +22,6 @@ local servers = {
 	"pyright",
 }
 
-local icons = require("icons")
 
 mason.setup({
 	ui = {

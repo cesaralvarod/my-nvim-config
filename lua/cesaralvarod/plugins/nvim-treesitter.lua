@@ -109,5 +109,6 @@ require("template-string").setup({
 		-- quotes used when "remove_template_string" option is enabled
 		normal = [[']],
 		jsx = [["]],
+		tsx = [["]],
 	},
 })

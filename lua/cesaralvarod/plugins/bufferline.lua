@@ -3,7 +3,7 @@ if not status_ok then
 	return
 end
 
-local icons = require("icons")
+local icons = require("cesaralvarod.icons")
 
 bufferline.setup({
 	options = {

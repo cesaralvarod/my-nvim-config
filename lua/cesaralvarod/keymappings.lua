@@ -1,12 +1,12 @@
 -- General keymaps that are not pluggin dependant
 -- The file /lua/lsp/utils.lua contains lsp-specific commands
 
-local Utils = require("utils")
+local Utils = require("cesaralvarod.utils")
 
 -- local exprnnoremap = Utils.exprnnoremap
 local nnoremap = Utils.nnoremap
-local vnoremap = Utils.vnoremap
-local xnoremap = Utils.xnoremap
+-- local vnoremap = Utils.vnoremap
+-- local xnoremap = Utils.xnoremap
 local inoremap = Utils.inoremap
 local tnoremap = Utils.tnoremap
 -- local nmap = Utils.nmap
@@ -39,8 +39,8 @@ nnoremap("<leader>;", "$a;<Esc><CR>")
 nnoremap("J", "10<C-e>") -- Up 10 lines
 nnoremap("K", "10<C-y>") -- Down 10 lines
 
-nnoremap("H", "5j")
-nnoremap("L", "5k")
+nnoremap("H", "5k")
+nnoremap("L", "5j")
 
 -- 5. Move around windows
 
@@ -150,10 +150,44 @@ nnoremap("<leader>u", "<cmd>UndotreeToggle<cr>")
 
 -- 18. Hop
 
-nnoremap("f", "<cmd>HopPattern<cr>")
+nnoremap("ff", "<cmd>HopPattern<cr>")
 nnoremap("fw", "<cmd>HopWord<cr>")
 nnoremap("fv", "<cmd>HopVertical<cr>")
 
 -- 19. diffview
+
 nnoremap("dv", "<cmd>DiffviewOpen<CR>")
 nnoremap("dc", "<cmd>DiffviewClose<CR>")
+
+-- 20. telescope
+
+nnoremap(
+	"<leader>b",
+	"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>"
+)
+nnoremap(
+	"<leader>f",
+	"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>"
+)
+nnoremap("<leader>F", "<cmd>Telescope live_grep<cr>")
+nnoremap("<leader>G", "<cmd>Telescope current_buffer_fuzzy_find<cr>")
+
+nnoremap("<leader>sb", "<cmd>Telescope git_branches<cr>")
+nnoremap("<leader>sc", "<cmd>Telescope colorscheme<cr>")
+nnoremap("<leader>sh", "<cmd>Telescope help_tags<cr>")
+nnoremap("<leader>sM", "<cmd>Telescope man_pages<cr>")
+nnoremap("<leader>sr", "<cmd>Telescope oldfiles<cr>")
+nnoremap("<leader>sR", "<cmd>Telescope registers<cr>")
+nnoremap("<leader>sk", "<cmd>Telescope keymaps<cr>")
+nnoremap("<leader>sC", "<cmd>Telescope commands<cr>")
+
+-- 21. codi
+
+nnoremap("<leader>x", "<cmd>Codi<cr>")
+
+-- 22. Packer
+
+nnoremap("<leader>pi", "<cmd>PackerInstall<cr>")
+nnoremap("<leader>ps", "<cmd>PackerSync<cr>")
+nnoremap("<leader>pS", "<cmd>PackerStatus<cr>")
+nnoremap("<leader>pu", "<cmd>PackerUpdate<cr>")

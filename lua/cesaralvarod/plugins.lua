@@ -34,7 +34,6 @@ local startup = function(use)
 		"akinsho/bufferline.nvim", -- buferrline in top
 		tag = "v3.*",
 	})
-	use("folke/which-key.nvim") -- which key helper
 	use({
 		"nvim-treesitter/nvim-treesitter", -- syntax highlight
 		requires = {
@@ -103,13 +102,13 @@ local startup = function(use)
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-cmdline",
-			"saadparwaiz1/cmp_luasnip",
+			"saadparwaiz1/cmp_luasnip", -- Snippets autocomplete
 		},
 	})
 	use({
 		"L3MON4D3/LuaSnip", -- LSP Snippets
 		requires = {
-			"rafamadriz/friendly-snippets",
+			"rafamadriz/friendly-snippets", -- Snippets
 		},
 	})
 	use("jose-elias-alvarez/null-ls.nvim") -- LSP formatters and linters

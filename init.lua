@@ -1,14 +1,8 @@
-require("settings")
+require("cesaralvarod.settings")
 
--- Load Plugins
+require("cesaralvarod.plugins")
+require("cesaralvarod.load-plugins")
 
-require("plugins")
-require("load-plugins")
+require("cesaralvarod.themes.tokyonight")
 
--- Themes
-
-require("themes/tokyonight")
-
--- Keymaps
-
-require("keymappings")
+require("cesaralvarod.keymappings")

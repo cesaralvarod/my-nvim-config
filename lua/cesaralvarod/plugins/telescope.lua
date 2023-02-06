@@ -10,7 +10,7 @@ telescope.load_extension("media_files")
 telescope.load_extension("emoji")
 telescope.load_extension("vim_bookmarks")
 
-local icons = require("icons")
+local icons = require("cesaralvarod.icons")
 
 telescope.setup({
 	defaults = {

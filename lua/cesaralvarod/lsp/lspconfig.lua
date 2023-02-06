@@ -1,4 +1,4 @@
-local icons = require("icons")
+local icons = require("cesaralvarod.icons")
 
 -- Diagnostic symbols in the sign column (gutter)
 local signs = {
@@ -13,7 +13,6 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
 	update_in_insert = false,
 	virtual_text = {
 		spacing = 4,
-		prefix = "",
 	},
 	severity_sort = true,
 })
