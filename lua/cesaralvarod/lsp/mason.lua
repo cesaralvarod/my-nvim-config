@@ -1,28 +1,36 @@
-local mason = require("mason")
+local mason_status_ok, mason = pcall(require, "mason")
+if not mason_status_ok then
+	return
+end
+
+local mason_lspconfig_status_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
+if not mason_lspconfig_status_ok then
+	return
+end
+
+local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
+if not lspconfig_status_ok then
+	return
+end
+
+local cmp_nvim_lsp_status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if not cmp_nvim_lsp_status_ok then
+	return
+end
 
 local icons = require("cesaralvarod.icons")
 
-local servers = {
-	"sumneko_lua",
-	"blade-formatter",
-	"dockerfile-language-server",
-	"emmet-ls",
-	"go-debug-adapter",
-	"golangci-lint",
-	"gopls",
-	"json-lsp",
-	"lua-language-server",
-	"php-debug-adapter",
-	"rust-analyzer",
-	"stylua",
-	"typescript-language-server",
-	"vue-language-server",
-	"phpactor",
-	"sql-formatter",
-	"pyright",
-}
+local servers = require("cesaralvarod.lsp.servers")
 
+local setups = require("cesaralvarod.lsp.setups")
 
+local capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+
+capabilities.offsetEncoding = { "utf-16" }
+
+-- Setup mason
 mason.setup({
 	ui = {
 		border = "none",
@@ -34,8 +42,10 @@ mason.setup({
 	},
 	ensure_installed = servers,
 })
-require("mason-lspconfig").setup_handlers({
+
+-- Setup servers
+mason_lspconfig.setup_handlers({
 	function(server_name) -- default handler (optional)
-		require("lspconfig")[server_name].setup({})
+		lspconfig[server_name].setup(setups[server_name]())
 	end,
 })

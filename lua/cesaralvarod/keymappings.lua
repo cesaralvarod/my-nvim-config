@@ -5,7 +5,7 @@ local Utils = require("cesaralvarod.utils")
 
 -- local exprnnoremap = Utils.exprnnoremap
 local nnoremap = Utils.nnoremap
--- local vnoremap = Utils.vnoremap
+local vnoremap = Utils.vnoremap
 -- local xnoremap = Utils.xnoremap
 local inoremap = Utils.inoremap
 local tnoremap = Utils.tnoremap
@@ -117,20 +117,20 @@ nnoremap("<A-0>", "<Cmd>BufferLast<CR>")
 -- 13. LSP and diagnostics
 
 nnoremap("<leader>h", "<Cmd>:lua vim.lsp.buf.hover()<CR>")
+nnoremap("<space>K", "<Cmd>:lua vim.lsp.buf.signature_help()<CR>")
 nnoremap("gd", "<Cmd>:lua vim.lsp.buf.definition()<CR>")
 nnoremap("gi", "<Cmd>:lua vim.lsp.buf.implementation()<CR>")
 nnoremap("gr", "<Cmd>:lua vim.lsp.buf.references()<CR>")
 nnoremap("gD", "<Cmd>:lua vim.lsp.buf.declaration()<CR>")
-nnoremap("<space>K", "<Cmd>:lua vim.lsp.buf.signature_help()<CR>")
 
 nnoremap("gt", "<Cmd>:lua vim.lsp.buf.type_definition()<CR>")
 nnoremap("<leader>rn", "<Cmd>:lua vim.lsp.buf.rename()<CR>")
-nnoremap("<leader>ca", "<Cmd>:lua vim.lsp.buf.code_action()<CR>")
+nnoremap("<leader>vca", "<Cmd>:lua vim.lsp.buf.code_action()<CR>")
 nnoremap("<C-f>", "<Cmd>:lua vim.lsp.buf.format({async=true})<CR>")
 nnoremap("<leader>e", "<Cmd>:lua vim.diagnostic.open_float()<CR>")
 
-nnoremap("[e", "<Cmd>lua vim.diagnostic.goto_prev()<CR>")
-nnoremap("]e", "<Cmd>lua vim.diagnostic.goto_next()<CR>")
+nnoremap("<leader>vp", "<Cmd>lua vim.diagnostic.goto_prev()<CR>")
+nnoremap("<leader>vn", "<Cmd>lua vim.diagnostic.goto_next()<CR>")
 
 -- 14. Alternate Toggler
 
@@ -191,3 +191,11 @@ nnoremap("<leader>pi", "<cmd>PackerInstall<cr>")
 nnoremap("<leader>ps", "<cmd>PackerSync<cr>")
 nnoremap("<leader>pS", "<cmd>PackerStatus<cr>")
 nnoremap("<leader>pu", "<cmd>PackerUpdate<cr>")
+
+-- 23. Spectre
+
+nnoremap("<leader>S", "<cmd>lua require('spectre').open()<cr>")
+nnoremap("<leader>sw", "<cmd>lua require('spectre').open_visual({select_word=true})<cr>")
+vnoremap("<leader>sw", "<cmd>lua require('spectre').open_visual()<cr>")
+
+nnoremap("<leader>sp", "<cmd>lua require('spectre').open_file_search()<cr>")

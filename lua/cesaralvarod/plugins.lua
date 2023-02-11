@@ -92,17 +92,18 @@ local startup = function(use)
 		run = ":call doge#install()",
 	})
 
+	use("neovim/nvim-lspconfig") -- Default config
 	use("williamboman/mason.nvim") -- Install LSP servers
 	use("williamboman/mason-lspconfig.nvim") -- Mason config
-	use("neovim/nvim-lspconfig") -- LSP Config
-	use("ray-x/lsp_signature.nvim") -- LSP dialogs
 	use({
 		"hrsh7th/nvim-cmp", -- Autocomplete, like Coc
 		requires = {
 			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-nvim-lua",
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-cmdline",
+			"hrsh7th/cmp-nvim-lsp-signature-help",
 			"saadparwaiz1/cmp_luasnip", -- Snippets autocomplete
 		},
 	})

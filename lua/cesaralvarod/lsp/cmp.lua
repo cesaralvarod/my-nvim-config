@@ -1,4 +1,3 @@
--- Set up nvim-cmp.
 local cmp_status_ok, cmp = pcall(require, "cmp")
 if not cmp_status_ok then
 	return
@@ -9,62 +8,14 @@ if not snip_status_ok then
 	return
 end
 
+local icons = require("cesaralvarod.icons")
+
 luasnip.filetype_extend("javascript", { "javascriptreact" })
 luasnip.filetype_extend("javascript", { "html" })
 luasnip.filetype_extend("typescript", { "typescriptreact" })
 luasnip.filetype_extend("typescript", { "html" })
 
-local cmp_status_ok, lspconfig = pcall(require, "lspconfig")
-if not cmp_status_ok then
-	return
-end
-
-local icons = require("cesaralvarod.icons")
-
 require("luasnip/loaders/from_vscode").lazy_load()
-
----------------------------------------------------------------------
-
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
--- local capabilities = vim.lsp.protocol.make_client_capabilities()
--- capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
-
-local servers = {
-	"html",
-	"cssls",
-	"tsserver",
-	"pyright",
-	"jsonls",
-	"eslint",
-	"intelephense",
-	"tailwindcss",
-	"cssmodules_ls",
-	"jdtls",
-	"volar",
-	"vuels",
-	"emmet_ls",
-	-- "diagnosticls", -- Falta configurarlo bien
-}
-
-for _, lsp in ipairs(servers) do
-	lspconfig[lsp].setup({
-		capabilities = capabilities,
-		root_dir = function(fname)
-			return vim.fn.getcwd()
-		end,
-	})
-end
-
--- Emmet
-require("lspconfig").emmet_ls.setup({
-	capabilities = capabilities,
-	filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "eruby", "vue" },
-	root_dir = function(fname)
-		return vim.fn.getcwd()
-	end,
-})
-
-----------------------------------------------------------------------
 
 local check_backspace = function()
 	local col = vim.fn.col(".") - 1
@@ -79,7 +30,7 @@ local cfg = {
 	},
 	window = {
 		documentation = {
-			border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+			border = { "🭽", "▔", "🭾", "▕", "🭿", "▁", "🭼", "▏" },
 		},
 	},
 	formatting = {
@@ -177,7 +128,7 @@ local cfg = {
 		{ name = "luasnip" },
 		{ name = "buffer" },
 		{ name = "path" },
-		--{ name = "nvim_lsp_signature_help" },
+		{ name = "nvim_lsp_signature_help" },
 	},
 	experimental = {
 		ghost_text = false,

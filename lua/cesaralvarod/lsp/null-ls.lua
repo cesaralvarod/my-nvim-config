@@ -1,23 +1,19 @@
-local null_ls = require("null-ls")
+local status_ok, null_ls = pcall(require, "null-ls")
+if not status_ok then
+	return
+end
 
--- code action sources
-local code_actions = null_ls.builtins.code_actions
+-- BUILTINS
 
--- diagnostic sources
-local diagnostics = null_ls.builtins.diagnostics
-
--- formatting sources
-local formatting = null_ls.builtins.formatting
-
--- hover sources
-local hover = null_ls.builtins.hover
-
--- completion sources
-local completion = null_ls.builtins.completion
+-- local code_actions = null_ls.builtins.code_actions -- code action sources
+-- local diagnostics = null_ls.builtins.diagnostics -- diagnostic sources
+local formatting = null_ls.builtins.formatting -- formatting
+-- local hover = null_ls.builtins.hover -- hover sources
+-- local completion = null_ls.builtins.completion -- completion sources
 
 local sources = {
 
-	-- Importants
+	-- FORMATTING
 	formatting.trim_whitespace.with({
 		disabled_filetypes = { "sql", "mysql" },
 	}),
@@ -25,10 +21,6 @@ local sources = {
 		disabled_filetypes = { "sql", "mysql" },
 	}),
 
-	-- FORMATTING
-	--formatting.prettier.with({
-	-- extra_filetypes = {},
-	-- }),
 	formatting.prettier, -- js, ts, tsx, jsx, css, html, etc files
 	formatting.autopep8, -- python files
 	formatting.stylua, -- lua files
@@ -43,7 +35,6 @@ local sources = {
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 -- Async formatting
-
 local async_formatting = function(bufnr)
 	bufnr = bufnr or vim.api.nvim_get_current_buf()
 
