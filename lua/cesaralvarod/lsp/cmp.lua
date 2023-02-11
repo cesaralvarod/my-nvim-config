@@ -133,6 +133,7 @@ local cfg = {
 		{ name = "path" },
 		{ name = "nvim_lsp_signature_help" },
 		{ name = "latex_symbols" },
+		{ name = "cmp_tabnine" },
 	},
 	experimental = {
 		ghost_text = false,

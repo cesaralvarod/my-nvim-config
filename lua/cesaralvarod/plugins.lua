@@ -112,6 +112,7 @@ local startup = function(use)
 			"hrsh7th/cmp-nvim-lsp-signature-help", -- Autocomplete signatures
 			"kdheepak/cmp-latex-symbols", -- Autocomplete symbols
 			"saadparwaiz1/cmp_luasnip", -- Autocomplete snippets
+			{ "tzachar/cmp-tabnine", run = "./install.sh" },
 		},
 	})
 	use({
