@@ -1,5 +1,7 @@
 require("cesaralvarod.settings")
 
+require("cesaralvarod.globals")
+
 require("cesaralvarod.plugins")
 require("cesaralvarod.load-plugins")
 

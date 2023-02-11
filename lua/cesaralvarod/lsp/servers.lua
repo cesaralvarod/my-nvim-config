@@ -28,4 +28,5 @@ return {
 	"tailwindcss-language-server",
 	"intelephense",
 	"cssmodules-language-server",
+	"solidity-ls",
 }
