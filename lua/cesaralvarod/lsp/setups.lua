@@ -32,6 +32,30 @@ return setmetatable({
 			end,
 		}
 	end,
+	sumneko_lua = function()
+		return {
+			capabilities = capabilities,
+			root_dir = function(fname)
+				return vim.fn.getcwd()
+			end,
+			on_attatch = function(client)
+				client.offset_encoding = "utf-8"
+			end,
+			settings = {
+				Lua = {
+					diagnostics = {
+						globals = { "vim" },
+					},
+					workspace = {
+						library = {
+							[vim.fn.expand("$VIMRUNTIME/lua")] = true,
+							[vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
+						},
+					},
+				},
+			},
+		}
+	end,
 }, {
 	__index = function()
 		return function()

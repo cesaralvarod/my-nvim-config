@@ -22,5 +22,6 @@ require(plugins_path .. "indent")
 require(plugins_path .. "harpoon")
 require(plugins_path .. "hop")
 require(plugins_path .. "spectre")
+require(plugins_path .. "dressing")
 
 require(lsp_path .. "init")

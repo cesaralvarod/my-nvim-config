@@ -52,6 +52,10 @@ local startup = function(use)
 			"nvim-telescope/telescope-media-files.nvim",
 			"xiyaowong/telescope-emoji.nvim",
 			"tom-anders/telescope-vim-bookmarks.nvim",
+			-- "nvim-telescope/telescope-file-browser.nvim",
+			-- "nvim-telescope/telescope-dap.nvim",
+			-- "nvim-telescope/telescope-ui-select.nvim",
+			-- { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
 		},
 	})
 	use("windwp/nvim-autopairs") -- auto close tags
@@ -87,6 +91,7 @@ local startup = function(use)
 	use("phaazon/hop.nvim") -- As easymotion
 	use("ibhagwan/fzf-lua") -- Fuzzy finder
 	use("matze/vim-move") -- move lines
+	use("stevearc/dressing.nvim") -- better ui
 	use({
 		"kkoomen/vim-doge", -- Generate documentation
 		run = ":call doge#install()",
@@ -98,13 +103,15 @@ local startup = function(use)
 	use({
 		"hrsh7th/nvim-cmp", -- Autocomplete, like Coc
 		requires = {
-			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-nvim-lua",
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-path",
-			"hrsh7th/cmp-cmdline",
-			"hrsh7th/cmp-nvim-lsp-signature-help",
-			"saadparwaiz1/cmp_luasnip", -- Snippets autocomplete
+			"hrsh7th/cmp-nvim-lsp", -- Autocomplete lsp
+			"hrsh7th/cmp-nvim-lua", -- Autocomplete lua global variables (vim)
+			"hrsh7th/cmp-buffer", -- Autcomplet buffer
+			"hrsh7th/cmp-emoji", -- Autocomplete emojis
+			"hrsh7th/cmp-path", -- Autocomplete paths
+			"hrsh7th/cmp-cmdline", -- Autocomplete cmdline
+			"hrsh7th/cmp-nvim-lsp-signature-help", -- Autocomplete signatures
+			"kdheepak/cmp-latex-symbols", -- Autocomplete symbols
+			"saadparwaiz1/cmp_luasnip", -- Autocomplete snippets
 		},
 	})
 	use({

@@ -49,12 +49,12 @@ local cfg = {
 			copilot = "[Copilot]",
 			treesitter = "[TreeSitter]",
 		},
-		duplicates = {
-			buffer = 1,
-			path = 1,
-			nvim_lsp = 0,
-			luasnip = 1,
-		},
+		-- duplicates = {
+		-- 	buffer = 1,
+		-- 	path = 1,
+		-- 	nvim_lsp = 0,
+		-- 	luasnip = 1,
+		-- },
 		duplicates_default = 0,
 		format = function(entry, vim_item)
 			-- Kind icons
@@ -62,6 +62,7 @@ local cfg = {
 			-- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
 			vim_item.menu = ({
 				nvim_lsp = "[LSP]",
+				nvim_lua = "[LSP]",
 				emoji = "[Emoji]",
 				path = "[Path]",
 				calc = "[Calc]",
@@ -125,10 +126,13 @@ local cfg = {
 	},
 	sources = {
 		{ name = "nvim_lsp" },
+		{ name = "nvim_lua" },
+		{ name = "emoji" },
 		{ name = "luasnip" },
 		{ name = "buffer" },
 		{ name = "path" },
 		{ name = "nvim_lsp_signature_help" },
+		{ name = "latex_symbols" },
 	},
 	experimental = {
 		ghost_text = false,
