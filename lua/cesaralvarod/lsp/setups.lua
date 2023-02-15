@@ -8,6 +8,25 @@ local capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_cli
 local MY_FQBN = "arduino:avr:nano"
 
 return setmetatable({
+	angularls = function()
+		local project_library_path = "/usr/lib/node_modules/@angular/language-server/" -- global npm
+		local cmd = {
+			"ngserver",
+			"--stdio",
+			"--tsProbeLocations",
+			project_library_path,
+			"--ngProbeLocations",
+			project_library_path,
+		}
+
+		return {
+			capabilities = capabilities,
+			cmd = cmd,
+			on_new_config = function(new_config, new_root_dir)
+				new_config.cmd = cmd
+			end,
+		}
+	end,
 	arduino_language_server = function()
 		return {
 			capabilities = capabilities,
