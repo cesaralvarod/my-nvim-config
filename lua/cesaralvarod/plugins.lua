@@ -28,6 +28,12 @@ local startup = function(use)
 		},
 	})
 	use({
+		"NTBBloodbath/rest.nvim", -- Like postman
+		requires = {
+			"nvim-lua/plenary.nvim",
+		},
+	})
+	use({
 		"nvim-lualine/lualine.nvim", -- status line
 	})
 	use({
