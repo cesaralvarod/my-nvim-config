@@ -104,7 +104,7 @@ return setmetatable({
 
 					local active_clients = vim.lsp.get_active_clients()
 
-					if lspconfig.util.root_pattern("deno.jsonc")(vim.fn.getcwd()) then
+					if lspconfig.util.root_pattern("deno.json", "deno.jsonc", "import_map.json")(vim.fn.getcwd()) then
 						for _, client_ in pairs(active_clients) do
 							if client_.name == "tsserver" then
 								client_.stop()
