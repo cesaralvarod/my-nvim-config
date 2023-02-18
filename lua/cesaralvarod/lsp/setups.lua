@@ -3,11 +3,27 @@ if not cmp_nvim_lsp_status_ok then
 	return
 end
 
+local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
+if not lspconfig_status_ok then
+	return
+end
+
 local capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 local MY_FQBN = "arduino:avr:nano"
 
 return setmetatable({
+	denols = function()
+		return {
+			root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc", "import_map.json"),
+		}
+	end,
+	tsserver = function()
+		return {
+			root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", "gulpfile.js", "node_modules"),
+			single_file_support = true,
+		}
+	end,
 	angularls = function()
 		local project_library_path = "/usr/lib/node_modules/@angular/language-server/" -- global npm
 		local cmd = {
@@ -57,7 +73,7 @@ return setmetatable({
 			root_dir = function(fname)
 				return vim.fn.getcwd()
 			end,
-			on_attatch = function(client)
+			on_attach = function(client)
 				client.offset_encoding = "utf-8"
 			end,
 			settings = {
@@ -83,8 +99,18 @@ return setmetatable({
 				root_dir = function(fname)
 					return vim.fn.getcwd()
 				end,
-				on_attatch = function(client)
-					client.offset_encoding = "utf-8"
+				on_attach = function(client)
+					client.offset_encoding = "utf-16"
+
+					local active_clients = vim.lsp.get_active_clients()
+
+					if lspconfig.util.root_pattern("deno.jsonc")(vim.fn.getcwd()) then
+						for _, client_ in pairs(active_clients) do
+							if client_.name == "tsserver" then
+								client_.stop()
+							end
+						end
+					end
 				end,
 			}
 		end
