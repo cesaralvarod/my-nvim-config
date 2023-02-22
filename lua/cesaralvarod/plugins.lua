@@ -40,6 +40,7 @@ local startup = function(use)
 		"akinsho/bufferline.nvim", -- buferrline in top
 		tag = "v3.*",
 	})
+	use("tpope/vim-fugitive") -- :G helper for git
 	use("nvim-pack/nvim-spectre") -- search panel
 	use({
 		"nvim-treesitter/nvim-treesitter", -- syntax highlight
@@ -93,7 +94,6 @@ local startup = function(use)
 			vim.fn["mkdp#util#install"]()
 		end,
 	})
-	use("sindrets/diffview.nvim") -- single page diff view
 	use("phaazon/hop.nvim") -- As easymotion
 	use("ibhagwan/fzf-lua") -- Fuzzy finder
 	use("matze/vim-move") -- move lines

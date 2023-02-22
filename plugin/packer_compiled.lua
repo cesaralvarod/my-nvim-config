@@ -154,11 +154,6 @@ _G.packer_plugins = {
     path = "/home/andres/.local/share/nvim/site/pack/packer/start/codi.vim",
     url = "https://github.com/metakirby5/codi.vim"
   },
-  ["diffview.nvim"] = {
-    loaded = true,
-    path = "/home/andres/.local/share/nvim/site/pack/packer/start/diffview.nvim",
-    url = "https://github.com/sindrets/diffview.nvim"
-  },
   ["dressing.nvim"] = {
     loaded = true,
     path = "/home/andres/.local/share/nvim/site/pack/packer/start/dressing.nvim",
@@ -368,6 +363,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/andres/.local/share/nvim/site/pack/packer/start/vim-eunuch",
     url = "https://github.com/tpope/vim-eunuch"
+  },
+  ["vim-fugitive"] = {
+    loaded = true,
+    path = "/home/andres/.local/share/nvim/site/pack/packer/start/vim-fugitive",
+    url = "https://github.com/tpope/vim-fugitive"
   },
   ["vim-matchit"] = {
     loaded = true,

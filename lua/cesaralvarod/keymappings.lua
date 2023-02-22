@@ -154,9 +154,7 @@ nnoremap("ff", "<cmd>HopPattern<cr>")
 nnoremap("fw", "<cmd>HopWord<cr>")
 nnoremap("fv", "<cmd>HopVertical<cr>")
 
--- 19. diffview
-
-nnoremap("ghs")
+-- 19. vim-fugitive
 
 -- 20. telescope
 
@@ -171,7 +169,6 @@ nnoremap(
 nnoremap("<leader>F", "<cmd>Telescope live_grep<cr>")
 nnoremap("<leader>G", "<cmd>Telescope current_buffer_fuzzy_find<cr>")
 
-nnoremap("<leader>sb", "<cmd>Telescope git_branches<cr>")
 nnoremap("<leader>sc", "<cmd>Telescope colorscheme<cr>")
 nnoremap("<leader>sh", "<cmd>Telescope help_tags<cr>")
 nnoremap("<leader>sM", "<cmd>Telescope man_pages<cr>")
@@ -179,6 +176,10 @@ nnoremap("<leader>sr", "<cmd>Telescope oldfiles<cr>")
 nnoremap("<leader>sR", "<cmd>Telescope registers<cr>")
 nnoremap("<leader>sk", "<cmd>Telescope keymaps<cr>")
 nnoremap("<leader>sC", "<cmd>Telescope commands<cr>")
+
+nnoremap("<leader>sb", "<cmd>Telescope git_branches<cr>")
+nnoremap("<leader>sgc", "<cmd>Telescope git_commits<cr>")
+nnoremap("<leader>sgs", "<cmd>Telescope git_status<cr>")
 
 -- 21. codi
 
@@ -198,3 +199,16 @@ nnoremap("<leader>sw", "<cmd>lua require('spectre').open_visual({select_word=tru
 vnoremap("<leader>sw", "<cmd>lua require('spectre').open_visual()<cr>")
 
 nnoremap("<leader>sp", "<cmd>lua require('spectre').open_file_search()<cr>")
+
+-- 24. Gitsigns
+
+nnoremap("]h", "<cmd>Gitsigns next_hunk<cr>")
+nnoremap("[h", "<cmd>Gitsigns prev_hunk<cr>")
+
+nnoremap("ghr", "<cmd>Gitsigns reset_hunk<cr>")
+nnoremap("ghp", "<cmd>Gitsigns preview_hunk_inline<cr>")
+nnoremap("ghd", "<cmd>Gitsigns diffthis<cr>")
+nnoremap("ghR", "<cmd>Gitsigns reset_buffer<cr>")
+nnoremap("ghR", "<cmd>Gitsigns reset_buffer<cr>")
+nnoremap("ghs", "<cmd>Gitsigns stage_hunk<cr>")
+nnoremap("ghu", "<cmd>Gitsigns undo_stage_hunk<cr>")
