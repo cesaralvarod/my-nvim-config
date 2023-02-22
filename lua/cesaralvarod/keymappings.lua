@@ -156,8 +156,7 @@ nnoremap("fv", "<cmd>HopVertical<cr>")
 
 -- 19. diffview
 
-nnoremap("dv", "<cmd>DiffviewOpen<CR>")
-nnoremap("dc", "<cmd>DiffviewClose<CR>")
+nnoremap("ghs")
 
 -- 20. telescope
 
