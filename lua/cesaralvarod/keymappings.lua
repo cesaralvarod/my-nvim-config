@@ -54,7 +54,7 @@ nnoremap("<C-j>", "<C-w>j") -- UP
 nnoremap("<C-k>", "<C-w>k") -- DOWN
 nnoremap("<C-l>", "<C-w>l") -- RIGHT
 
--- 6. Move lines
+-- 6. Vsplit and split
 
 -- vnoremap("<C-j>", ":m '>+1<cr>gv=gv")
 -- vnoremap("<C-k>", ":m '<-2<cr>gv=gv")

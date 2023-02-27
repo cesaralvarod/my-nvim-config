@@ -8,6 +8,11 @@ if not lspconfig_status_ok then
 	return
 end
 
+local navic_status_ok, navic = pcall(require, "nvim-navic")
+if not navic_status_ok then
+	return
+end
+
 local capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 local MY_FQBN = "arduino:avr:nano"
@@ -91,6 +96,15 @@ return setmetatable({
 			},
 		}
 	end,
+
+	clangd = function()
+		return {
+			capabilities = capabilities,
+			root_dir = function(fname)
+				return vim.fn.getcwd()
+			end,
+		}
+	end,
 }, {
 	__index = function()
 		return function()
@@ -99,8 +113,12 @@ return setmetatable({
 				root_dir = function(fname)
 					return vim.fn.getcwd()
 				end,
-				on_attach = function(client)
+				on_attach = function(client, bufnr)
 					client.offset_encoding = "utf-16"
+
+					if client.server_capabilities.documentSymbolProvider then
+						navic.attach(client, bufnr) -- nvim-navic
+					end
 
 					local active_clients = vim.lsp.get_active_clients()
 

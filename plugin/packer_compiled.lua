@@ -244,6 +244,11 @@ _G.packer_plugins = {
     path = "/home/andres/.local/share/nvim/site/pack/packer/start/nvim-material-icon",
     url = "https://github.com/DaikyXendo/nvim-material-icon"
   },
+  ["nvim-navic"] = {
+    loaded = true,
+    path = "/home/andres/.local/share/nvim/site/pack/packer/start/nvim-navic",
+    url = "https://github.com/SmiteshP/nvim-navic"
+  },
   ["nvim-notify"] = {
     loaded = true,
     path = "/home/andres/.local/share/nvim/site/pack/packer/start/nvim-notify",

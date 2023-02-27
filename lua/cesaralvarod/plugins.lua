@@ -40,6 +40,13 @@ local startup = function(use)
 		"akinsho/bufferline.nvim", -- buferrline in top
 		tag = "v3.*",
 	})
+	use({
+		"utilyre/barbecue.nvim",
+		requires = {
+			"SmiteshP/nvim-navic",
+			"nvim-tree/nvim-web-devicons",
+		},
+	})
 	use("tpope/vim-fugitive") -- :G helper for git
 	use("nvim-pack/nvim-spectre") -- search panel
 	use({
@@ -92,6 +99,15 @@ local startup = function(use)
 		"iamcco/markdown-preview.nvim", -- markdown previewer
 		run = function()
 			vim.fn["mkdp#util#install"]()
+		end,
+	})
+	use({
+		"SmiteshP/nvim-navic",
+		requires = {
+			"neovim/nvim-lspconfig",
+		},
+		config = function()
+			require("lvim.core.breadcrumbs").setup()
 		end,
 	})
 	use("phaazon/hop.nvim") -- As easymotion
