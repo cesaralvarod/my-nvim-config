@@ -106,9 +106,6 @@ local startup = function(use)
 		requires = {
 			"neovim/nvim-lspconfig",
 		},
-		config = function()
-			require("lvim.core.breadcrumbs").setup()
-		end,
 	})
 	use("phaazon/hop.nvim") -- As easymotion
 	use("ibhagwan/fzf-lua") -- Fuzzy finder
