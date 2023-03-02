@@ -9,10 +9,6 @@ if not snip_status_ok then
 end
 
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-local cmp_status_ok, cmp = pcall(require, "cmp")
-if not cmp_status_ok then
-	return
-end
 
 -- Autopairs completion
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
@@ -67,6 +63,7 @@ local cfg = {
 			tmux = "[TMUX]",
 			copilot = "[Copilot]",
 			treesitter = "[TreeSitter]",
+			git = "[Git]",
 		},
 		-- duplicates = {
 		-- 	buffer = 1,
@@ -153,6 +150,7 @@ local cfg = {
 		{ name = "nvim_lsp_signature_help" },
 		{ name = "latex_symbols" },
 		{ name = "cmp_tabnine" },
+		{ name = "cmp_git" },
 	},
 	experimental = {
 		ghost_text = false,
@@ -188,3 +186,5 @@ cmp.setup.cmdline(":", {
 		{ name = "cmdline" },
 	}),
 })
+
+require("cmp_git").setup()

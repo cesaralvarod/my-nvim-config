@@ -27,5 +27,6 @@ require(plugins_path .. "dressing")
 require(plugins_path .. "rest")
 require(plugins_path .. "navic")
 require(plugins_path .. "icon-picker")
+require(plugins_path .. "smoothcursor")
 
 require(lsp_path .. "init")

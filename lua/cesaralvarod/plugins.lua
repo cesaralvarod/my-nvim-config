@@ -41,12 +41,13 @@ local startup = function(use)
 		tag = "v3.*",
 	})
 	use({
-		"utilyre/barbecue.nvim",
+		"utilyre/barbecue.nvim", -- Breadcrumbs with nvim-navic
 		requires = {
 			"SmiteshP/nvim-navic",
 			"nvim-tree/nvim-web-devicons",
 		},
 	})
+	use("gen740/SmoothCursor.nvim") -- Cursor position
 	use("tpope/vim-fugitive") -- :G helper for git
 	use("nvim-pack/nvim-spectre") -- search panel
 	use({
@@ -132,6 +133,7 @@ local startup = function(use)
 			"hrsh7th/cmp-nvim-lsp-signature-help", -- Autocomplete signatures
 			"kdheepak/cmp-latex-symbols", -- Autocomplete symbols
 			"saadparwaiz1/cmp_luasnip", -- Autocomplete snippets
+			"petertriho/cmp-git", -- Autocomplete git
 			{ "tzachar/cmp-tabnine", run = "./install.sh" },
 		},
 	})
