@@ -28,6 +28,12 @@ local startup = function(use)
 		},
 	})
 	use({
+		"VonHeikemen/searchbox.nvim", -- search and replace words in current buffer
+		requires = {
+			{ "MunifTanjim/nui.nvim" },
+		},
+	})
+	use({
 		"NTBBloodbath/rest.nvim", -- Like postman
 		requires = {
 			"nvim-lua/plenary.nvim",
@@ -42,12 +48,14 @@ local startup = function(use)
 	})
 	use({
 		"utilyre/barbecue.nvim", -- Breadcrumbs with nvim-navic
+		branch = "fix/E36", -- NOTE: 👀 barbecue branch resolve error Vim E36, see later if in realease is fixing
 		requires = {
 			"SmiteshP/nvim-navic",
 			"nvim-tree/nvim-web-devicons",
 		},
 	})
 	use("gen740/SmoothCursor.nvim") -- Cursor position
+	use("ziontee113/color-picker.nvim") -- Color picker
 	use("tpope/vim-fugitive") -- :G helper for git
 	use("nvim-pack/nvim-spectre") -- search panel
 	use({
@@ -70,7 +78,7 @@ local startup = function(use)
 			"nvim-telescope/telescope-file-browser.nvim", -- command file_browser
 			-- "nvim-telescope/telescope-dap.nvim",
 			-- "nvim-telescope/telescope-ui-select.nvim",
-			-- { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+			{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
 		},
 	})
 	use("windwp/nvim-autopairs") -- auto close tags

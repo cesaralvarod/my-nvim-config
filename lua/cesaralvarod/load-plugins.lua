@@ -28,5 +28,6 @@ require(plugins_path .. "rest")
 require(plugins_path .. "navic")
 require(plugins_path .. "icon-picker")
 require(plugins_path .. "smoothcursor")
+require(plugins_path .. "color-picker")
 
 require(lsp_path .. "init")

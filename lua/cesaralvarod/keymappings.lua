@@ -154,7 +154,9 @@ nnoremap("ff", "<cmd>HopPattern<cr>")
 nnoremap("fw", "<cmd>HopWord<cr>")
 nnoremap("fv", "<cmd>HopVertical<cr>")
 
--- 19. vim-fugitive
+-- 19. Color picker
+
+inoremap("<C-c>", "<cmd>PickColorInsert<cr>")
 
 -- 20. telescope
 
@@ -217,3 +219,8 @@ nnoremap("ghu", "<cmd>Gitsigns undo_stage_hunk<cr>")
 -- 25. Icon picker
 
 nnoremap("<leader><leader>i", "<cmd>IconPickerNormal<cr>")
+
+-- 26. Searchbox
+
+nnoremap("<leader>s", "<cmd>SearchBoxSimple<cr>")
+nnoremap("<leader>sr", "<cmd>SearchBoxReplace<cr>")
