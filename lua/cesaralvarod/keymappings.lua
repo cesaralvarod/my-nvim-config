@@ -213,3 +213,7 @@ nnoremap("ghR", "<cmd>Gitsigns reset_buffer<cr>")
 nnoremap("ghR", "<cmd>Gitsigns reset_buffer<cr>")
 nnoremap("ghs", "<cmd>Gitsigns stage_hunk<cr>")
 nnoremap("ghu", "<cmd>Gitsigns undo_stage_hunk<cr>")
+
+-- 25. Icon picker
+
+nnoremap("<leader><leader>i", "<cmd>IconPickerNormal<cr>")
