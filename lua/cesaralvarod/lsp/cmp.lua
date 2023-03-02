@@ -8,8 +8,20 @@ if not snip_status_ok then
 	return
 end
 
+local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+local cmp_status_ok, cmp = pcall(require, "cmp")
+if not cmp_status_ok then
+	return
+end
+
+-- Autopairs completion
+cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
+
+local compare = require("cmp.config.compare")
+
 local icons = require("cesaralvarod.icons")
 
+-- Filetypes support
 luasnip.filetype_extend("javascript", { "javascriptreact" })
 luasnip.filetype_extend("javascript", { "html" })
 luasnip.filetype_extend("typescript", { "typescriptreact" })
@@ -31,6 +43,13 @@ local cfg = {
 	window = {
 		documentation = {
 			border = { "🭽", "▔", "🭾", "▕", "🭿", "▁", "🭼", "▏" },
+		},
+	},
+	sorting = {
+		priority_weight = 2,
+		comparators = {
+			compare.kind,
+			compare.sort_text,
 		},
 	},
 	formatting = {
@@ -62,7 +81,7 @@ local cfg = {
 			-- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
 			vim_item.menu = ({
 				nvim_lsp = "[LSP]",
-				nvim_lua = "[LSP]",
+				nvim_lua = "[API]",
 				emoji = "[Emoji]",
 				path = "[Path]",
 				calc = "[Calc]",
@@ -93,7 +112,7 @@ local cfg = {
 		}),
 		-- Accept currently selected item. If none selected, `select` first item.
 		-- Set `select` to `false` to only confirm explicitly selected items.
-		["<CR>"] = cmp.mapping.confirm({ select = true }),
+		-- ["<CR>"] = cmp.mapping.confirm({ select = true }),
 		["<C-l>"] = cmp.mapping.confirm({ select = true }),
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
