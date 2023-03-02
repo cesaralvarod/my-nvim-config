@@ -66,7 +66,7 @@ local startup = function(use)
 			"nvim-telescope/telescope-media-files.nvim",
 			"xiyaowong/telescope-emoji.nvim",
 			"tom-anders/telescope-vim-bookmarks.nvim",
-			-- "nvim-telescope/telescope-file-browser.nvim",
+			"nvim-telescope/telescope-file-browser.nvim",
 			-- "nvim-telescope/telescope-dap.nvim",
 			-- "nvim-telescope/telescope-ui-select.nvim",
 			-- { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },

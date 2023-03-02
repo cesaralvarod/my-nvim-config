@@ -3,12 +3,15 @@ if not status_ok then
 	return
 end
 
+local fb_actions = require("telescope").extensions.file_browser.actions
+
 local builtin = require("telescope.builtin")
 
 telescope.load_extension("buffer_lines")
 telescope.load_extension("media_files")
 telescope.load_extension("emoji")
 telescope.load_extension("vim_bookmarks")
+telescope.load_extension("file_browser")
 
 local icons = require("cesaralvarod.icons")
 
@@ -70,6 +73,16 @@ telescope.setup({
 		media_files = {
 			filetypes = { "png", "webp", "jpg", "jpeg", "svg" },
 			find_cmd = "rg", -- find command (defaults to `fd`)
+		},
+		file_browser = {
+			hijack_netrw = true,
+			mappings = {
+				["i"] = {
+					-- remap to going to home directory
+					["<C-h>"] = fb_actions.goto_home_dir,
+				},
+				["n"] = {},
+			},
 		},
 	},
 })

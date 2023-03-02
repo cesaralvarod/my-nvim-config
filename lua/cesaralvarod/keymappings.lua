@@ -166,6 +166,7 @@ nnoremap(
 	"<leader>f",
 	"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>"
 )
+nnoremap("<leader>sf", "<cmd>Telescope file_browser<cr>")
 nnoremap("<leader>F", "<cmd>Telescope live_grep<cr>")
 nnoremap("<leader>G", "<cmd>Telescope current_buffer_fuzzy_find<cr>")
 
