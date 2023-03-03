@@ -97,6 +97,18 @@ return setmetatable({
 		}
 	end,
 
+	lua_ls = function()
+		return {
+			settings = {
+				Lua = {
+					completion = {
+						callSnippet = "Replace",
+					},
+				},
+			},
+		}
+	end,
+
 	clangd = function()
 		return {
 			capabilities = capabilities,

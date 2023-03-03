@@ -145,6 +145,7 @@ local startup = function(use)
 			{ "tzachar/cmp-tabnine", run = "./install.sh" },
 		},
 	})
+	use("folke/neodev.nvim") -- vim api lsp helpers for neovim plugins development
 	use({
 		"L3MON4D3/LuaSnip", -- LSP Snippets
 		requires = {

@@ -18,6 +18,11 @@ if not cmp_nvim_lsp_status_ok then
 	return
 end
 
+local neodev_status_ok, neodev = pcall(require, "neodev")
+if not neodev_status_ok then
+	return
+end
+
 local icons = require("cesaralvarod.icons")
 
 local servers = require("cesaralvarod.lsp.servers")
@@ -27,6 +32,8 @@ local setups = require("cesaralvarod.lsp.setups")
 local capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
 -- local capabilities = vim.lsp.protocol.make_client_capabilities()
 -- capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+
+neodev.setup()
 
 capabilities.offsetEncoding = { "utf-16" }
 

@@ -142,7 +142,7 @@ local cfg = {
 	},
 	sources = {
 		{ name = "nvim_lsp" },
-		{ name = "nvim_lua" },
+		-- { name = "nvim_lua" }, -- no with neodev
 		{ name = "emoji" },
 		{ name = "luasnip" },
 		{ name = "buffer" },
