@@ -29,5 +29,6 @@ require(plugins_path .. "navic")
 require(plugins_path .. "icon-picker")
 require(plugins_path .. "smoothcursor")
 require(plugins_path .. "color-picker")
+require(plugins_path .. "chatgpt-nvim")
 
 require(lsp_path .. "init")

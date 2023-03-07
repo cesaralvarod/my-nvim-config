@@ -1,6 +1,3 @@
--- General keymaps that are not pluggin dependant
--- The file /lua/lsp/utils.lua contains lsp-specific commands
-
 local Utils = require("cesaralvarod.utils")
 
 -- local exprnnoremap = Utils.exprnnoremap
@@ -23,7 +20,6 @@ inoremap("<c-s>", "<c-o>:w<CR>") -- Save document with Ctrl+s / Insert Mode
 nnoremap("<c-s>", ":w<CR>") -- Save document with Ctrl+s / Normal Mode
 inoremap("<c-a>", "<c-o>:wa<CR>") -- Save all documents with Ctrl+a / Insert Mode
 nnoremap("<c-a>", ":wa<CR>") -- Save all documents with Ctrl+a / Normal Mode
-nnoremap("<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<CR>") -- Format
 
 -- 2. Quit document
 
@@ -116,17 +112,19 @@ nnoremap("<A-0>", "<Cmd>BufferLast<CR>")
 
 -- 13. LSP and diagnostics
 
+nnoremap("<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<CR>") -- Format
+nnoremap("<C-f>", "<Cmd>:lua vim.lsp.buf.format({async=true})<CR>")
+
 nnoremap("<leader>h", "<Cmd>:lua vim.lsp.buf.hover()<CR>")
 nnoremap("<space>K", "<Cmd>:lua vim.lsp.buf.signature_help()<CR>")
 nnoremap("gd", "<Cmd>:lua vim.lsp.buf.definition()<CR>")
 nnoremap("gi", "<Cmd>:lua vim.lsp.buf.implementation()<CR>")
 nnoremap("gr", "<Cmd>:lua vim.lsp.buf.references()<CR>")
 nnoremap("gD", "<Cmd>:lua vim.lsp.buf.declaration()<CR>")
-
 nnoremap("gt", "<Cmd>:lua vim.lsp.buf.type_definition()<CR>")
+
 nnoremap("<leader>rn", "<Cmd>:lua vim.lsp.buf.rename()<CR>")
 nnoremap("<leader>vca", "<Cmd>:lua vim.lsp.buf.code_action()<CR>")
-nnoremap("<C-f>", "<Cmd>:lua vim.lsp.buf.format({async=true})<CR>")
 nnoremap("<leader>e", "<Cmd>:lua vim.diagnostic.open_float()<CR>")
 
 nnoremap("<leader>vp", "<Cmd>lua vim.diagnostic.goto_prev()<CR>")

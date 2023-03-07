@@ -154,6 +154,10 @@ local startup = function(use)
 	})
 	use("jose-elias-alvarez/null-ls.nvim") -- LSP formatters and linters
 
+	------------------- MY PLUGIN -----------------------------------
+
+	use("~/workspace/plugins/chatgpt.nvim")
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
