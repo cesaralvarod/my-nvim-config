@@ -42,12 +42,60 @@ material_icon.setup({
 	default = true,
 })
 
-require("nvim-material-icon").set_icon({
+material_icon.set_icon({
 	astro = {
 		icon = "󱓞",
 		color = "#ff5e00",
 		cterm_color = "65",
 		name = "Astro",
+	},
+	[".dockerignore"] = {
+		icon = "",
+		color = "#0087c9",
+		cterm_color = "32",
+		name = "DockerIgnore",
+	},
+	["docker-compose.yml"] = {
+		icon = "",
+		color = "#0087c9",
+		cterm_color = "32",
+		name = "DockerCompose",
+	},
+	[".env.development"] = {
+		icon = "",
+		color = "#faf743",
+		cterm_color = "227",
+		name = "EnvDevelopment",
+	},
+	[".env.production"] = {
+		icon = "",
+		color = "#faf743",
+		cterm_color = "227",
+		name = "EnvProduction",
+	},
+	[".env.template"] = {
+		icon = "",
+		color = "#faf743",
+		cterm_color = "227",
+		name = "EnvTemplate",
+	},
+	[".env.test"] = {
+		icon = "",
+		color = "#faf743",
+		cterm_color = "227",
+		name = "EnvTest",
+	},
+	["tailwind.config.cjs"] = {
+		icon = "󱏿",
+		color = "#0087c9",
+		cterm_color = "32",
+		name = "Tailwind",
+	},
+	["tailwind.config.js"] = {
+		icon = "󱏿",
+		color = "#0087c9",
+		cterm_color = "32",
+		name = "Tailwind",
 	},
 })
 
@@ -56,7 +104,6 @@ web_devicons.setup({
 })
 
 local config = {
-
 	renderer = {
 		group_empty = true,
 		root_folder_modifier = ":t",
@@ -102,7 +149,6 @@ local config = {
 		special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md" },
 		symlink_destination = true,
 	},
-
 	hijack_directories = {
 		enable = true,
 		auto_open = true,
@@ -176,7 +222,6 @@ local config = {
 			close_window = false,
 		},
 	},
-
 	trash = {
 		cmd = "trash",
 		require_confirm = true,
