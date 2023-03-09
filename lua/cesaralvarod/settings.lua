@@ -3,6 +3,7 @@ local g = vim.g
 local cache_dir = vim.env.HOME .. "/.cache/nvim/"
 
 vim.cmd("autocmd BufNewFile,BufRead *.ejs set filetype=html")
+vim.cmd("autocmd BufNewFile,BufRead artisan set filetype=php")
 
 ---------------------------------------------------------
 -- General

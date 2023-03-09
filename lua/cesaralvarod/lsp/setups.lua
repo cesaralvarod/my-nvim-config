@@ -66,7 +66,18 @@ return setmetatable({
 	emmet_ls = function()
 		return {
 			capabilities = capabilities,
-			filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "eruby", "vue" },
+			filetypes = {
+				"html",
+				"typescriptreact",
+				"javascriptreact",
+				"css",
+				"sass",
+				"scss",
+				"less",
+				"eruby",
+				"vue",
+				"php",
+			},
 			root_dir = function(fname)
 				return vim.fn.getcwd()
 			end,
@@ -96,7 +107,6 @@ return setmetatable({
 			},
 		}
 	end,
-
 	lua_ls = function()
 		return {
 			settings = {
@@ -108,7 +118,6 @@ return setmetatable({
 			},
 		}
 	end,
-
 	clangd = function()
 		return {
 			capabilities = capabilities,
