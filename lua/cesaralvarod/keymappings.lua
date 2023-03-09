@@ -23,7 +23,7 @@ inoremap("<c-s>", "<c-o>:w<CR>") -- Save document with Ctrl+s / Insert Mode
 nnoremap("<c-s>", ":w<CR>") -- Save document with Ctrl+s / Normal Mode
 inoremap("<c-a>", "<c-o>:wa<CR>") -- Save all documents with Ctrl+a / Insert Mode
 nnoremap("<c-a>", ":wa<CR>") -- Save all documents with Ctrl+a / Normal Mode
-nnoremap("<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<CR>") -- Format
+nnoremap("<leader>lf", "<cmd>lua vim.lsp.buf.format()<CR>") -- Format
 
 -- 2. Quit document
 

@@ -21,6 +21,10 @@ local sources = {
 		disabled_filetypes = { "sql", "mysql" },
 	}),
 
+	-- formatting.prettier.with({
+	--   extra_filetypes = { "php" },
+	-- }),
+	-- formatting.eslint,
 	formatting.prettier, -- js, ts, tsx, jsx, css, html, etc files
 	formatting.autopep8, -- python files
 	formatting.stylua, -- lua files
@@ -68,11 +72,6 @@ end
 
 -- Format on save
 local on_attach = function(client, bufnr)
-	-- if client.server_capabilities.documentFormattingProvider then
-	-- 	vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.format()")
-	-- end
-
-	-- Documentation
 	if client.supports_method("textDocument/formatting") then
 		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
 		vim.api.nvim_create_autocmd("BufWritePre", {
@@ -80,8 +79,8 @@ local on_attach = function(client, bufnr)
 			buffer = bufnr,
 			callback = function()
 				-- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-				-- vim.lsp.buf.format() -- Format sync
-				async_formatting(bufnr) -- Format async
+				vim.lsp.buf.format() -- Format sync
+				-- async_formatting(bufnr) -- Format async
 			end,
 		})
 	end
