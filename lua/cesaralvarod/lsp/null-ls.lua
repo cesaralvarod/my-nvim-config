@@ -3,6 +3,13 @@ if not status_ok then
 	return
 end
 
+local prettier_ok, prettier = pcall(require, "prettier")
+if not prettier_ok then
+	return
+end
+
+prettier.setup()
+
 -- BUILTINS
 
 -- local code_actions = null_ls.builtins.code_actions -- code action sources
@@ -20,11 +27,9 @@ local sources = {
 	formatting.trim_newlines.with({
 		disabled_filetypes = { "sql", "mysql" },
 	}),
-
 	-- formatting.prettier.with({
-	--   extra_filetypes = { "php" },
+	-- 	extra_filetypes = { "php" },
 	-- }),
-	-- formatting.eslint,
 	formatting.prettier, -- js, ts, tsx, jsx, css, html, etc files
 	formatting.autopep8, -- python files
 	formatting.stylua, -- lua files
@@ -79,7 +84,16 @@ local on_attach = function(client, bufnr)
 			buffer = bufnr,
 			callback = function()
 				-- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-				vim.lsp.buf.format() -- Format sync
+				vim.lsp.buf.format({
+					bufnr = bufnr,
+					filter = function(client)
+						if client.name == "intelephense" then
+							return client.name == "intelephense"
+						end
+
+						return client.name == "null-ls"
+					end,
+				}) -- Format sync
 				-- async_formatting(bufnr) -- Format async
 			end,
 		})

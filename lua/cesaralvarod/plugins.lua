@@ -153,6 +153,7 @@ local startup = function(use)
 		},
 	})
 	use("jose-elias-alvarez/null-ls.nvim") -- LSP formatters and linters
+	use("MunifTanjim/prettier.nvim") -- Prettier
 
 	if packer_bootstrap then
 		require("packer").sync()
