@@ -19,6 +19,7 @@ local startup = function(use)
 	use("wbthomason/packer.nvim") -- packer
 
 	use("folke/tokyonight.nvim") -- main theme
+	use("rebelot/kanagawa.nvim")
 
 	use("nvim-tree/nvim-web-devicons") --icons
 	use({
@@ -27,6 +28,8 @@ local startup = function(use)
 			"DaikyXendo/nvim-material-icon", -- Material icons
 		},
 	})
+	use("mtdl9/vim-log-highlighting") -- .log files highlight
+	use("nacro90/numb.nvim") -- peek line
 	use({
 		"VonHeikemen/searchbox.nvim", -- search and replace words in current buffer
 		requires = {
