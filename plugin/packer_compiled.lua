@@ -219,6 +219,11 @@ _G.packer_plugins = {
     path = "/home/andres/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
+  ["kanagawa.nvim"] = {
+    loaded = true,
+    path = "/home/andres/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
+    url = "https://github.com/rebelot/kanagawa.nvim"
+  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/home/andres/.local/share/nvim/site/pack/packer/start/lualine.nvim",
@@ -254,6 +259,11 @@ _G.packer_plugins = {
     path = "/home/andres/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
     url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
+  ["numb.nvim"] = {
+    loaded = true,
+    path = "/home/andres/.local/share/nvim/site/pack/packer/start/numb.nvim",
+    url = "https://github.com/nacro90/numb.nvim"
+  },
   ["nvim-autopairs"] = {
     loaded = true,
     path = "/home/andres/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
@@ -268,6 +278,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/andres/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
     url = "https://github.com/norcalli/nvim-colorizer.lua"
+  },
+  ["nvim-dev-container"] = {
+    loaded = true,
+    path = "/home/andres/.local/share/nvim/site/pack/packer/start/nvim-dev-container",
+    url = "https://github.com/esensar/nvim-dev-container"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -339,6 +354,11 @@ _G.packer_plugins = {
     path = "/home/andres/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
   },
+  ["prettier.nvim"] = {
+    loaded = true,
+    path = "/home/andres/.local/share/nvim/site/pack/packer/start/prettier.nvim",
+    url = "https://github.com/MunifTanjim/prettier.nvim"
+  },
   ["rest.nvim"] = {
     loaded = true,
     path = "/home/andres/.local/share/nvim/site/pack/packer/start/rest.nvim",
@@ -353,6 +373,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/andres/.local/share/nvim/site/pack/packer/start/telescope-buffer-lines.nvim",
     url = "https://github.com/jeetsukumaran/telescope-buffer-lines.nvim"
+  },
+  ["telescope-docker.nvim"] = {
+    loaded = true,
+    path = "/home/andres/.local/share/nvim/site/pack/packer/start/telescope-docker.nvim",
+    url = "https://github.com/lpoto/telescope-docker.nvim"
   },
   ["telescope-emoji.nvim"] = {
     loaded = true,
@@ -423,6 +448,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/andres/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
+  },
+  ["vim-log-highlighting"] = {
+    loaded = true,
+    path = "/home/andres/.local/share/nvim/site/pack/packer/start/vim-log-highlighting",
+    url = "https://github.com/mtdl9/vim-log-highlighting"
   },
   ["vim-matchit"] = {
     loaded = true,

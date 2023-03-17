@@ -184,6 +184,10 @@ nnoremap("<leader>sb", "<cmd>Telescope git_branches<cr>")
 nnoremap("<leader>sgc", "<cmd>Telescope git_commits<cr>")
 nnoremap("<leader>sgs", "<cmd>Telescope git_status<cr>")
 
+nnoremap("<leader>fd", "<cmd>Telescope docker containers<cr>")
+nnoremap("<leader>fi", "<cmd>Telescope docker images<cr>")
+nnoremap("<leader>fcc", "<cmd>Telescope docker compose<cr>")
+
 -- 21. codi
 
 nnoremap("<leader>x", "<cmd>Codi<cr>")

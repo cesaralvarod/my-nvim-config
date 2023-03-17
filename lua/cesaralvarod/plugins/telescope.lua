@@ -13,6 +13,7 @@ telescope.load_extension("emoji")
 telescope.load_extension("vim_bookmarks")
 telescope.load_extension("file_browser")
 telescope.load_extension("fzf")
+telescope.load_extension("docker")
 
 local icons = require("cesaralvarod.icons")
 
@@ -84,6 +85,10 @@ telescope.setup({
 				},
 				["n"] = {},
 			},
+		},
+		docker = {
+			init_term = "tabnew",
+			binary = "docker",
 		},
 	},
 })

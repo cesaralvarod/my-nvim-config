@@ -61,6 +61,7 @@ local startup = function(use)
 	use("ziontee113/color-picker.nvim") -- Color picker
 	use("tpope/vim-fugitive") -- :G helper for git
 	use("nvim-pack/nvim-spectre") -- search panel
+	use("esensar/nvim-dev-container") -- docker devcontainer like vscode extension
 	use({
 		"nvim-treesitter/nvim-treesitter", -- syntax highlight
 		requires = {
@@ -81,6 +82,7 @@ local startup = function(use)
 			"nvim-telescope/telescope-file-browser.nvim", -- command file_browser
 			-- "nvim-telescope/telescope-dap.nvim",
 			-- "nvim-telescope/telescope-ui-select.nvim",
+			"lpoto/telescope-docker.nvim", -- docker plugin
 			{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
 		},
 	})

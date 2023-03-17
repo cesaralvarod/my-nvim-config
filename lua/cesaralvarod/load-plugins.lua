@@ -30,5 +30,6 @@ require(plugins_path .. "icon-picker")
 require(plugins_path .. "smoothcursor")
 require(plugins_path .. "color-picker")
 require(plugins_path .. "numb")
+require(plugins_path .. "devcontainer")
 
 require(lsp_path .. "init")
