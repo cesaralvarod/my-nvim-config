@@ -1,5 +1,5 @@
-local status_ok, picker = pcall(require, "color-picker")
-if not status_ok then
+local has_picker, picker = pcall(require, "color-picker")
+if not has_picker then
 	return
 end
 

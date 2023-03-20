@@ -1,24 +1,24 @@
-local status_ok, nvim_tree = pcall(require, "nvim-tree")
-if not status_ok then
+local has_tree, tree = pcall(require, "nvim-tree")
+if not has_tree then
 	return
 end
 
-local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
-if not config_status_ok then
+local has_tree_config, tree_config = pcall(require, "nvim-tree.config")
+if not has_tree_config then
 	return
 end
 
-local tree_cb = nvim_tree_config.nvim_tree_callback
+local tree_cb = tree_config.nvim_tree_callback
 
 local icons = require("cesaralvarod.icons")
 
-local web_devicons_ok, web_devicons = pcall(require, "nvim-web-devicons")
-if not web_devicons_ok then
+local has_devicons, devicons = pcall(require, "nvim-web-devicons")
+if not has_devicons then
 	return
 end
 
-local material_icon_ok, material_icon = pcall(require, "nvim-material-icon")
-if not material_icon_ok then
+local has_material_icon, material_icon = pcall(require, "nvim-material-icon")
+if not has_material_icon then
 	return
 end
 
@@ -99,7 +99,7 @@ material_icon.set_icon({
 	},
 })
 
-web_devicons.setup({
+devicons.setup({
 	override = material_icon.get_icons(),
 })
 
@@ -301,4 +301,4 @@ local config = {
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-nvim_tree.setup(config)
+tree.setup(config)

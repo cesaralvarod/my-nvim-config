@@ -1,5 +1,5 @@
-local status_ok, spectre = pcall(require, "spectre")
-if not status_ok then
+local has_spectre, spectre = pcall(require, "spectre")
+if not has_spectre then
 	return
 end
 

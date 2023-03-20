@@ -1,5 +1,5 @@
-local barbecue_status_ok, barbecue = pcall(require, "barbecue")
-if not barbecue_status_ok then
+local has_barbecue, barbecue = pcall(require, "barbecue")
+if not has_barbecue then
 	return
 end
 

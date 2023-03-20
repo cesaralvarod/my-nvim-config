@@ -1,5 +1,5 @@
-local status_ok, hop = pcall(require, "hop")
-if not status_ok then
+local has_hop, hop = pcall(require, "hop")
+if not has_hop then
 	return
 end
 

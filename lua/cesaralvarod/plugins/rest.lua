@@ -1,9 +1,9 @@
-local status_ok, rest_nvim = pcall(require, "rest-nvim")
-if not status_ok then
+local has_rest, rest = pcall(require, "rest-nvim")
+if not has_rest then
 	return
 end
 
-rest_nvim.setup({
+rest.setup({
 	-- Open request results in a horizontal split
 	result_split_horizontal = false,
 	-- Keep the http file buffer above|left when split horizontal|vertical
@@ -42,6 +42,6 @@ vim.api.nvim_create_autocmd("FileType", {
 	pattern = "http",
 	callback = function()
 		local buff = tonumber(vim.fn.expand("<abuf>"), 10)
-		vim.keymap.set("n", "<leader>n", rest_nvim.run, { noremap = true, buffer = buff })
+		vim.keymap.set("n", "<leader>n", rest.run, { noremap = true, buffer = buff })
 	end,
 })

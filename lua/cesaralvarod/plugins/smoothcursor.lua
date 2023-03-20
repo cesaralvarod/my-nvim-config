@@ -1,5 +1,5 @@
-local status_ok, cursor = pcall(require, "smoothcursor")
-if not status_ok then
+local has_cursor, cursor = pcall(require, "smoothcursor")
+if not has_cursor then
 	return
 end
 

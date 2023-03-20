@@ -1,11 +1,12 @@
-local status_ok, alternate = pcall(require, "alternate-toggler")
-if not status_ok then
-  return
+local has_alternate, alternate = pcall(require, "alternate-toggler")
+if not has_alternate then
+	return
 end
 
 alternate.setup({
-  alternates = {
-    ["=="] = "!=",
-  },
-  event = { "BufReadPost" },
+	alternates = {
+		["=="] = "!=",
+		["==="] = "!==",
+	},
+	event = { "BufReadPost" },
 })

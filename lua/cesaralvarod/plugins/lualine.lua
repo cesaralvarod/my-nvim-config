@@ -1,5 +1,5 @@
-local status_ok, lualine = pcall(require, "lualine")
-if not status_ok then
+local has_lualine, lualine = pcall(require, "lualine")
+if not has_lualine then
 	return
 end
 

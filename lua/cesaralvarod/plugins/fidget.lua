@@ -1,5 +1,5 @@
-local status_ok, fidget = pcall(require, "fidget")
-if not status_ok then
+local has_fidget, fidget = pcall(require, "fidget")
+if not has_fidget then
 	return
 end
 

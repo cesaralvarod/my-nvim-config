@@ -1,8 +1,8 @@
-local navic_loaded, navic = pcall(require, "nvim-navic")
+local has_navic, navic = pcall(require, "nvim-navic")
 
-if not navic_loaded then
-  print("nvim-navic not loaded")
-  return
+if not has_navic then
+	print("nvim-navic not loaded")
+	return
 end
 
 navic.setup()

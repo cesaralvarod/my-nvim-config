@@ -1,10 +1,10 @@
-local status_ok, null_ls = pcall(require, "null-ls")
-if not status_ok then
+local has_null, null = pcall(require, "null-ls")
+if not has_null then
 	return
 end
 
-local prettier_ok, prettier = pcall(require, "prettier")
-if not prettier_ok then
+local has_prettier, prettier = pcall(require, "prettier")
+if not has_prettier then
 	return
 end
 
@@ -12,11 +12,11 @@ prettier.setup()
 
 -- BUILTINS
 
--- local code_actions = null_ls.builtins.code_actions -- code action sources
--- local diagnostics = null_ls.builtins.diagnostics -- diagnostic sources
-local formatting = null_ls.builtins.formatting -- formatting
--- local hover = null_ls.builtins.hover -- hover sources
--- local completion = null_ls.builtins.completion -- completion sources
+-- local code_actions = null.builtins.code_actions -- code action sources
+-- local diagnostics = null.builtins.diagnostics -- diagnostic sources
+local formatting = null.builtins.formatting -- formatting
+-- local hover = null.builtins.hover -- hover sources
+-- local completion = null.builtins.completion -- completion sources
 
 local sources = {
 
@@ -100,7 +100,7 @@ local on_attach = function(client, bufnr)
 	end
 end
 
-null_ls.setup({
+null.setup({
 	sources = sources,
 	on_attach = on_attach,
 })

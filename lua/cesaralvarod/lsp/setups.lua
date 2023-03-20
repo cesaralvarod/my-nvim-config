@@ -1,15 +1,15 @@
-local cmp_nvim_lsp_status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not cmp_nvim_lsp_status_ok then
+local has_cmp_nvim_lsp, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if not has_cmp_nvim_lsp then
 	return
 end
 
-local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
-if not lspconfig_status_ok then
+local has_lspconfig, lspconfig = pcall(require, "lspconfig")
+if not has_lspconfig then
 	return
 end
 
-local navic_status_ok, navic = pcall(require, "nvim-navic")
-if not navic_status_ok then
+local has_navic, navic = pcall(require, "nvim-navic")
+if not has_navic then
 	return
 end
 

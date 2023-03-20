@@ -1,5 +1,5 @@
-local status_ok, sniprun = pcall(require, "sniprun")
-if not status_ok then
+local has_sniprun, sniprun = pcall(require, "sniprun")
+if not has_sniprun then
 	return
 end
 

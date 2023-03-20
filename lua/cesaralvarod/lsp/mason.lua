@@ -1,25 +1,25 @@
-local mason_status_ok, mason = pcall(require, "mason")
-if not mason_status_ok then
+local has_mason, mason = pcall(require, "mason")
+if not has_mason then
 	return
 end
 
-local mason_lspconfig_status_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
-if not mason_lspconfig_status_ok then
+local has_mason_lspconfig, mason_lspconfig = pcall(require, "mason-lspconfig")
+if not has_mason_lspconfig then
 	return
 end
 
-local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
-if not lspconfig_status_ok then
+local has_lspconfig, lspconfig = pcall(require, "lspconfig")
+if not has_lspconfig then
 	return
 end
 
-local cmp_nvim_lsp_status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not cmp_nvim_lsp_status_ok then
+local has_cmp_nvim_lsp, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if not has_cmp_nvim_lsp then
 	return
 end
 
-local neodev_status_ok, neodev = pcall(require, "neodev")
-if not neodev_status_ok then
+local has_neodev, neodev = pcall(require, "neodev")
+if not has_neodev then
 	return
 end
 

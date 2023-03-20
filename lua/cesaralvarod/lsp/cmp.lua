@@ -1,10 +1,10 @@
-local cmp_status_ok, cmp = pcall(require, "cmp")
-if not cmp_status_ok then
+local has_cmp, cmp = pcall(require, "cmp")
+if not has_cmp then
 	return
 end
 
-local snip_status_ok, luasnip = pcall(require, "luasnip")
-if not snip_status_ok then
+local has_luasnip, luasnip = pcall(require, "luasnip")
+if not has_luasnip then
 	return
 end
 
@@ -22,6 +22,26 @@ luasnip.filetype_extend("javascript", { "javascriptreact" })
 luasnip.filetype_extend("javascript", { "html" })
 luasnip.filetype_extend("typescript", { "typescriptreact" })
 luasnip.filetype_extend("typescript", { "html" })
+
+-- Adding custom snippets to lua
+
+local snip = luasnip.snippet
+local text = luasnip.text_node
+local insert = luasnip.insert_node
+
+luasnip.add_snippets(nil, {
+	all = {
+		snip({
+			trig = "php",
+			namr = "php",
+			dscr = "Create php labels",
+		}, {
+			text("<?php "),
+			insert(1),
+			text(" ?>"),
+		}),
+	},
+})
 
 require("luasnip/loaders/from_vscode").lazy_load()
 
