@@ -2,8 +2,18 @@ local opt = vim.opt -- Set options (global/buffer/ window-scoped)
 local g = vim.g
 local cache_dir = vim.env.HOME .. "/.cache/nvim/"
 
+--------------------------------------------------------
+-- Filetypes
+--------------------------------------------------------
+
 vim.cmd("autocmd BufNewFile,BufRead *.ejs set filetype=html")
 vim.cmd("autocmd BufNewFile,BufRead artisan set filetype=php")
+
+--------------------------------------------------------
+-- Vim Polyglot
+--------------------------------------------------------
+
+vim.g["polyglot_disabled"] = {}
 
 ---------------------------------------------------------
 -- General

@@ -45,6 +45,7 @@ local startup = function(use)
 		"akinsho/bufferline.nvim", -- buferrline in top
 		tag = "v3.*",
 	})
+	use("sheerun/vim-polyglot")
 	use({
 		"utilyre/barbecue.nvim", -- Breadcrumbs with nvim-navic
 		branch = "fix/E36", -- NOTE: 👀 barbecue branch resolve error Vim E36, see later if in realease is fixing

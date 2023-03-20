@@ -3,6 +3,11 @@ if not has_ts then
 	return
 end
 
+local has_template_string, template_string = pcall(require, "template-string")
+if not has_template_string then
+	return
+end
+
 local parser_mapping = require("nvim-treesitter.parsers").filetype_to_parsername
 parser_mapping.xml = "html" -- map the html parser to be used when using xml files
 
@@ -20,7 +25,7 @@ configs.setup({
 		"vim",
 		"solidity",
 		"graphql",
-		"php",
+		"php", -- vim-polyglot better
 		"java",
 		"kotlin",
 		"c",
@@ -39,7 +44,7 @@ configs.setup({
 	highlight = {
 		enable = true,
 		use_languagetree = true,
-		diable = {},
+		disable = { "php" },
 		additional_vim_regex_highlighting = false,
 	},
 	indent = {
@@ -98,7 +103,7 @@ configs.setup({
 	},
 })
 
-require("template-string").setup({
+template_string.setup({
 	filetypes = {
 		"typescript",
 		"javascript",
