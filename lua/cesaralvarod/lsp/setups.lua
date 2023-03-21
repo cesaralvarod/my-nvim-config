@@ -13,6 +13,28 @@ if not has_navic then
 	return
 end
 
+local configs = require("lspconfig.configs")
+
+if not configs.intelephense then
+	configs.intelephense = {
+		default_config = {
+			cmd = { "intelephense", "--stdio" },
+			filetypes = { "php" },
+			root_dir = function(fname)
+				return vim.loop.cwd()
+			end,
+			settings = {
+				intelephense = {
+					files = {
+						maxSize = 1000000,
+					},
+					environment = {},
+				},
+			},
+		},
+	}
+end
+
 local capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 local MY_FQBN = "arduino:avr:nano"
@@ -124,6 +146,12 @@ return setmetatable({
 			root_dir = function(fname)
 				return vim.fn.getcwd()
 			end,
+		}
+	end,
+	intelephense = function()
+		return {
+			capabilities = capabilities,
+			root_dir = require("lspconfig").util.root_pattern(".git", "composer.json"),
 		}
 	end,
 }, {
