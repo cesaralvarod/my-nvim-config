@@ -30,15 +30,15 @@ local sources = {
 	-- formatting.prettier.with({
 	-- 	extra_filetypes = { "php" },
 	-- }),
-	formatting.prettier, -- js, ts, tsx, jsx, css, html, etc files
-	formatting.autopep8, -- python files
-	formatting.stylua, -- lua files
-	formatting.beautysh, -- sh file
+	formatting.prettier,    -- js, ts, tsx, jsx, css, html, etc files
+	formatting.autopep8,    -- python files
+	formatting.stylua,      -- lua files
+	formatting.beautysh,    -- sh file
 	formatting.clang_format, -- java, cpp, c, cuda files
-	formatting.phpcsfixer, -- php files
-	formatting.astyle, -- java, c and c++ files
-	formatting.fixjson, -- json files
-	formatting.rustfmt, -- rust files
+	formatting.phpcsfixer,  -- php files
+	formatting.astyle,      -- java, c and c++ files
+	formatting.fixjson,     -- json files
+	formatting.rustfmt,     -- rust files
 }
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
@@ -66,6 +66,13 @@ local async_formatting = function(bufnr)
 
 			if res then
 				local client = vim.lsp.get_client_by_id(ctx.client_id)
+
+				if client.name == "intelephense" then
+					client.name = "intelephense"
+				end
+
+				client.name = "null-ls"
+
 				vim.lsp.util.apply_text_edits(res, bufnr, client and client.offset_encoding or "utf-16")
 				vim.api.nvim_buf_call(bufnr, function()
 					vim.cmd("silent noautocmd update")
@@ -75,26 +82,33 @@ local async_formatting = function(bufnr)
 	)
 end
 
+local formatting = function(bufnr)
+	bufnr = bufnr or vim.api.nvim_get_current_buf()
+
+	-- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
+	vim.lsp.buf.format({
+		bufnr = bufnr,
+		filter = function(client)
+			if client.name == "intelephense" then
+				return client.name == "intelephense"
+			end
+
+			return client.name == "null-ls"
+		end,
+	})
+end
+
 -- Format on save
 local on_attach = function(client, bufnr)
+	print(client.name)
 	if client.supports_method("textDocument/formatting") then
 		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
 		vim.api.nvim_create_autocmd("BufWritePre", {
 			group = augroup,
 			buffer = bufnr,
 			callback = function()
-				-- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-				vim.lsp.buf.format({
-					bufnr = bufnr,
-					filter = function(client)
-						if client.name == "intelephense" then
-							return client.name == "intelephense"
-						end
-
-						return client.name == "null-ls"
-					end,
-				}) -- Format sync
-				-- async_formatting(bufnr) -- Format async
+				-- formatting(bufnr) -- Format sync
+				async_formatting(bufnr) -- Format async
 			end,
 		})
 	end
