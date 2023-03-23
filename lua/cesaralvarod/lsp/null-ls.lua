@@ -30,15 +30,15 @@ local sources = {
 	-- formatting.prettier.with({
 	-- 	extra_filetypes = { "php" },
 	-- }),
-	formatting.prettier,    -- js, ts, tsx, jsx, css, html, etc files
-	formatting.autopep8,    -- python files
-	formatting.stylua,      -- lua files
-	formatting.beautysh,    -- sh file
+	formatting.prettier, -- js, ts, tsx, jsx, css, html, etc files
+	formatting.autopep8, -- python files
+	formatting.stylua, -- lua files
+	formatting.beautysh, -- sh file
 	formatting.clang_format, -- java, cpp, c, cuda files
-	formatting.phpcsfixer,  -- php files
-	formatting.astyle,      -- java, c and c++ files
-	formatting.fixjson,     -- json files
-	formatting.rustfmt,     -- rust files
+	formatting.phpcsfixer, -- php files
+	formatting.astyle, -- java, c and c++ files
+	formatting.fixjson, -- json files
+	formatting.rustfmt, -- rust files
 }
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
@@ -70,8 +70,6 @@ local async_formatting = function(bufnr)
 				if client.name == "intelephense" then
 					client.name = "intelephense"
 				end
-
-				client.name = "null-ls"
 
 				vim.lsp.util.apply_text_edits(res, bufnr, client and client.offset_encoding or "utf-16")
 				vim.api.nvim_buf_call(bufnr, function()

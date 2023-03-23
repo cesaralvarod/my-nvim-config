@@ -97,6 +97,42 @@ material_icon.set_icon({
 		cterm_color = "32",
 		name = "Tailwind",
 	},
+	[".eslintrc"] = {
+		icon = "",
+		color = "#4bc2c3",
+		cterm_color = "32",
+		name = "Eslint",
+	},
+	[".eslintrc.cjs"] = {
+		icon = "",
+		color = "#4bc2c3",
+		cterm_color = "32",
+		name = "Eslint",
+	},
+	[".eslintrc.js"] = {
+		icon = "",
+		color = "#4bc2c3",
+		cterm_color = "32",
+		name = "Eslint",
+	},
+	[".eslintrc.json"] = {
+		icon = "",
+		color = "#4bc2c3",
+		cterm_color = "32",
+		name = "Eslint",
+	},
+	[".eslintrc.yaml"] = {
+		icon = "",
+		color = "#4bc2c3",
+		cterm_color = "32",
+		name = "Eslint",
+	},
+	[".eslintrc.yml"] = {
+		icon = "",
+		color = "#4bc2c3",
+		cterm_color = "32",
+		name = "Eslint",
+	},
 })
 
 devicons.setup({
