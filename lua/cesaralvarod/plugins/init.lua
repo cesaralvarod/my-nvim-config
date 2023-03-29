@@ -43,7 +43,25 @@ return {
 
 	{ "tpope/vim-surround" },
 
-	{ "tpope/vim-eunuch" },
+	{
+		"tpope/vim-eunuch",
+		cmd = {
+			"Remove",
+			"Delete",
+			"Move",
+			"Rename",
+			"Copy",
+			"Clocate",
+			"Chmod",
+			"Mkdir",
+			"Cfind",
+			"Lfind",
+			"Llocate",
+			"Walk",
+			"SudoWrite",
+			"SudoEdit",
+		},
+	},
 
-	{ "adelarsq/vim-matchit" },
+	{ "adelarsq/vim-matchit", keys = { "%" } },
 }

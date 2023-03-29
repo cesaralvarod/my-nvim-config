@@ -204,8 +204,8 @@ return {
 			"kdheepak/cmp-latex-symbols", -- Autocomplete symbols
 			"saadparwaiz1/cmp_luasnip", -- Autocomplete snippets
 			"petertriho/cmp-git", -- Autocomplete git
-			{ "tzachar/cmp-tabnine", build = "./install.sh" },
 			"windwp/nvim-autopairs",
+			{ "tzachar/cmp-tabnine", build = "./install.sh" },
 		},
 		config = config,
 	},

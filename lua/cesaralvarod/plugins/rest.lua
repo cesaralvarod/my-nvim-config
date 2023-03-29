@@ -51,4 +51,5 @@ return {
 		"nvim-lua/plenary.nvim",
 	},
 	config = config,
+	keys = { "<leader>n" },
 }

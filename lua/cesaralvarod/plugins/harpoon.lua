@@ -7,11 +7,15 @@ return {
 		vim.keymap.set("n", "<A-m>", mark.add_file)
 		vim.keymap.set("n", "<C-m>", ui.toggle_quick_menu)
 
-		vim.keymap.set("n", "<C-n>", function()
+		--[[ vim.keymap.set("n", "<C-n>", function()
 			ui.nav_next()
 		end)
 		vim.keymap.set("n", "<C-b>", function()
 			ui.nav_prev()
-		end)
+		end) ]]
 	end,
+	keys = {
+		"<A-m",
+		"<C-m>",
+	},
 }
