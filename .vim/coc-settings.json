@@ -1,6 +1,0 @@
-{
-  "tsserver.enable": true,
-  "tsserver.npm": "/usr/bin/npm",
-  "tsserver.enableJavascript": true,
-  "coc.source.file.trimSameExts": []
-}
