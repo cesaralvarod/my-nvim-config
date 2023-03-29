@@ -34,5 +34,16 @@ return {
 
 	{ "sheerun/vim-polyglot" },
 
-	{ "tpope/vim-fugitive" },
+	{
+		"nvim-lua/popup.nvim",
+		lazy = false,
+		priority = 500,
+		dependencies = { "nvim-lua/plenary.nvim" },
+	},
+
+	{ "tpope/vim-surround" },
+
+	{ "tpope/vim-eunuch" },
+
+	{ "adelarsq/vim-matchit" },
 }

@@ -135,31 +135,9 @@ nnoremap("<leader>e", "<Cmd>:lua vim.diagnostic.open_float()<CR>")
 nnoremap("<leader>vp", "<Cmd>lua vim.diagnostic.goto_prev()<CR>")
 nnoremap("<leader>vn", "<Cmd>lua vim.diagnostic.goto_next()<CR>")
 
--- 14. Alternate Toggler
-
-nnoremap("<leader><space>", "<cmd>lua require('alternate-toggler').toggleAlternate()<CR>")
-
--- 15. Bookmarks
-
-nnoremap("ma", "<cmd>lua require('telescope').extensions.vim_bookmarks.all()<CR>")
-
 -- 16.TodoTelescope
 
 nnoremap("<leader><tab>", "<cmd>TodoTelescope<CR>")
-
--- 17. Undotree
-
-nnoremap("<leader>u", "<cmd>UndotreeToggle<cr>")
-
--- 18. Hop
-
-nnoremap("ff", "<cmd>HopPattern<cr>")
-nnoremap("fw", "<cmd>HopWord<cr>")
-nnoremap("fv", "<cmd>HopVertical<cr>")
-
--- 21. codi
-
-nnoremap("<leader>x", "<cmd>Codi<cr>")
 
 -- 24. Gitsigns
 
@@ -173,7 +151,3 @@ nnoremap("ghR", "<cmd>Gitsigns reset_buffer<cr>")
 nnoremap("ghR", "<cmd>Gitsigns reset_buffer<cr>")
 nnoremap("ghs", "<cmd>Gitsigns stage_hunk<cr>")
 nnoremap("ghu", "<cmd>Gitsigns undo_stage_hunk<cr>")
-
--- 25. Icon picker
-
-nnoremap("<leader><leader>i", "<cmd>IconPickerNormal<cr>")
