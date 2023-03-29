@@ -12,14 +12,6 @@ end
 local packer_bootstrap = ensure_packer()
 
 local startup = function(use)
-	use("mg979/vim-visual-multi") -- multiple cursor
-	use({
-		"iamcco/markdown-preview.nvim", -- markdown previewer
-		run = function()
-			vim.fn["mkdp#util#install"]()
-		end,
-	})
-
 	use("ibhagwan/fzf-lua") -- Fuzzy finder
 	use({
 		"kkoomen/vim-doge", -- Generate documentation

@@ -24,6 +24,7 @@
   "gitsigns.nvim": { "branch": "main", "commit": "ca473e28382f1524aa3d2b6f04bcf54f2e6a64cb" },
   "hop.nvim": { "branch": "master", "commit": "90db1b2c61b820e230599a04fedcd2679e64bd07" },
   "icon-picker.nvim": { "branch": "master", "commit": "66d37ceae84099ca76235de44466829eb37118c2" },
+  "indent-blankline.nvim": { "branch": "master", "commit": "018bd04d80c9a73d399c1061fa0c3b14a7614399" },
   "lazy.nvim": { "branch": "main", "commit": "57cce98dfdb2f2dd05a0567d89811e6d0505e13b" },
   "lualine.nvim": { "branch": "master", "commit": "e99d733e0213ceb8f548ae6551b04ae32e590c80" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "b64fdede85fd5e0b720ce722919e0a9b95ed6547" },
@@ -50,6 +51,7 @@
   "plenary.nvim": { "branch": "master", "commit": "253d34830709d690f013daf2853a9d21ad7accab" },
   "popup.nvim": { "branch": "master", "commit": "b7404d35d5d3548a82149238289fa71f7f6de4ac" },
   "prettier.nvim": { "branch": "main", "commit": "08f7f08fae57fd970c7470d883c9127f172bd9e6" },
+  "rest.nvim": { "branch": "main", "commit": "0fdb69f328529b34a2279c14be63b3325dc52740" },
   "searchbox.nvim": { "branch": "main", "commit": "110949af8963185b4e732b45ae57beb731bfcede" },
   "telescope-buffer-lines.nvim": { "branch": "main", "commit": "e0bfaf7d030f445376a1037a04e5864fbbd9b205" },
   "telescope-docker.nvim": { "branch": "main", "commit": "cf35685a9325185a5c23ad8b81a1e21c86fb83a0" },
@@ -67,6 +69,7 @@
   "vim-eunuch": { "branch": "master", "commit": "291ef1f8c8996ca7715df1032a35a27b12d7b5cf" },
   "vim-fugitive": { "branch": "master", "commit": "9acbad1335ee6f30a8497733dcb2373c4550c8a2" },
   "vim-log-highlighting": { "branch": "master", "commit": "1037e26f3120e6a6a2c0c33b14a84336dee2a78f" },
+  "vim-matchit": { "branch": "master", "commit": "f52e59b05a937fe3102d431dd23f8ae4d8752ba3" },
   "vim-move": { "branch": "master", "commit": "a4bbedda7ef516b4a1b74d145cd642297e82e800" },
   "vim-polyglot": { "branch": "master", "commit": "bc8a81d3592dab86334f27d1d43c080ebf680d42" },
   "vim-surround": { "branch": "master", "commit": "3d188ed2113431cf8dac77be61b842acb64433d9" }
