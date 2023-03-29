@@ -94,6 +94,13 @@ nnoremap("nt", "<Cmd>NvimTreeToggle<CR>")
 
 -- 12. Bufferline
 
+-- Picking
+nnoremap("<A-o>", "<Cmd>BufferLinePick<CR>")
+nnoremap("<A-c>", "<Cmd>BufferLinePickClose<CR>")
+
+-- Pin
+nnoremap("<A-p>", "<Cmd>BufferLineTogglePin<CR>")
+
 -- - Move to previous/next
 nnoremap("<A-,>", "<Cmd>BufferLineCyclePrev<CR>")
 nnoremap("<silent><A-.>", "<Cmd>BufferLineCycleNext<CR>")
