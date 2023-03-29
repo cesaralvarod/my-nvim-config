@@ -1,5 +1,5 @@
 local config = function()
-	local icons = require("cesaralvarod.icons")
+	local icons = require("cesaralvarod.config.icons")
 
 	local hide_in_width = function()
 		return vim.fn.winwidth(0) > 80

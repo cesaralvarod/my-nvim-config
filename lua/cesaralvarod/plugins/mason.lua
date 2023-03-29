@@ -5,7 +5,7 @@ local config = function()
 	local cmp_nvim_lsp = require("cmp_nvim_lsp")
 	local neodev = require("neodev")
 
-	local icons = require("cesaralvarod.icons")
+	local icons = require("cesaralvarod.config.icons")
 	local servers = require("cesaralvarod.config.lsp.servers")
 	local setups = require("cesaralvarod.config.lsp.setups")
 
@@ -39,12 +39,17 @@ local config = function()
 end
 
 return {
-	"williamboman/mason.nvim",
-	dependencies = {
-		"williamboman/mason-lspconfig.nvim",
-		"hrsh7th/cmp-nvim-lsp",
+	{
+		"williamboman/mason.nvim",
+		dependencies = {
+			"williamboman/mason-lspconfig.nvim",
+			"hrsh7th/cmp-nvim-lsp",
+		},
+		lazy = false,
+		priority = 500,
+		config = config,
 	},
-	lazy = false,
-	priority = 500,
-	config = config,
+	{
+		"neovim/nvim-lspconfig",
+	},
 }

@@ -2,7 +2,7 @@ local config = function()
 	local null = require("null-ls")
 	local prettier = require("prettier")
 
-	prettier.setup()
+	-- prettier.setup()
 
 	-- BUILTINS
 
