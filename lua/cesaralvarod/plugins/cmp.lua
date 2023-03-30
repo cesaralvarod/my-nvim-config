@@ -1,6 +1,5 @@
 local config = function()
 	local cmp = require("cmp")
-
 	local luasnip = require("luasnip")
 
 	local icons = require("cesaralvarod.config.icons")
@@ -43,6 +42,21 @@ local config = function()
 		return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
 	end
 
+	local source_mapping = {
+		nvim_lsp = "[LSP]",
+		emoji = "[Emoji]",
+		path = "[Path]",
+		calc = "[Calc]",
+		cmp_tabnine = "[Tabnine]",
+		vsnip = "[Snippet]",
+		luasnip = "[Snippet]",
+		buffer = "[Buffer]",
+		tmux = "[TMUX]",
+		copilot = "[Copilot]",
+		treesitter = "[TreeSitter]",
+		git = "[Git]",
+	}
+
 	local cfg = {
 		snippet = {
 			expand = function(args)
@@ -57,39 +71,26 @@ local config = function()
 		formatting = {
 			fields = { "kind", "abbr", "menu" },
 			kind_icons = icons.kind,
-			source_names = {
-				nvim_lsp = "[LSP]",
-				emoji = "[Emoji]",
-				path = "[Path]",
-				calc = "[Calc]",
-				cmp_tabnine = "[Tabnine]",
-				vsnip = "[Snippet]",
-				luasnip = "[Snippet]",
-				buffer = "[Buffer]",
-				tmux = "[TMUX]",
-				copilot = "[Copilot]",
-				treesitter = "[TreeSitter]",
-				git = "[Git]",
-			},
+			source_names = source_mapping,
 			duplicates_default = 0,
 			format = function(entry, vim_item)
-				-- Kind icons
 				vim_item.kind = string.format("%s", icons.kind[vim_item.kind])
-				-- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
-				vim_item.menu = ({
-					nvim_lsp = "[LSP]",
-					nvim_lua = "[API]",
-					emoji = "[Emoji]",
-					path = "[Path]",
-					calc = "[Calc]",
-					cmp_tabnine = "[Tabnine]",
-					vsnip = "[Snippet]",
-					luasnip = "[Snippet]",
-					buffer = "[Buffer]",
-					tmux = "[TMUX]",
-					copilot = "[Copilot]",
-					treesitter = "[TreeSitter]",
-				})[entry.source.name]
+				vim_item.menu = source_mapping[entry.source.name]
+				if entry.source.name == "cmp_tabnine" then
+					local detail = (entry.completion_item.data or {}).detail
+					vim_item.kind = ""
+					if detail and detail:find(".*%%.*") then
+						vim_item.kind = vim_item.kind .. " " .. detail
+					end
+
+					if (entry.completion_item.data or {}).multiline then
+						vim_item.kind = vim_item.kind .. " " .. "[ML]"
+					end
+				end
+
+				local maxwidth = 80
+
+				vim_item.abbr = string.sub(vim_item.abbr, 1, maxwidth)
 
 				return vim_item
 			end,
@@ -153,7 +154,7 @@ local config = function()
 			{ name = "cmp_git" },
 		},
 		experimental = {
-			ghost_text = false,
+			ghost_text = true,
 			native_menu = false,
 		},
 	}

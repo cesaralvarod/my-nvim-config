@@ -131,5 +131,8 @@ opt.writebackup = false
 -- Variables
 ---------------------------------------------------------
 
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1
 g.netrw_liststyle = 3
+g.netrw_hide = 1
 g.python3_host_prog = "/usr/bin/python3" -- use system python (useful when working with virtualenvs)
