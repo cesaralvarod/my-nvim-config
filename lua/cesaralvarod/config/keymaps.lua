@@ -85,8 +85,8 @@ nnoremap("<leader>vs", ":vsplit<CR>")
 
 -- 10. Terminal
 
-nnoremap("<C-c>", ":sp term://fish<CR>")
-nnoremap("<C-z>", ":vsp term://fish<CR>")
+nnoremap("<A-x>", ":sp term://fish<CR>")
+nnoremap("<A-z>", ":vsp term://fish<CR>")
 
 -- 12. Bufferline
 
