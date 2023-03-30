@@ -2,7 +2,7 @@ local config = function()
 	local icons = require("cesaralvarod.config.icons")
 	require("bufferline").setup({
 		options = {
-			theme = "tokyonight",
+			theme = "auto",
 			mode = "buffers",
 			numbers = "none",
 			indicator_icon = nil,
@@ -21,6 +21,7 @@ local config = function()
 			show_buffer_close_icons = true,
 			show_close_icon = true,
 			show_tab_indicators = true,
+			show_duplicate_prefix = true,
 			persist_buffer_sort = true,
 			separator_style = "thin",
 			enforce_regular_tabs = true,

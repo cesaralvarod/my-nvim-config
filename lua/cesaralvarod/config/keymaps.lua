@@ -106,15 +106,10 @@ nnoremap("<A-<>", ":BufferLineMovePrev<CR>")
 nnoremap("<A->>", ":BufferLineMoveNext<CR>")
 
 -- - Goto buffer in position...
-nnoremap("<A-1>", "<Cmd>BufferLineGoToBuffer 1<CR>")
-nnoremap("<A-2>", "<Cmd>BufferLineGoToBuffer 2<CR>")
-nnoremap("<A-3>", "<Cmd>BufferLineGoToBuffer 3<CR>")
-nnoremap("<A-4>", "<Cmd>BufferLineGoToBuffer 4<CR>")
-nnoremap("<A-5>", "<Cmd>BufferLineGoToBuffer 5<CR>")
-nnoremap("<A-6>", "<Cmd>BufferLineGoToBuffer 6<CR>")
-nnoremap("<A-7>", "<Cmd>BufferLineGoToBuffer 7<CR>")
-nnoremap("<A-8>", "<Cmd>BufferLineGoToBuffer 8<CR>")
-nnoremap("<A-9>", "<Cmd>BufferLineGoToBuffer 9<CR>")
+for i = 1, 9 do
+	nnoremap(("<A-%s>"):format(i), ("<Cmd>BufferLineGoToBuffer %s<CR>"):format(i))
+end
+
 nnoremap("<A-0>", "<Cmd>BufferLast<CR>")
 
 -- 13. LSP and diagnostics
