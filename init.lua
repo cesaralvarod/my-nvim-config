@@ -2,9 +2,8 @@ require("cesaralvarod.settings")
 
 require("cesaralvarod.globals")
 
-require("cesaralvarod.plugins")
-require("cesaralvarod.load-plugins")
+require("cesaralvarod.config.keymaps")
 
-require("cesaralvarod.themes.tokyonight")
+require("cesaralvarod.config.lsp")
 
-require("cesaralvarod.keymappings")
+require("cesaralvarod.lazy")

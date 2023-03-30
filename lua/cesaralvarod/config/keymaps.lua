@@ -88,10 +88,6 @@ nnoremap("<leader>vs", ":vsplit<CR>")
 nnoremap("<C-c>", ":sp term://fish<CR>")
 nnoremap("<C-z>", ":vsp term://fish<CR>")
 
--- 11. Nvim Tree
-
-nnoremap("nt", "<Cmd>NvimTreeToggle<CR>")
-
 -- 12. Bufferline
 
 -- Picking
@@ -139,80 +135,9 @@ nnoremap("<leader>e", "<Cmd>:lua vim.diagnostic.open_float()<CR>")
 nnoremap("<leader>vp", "<Cmd>lua vim.diagnostic.goto_prev()<CR>")
 nnoremap("<leader>vn", "<Cmd>lua vim.diagnostic.goto_next()<CR>")
 
--- 14. Alternate Toggler
-
-nnoremap("<leader><space>", "<cmd>lua require('alternate-toggler').toggleAlternate()<CR>")
-
--- 15. Bookmarks
-
-nnoremap("ma", "<cmd>lua require('telescope').extensions.vim_bookmarks.all()<CR>")
-
 -- 16.TodoTelescope
 
 nnoremap("<leader><tab>", "<cmd>TodoTelescope<CR>")
-
--- 17. Undotree
-
-nnoremap("<leader>u", "<cmd>UndotreeToggle<cr>")
-
--- 18. Hop
-
-nnoremap("ff", "<cmd>HopPattern<cr>")
-nnoremap("fw", "<cmd>HopWord<cr>")
-nnoremap("fv", "<cmd>HopVertical<cr>")
-
--- 19. Color picker
-
-inoremap("<C-c>", "<cmd>PickColorInsert<cr>")
-
--- 20. telescope
-
-nnoremap(
-	"<leader>b",
-	"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>"
-)
-nnoremap(
-	"<leader>f",
-	"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>"
-)
-nnoremap("<leader>sf", "<cmd>Telescope file_browser<cr>")
-nnoremap("<leader>F", "<cmd>Telescope live_grep<cr>")
-nnoremap("<leader>G", "<cmd>Telescope current_buffer_fuzzy_find<cr>")
-
-nnoremap("<leader>sc", "<cmd>Telescope colorscheme<cr>")
-nnoremap("<leader>sh", "<cmd>Telescope help_tags<cr>")
-nnoremap("<leader>sM", "<cmd>Telescope man_pages<cr>")
-nnoremap("<leader>sr", "<cmd>Telescope oldfiles<cr>")
-nnoremap("<leader>sR", "<cmd>Telescope registers<cr>")
-nnoremap("<leader>sk", "<cmd>Telescope keymaps<cr>")
-nnoremap("<leader>sC", "<cmd>Telescope commands<cr>")
-
-nnoremap("<leader>sb", "<cmd>Telescope git_branches<cr>")
-nnoremap("<leader>sgc", "<cmd>Telescope git_commits<cr>")
-nnoremap("<leader>sgs", "<cmd>Telescope git_status<cr>")
-
-nnoremap("<leader>fd", "<cmd>Telescope docker containers<cr>")
-nnoremap("<leader>fi", "<cmd>Telescope docker images<cr>")
-nnoremap("<leader>fcc", "<cmd>Telescope docker compose<cr>")
-
--- 21. codi
-
-nnoremap("<leader>x", "<cmd>Codi<cr>")
-
--- 22. Packer
-
-nnoremap("<leader>pi", "<cmd>PackerInstall<cr>")
-nnoremap("<leader>ps", "<cmd>PackerSync<cr>")
-nnoremap("<leader>pS", "<cmd>PackerStatus<cr>")
-nnoremap("<leader>pu", "<cmd>PackerUpdate<cr>")
-
--- 23. Spectre
-
-nnoremap("<leader>S", "<cmd>lua require('spectre').open()<cr>")
-nnoremap("<leader>sw", "<cmd>lua require('spectre').open_visual({select_word=true})<cr>")
-vnoremap("<leader>sw", "<cmd>lua require('spectre').open_visual()<cr>")
-
-nnoremap("<leader>sp", "<cmd>lua require('spectre').open_file_search()<cr>")
 
 -- 24. Gitsigns
 
@@ -226,12 +151,3 @@ nnoremap("ghR", "<cmd>Gitsigns reset_buffer<cr>")
 nnoremap("ghR", "<cmd>Gitsigns reset_buffer<cr>")
 nnoremap("ghs", "<cmd>Gitsigns stage_hunk<cr>")
 nnoremap("ghu", "<cmd>Gitsigns undo_stage_hunk<cr>")
-
--- 25. Icon picker
-
-nnoremap("<leader><leader>i", "<cmd>IconPickerNormal<cr>")
-
--- 26. Searchbox
-
-nnoremap("<leader>s", "<cmd>SearchBoxSimple<cr>")
-nnoremap("<leader>sr", "<cmd>SearchBoxReplace<cr>")

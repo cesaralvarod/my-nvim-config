@@ -1,12 +1,16 @@
-local has_barbecue, barbecue = pcall(require, "barbecue")
-if not has_barbecue then
-	return
-end
+return {
+	"utilyre/barbecue.nvim",
+	branch = "fix/E36", -- NOTE: 👀 barbecue branch resolve error Vim E36, see later if in realease is fixing
+	dependencies = {
+		"SmiteshP/nvim-navic",
+		"nvim-tree/nvim-web-devicons",
+	},
+	config = function()
+		local icons = require("cesaralvarod.config.icons")
 
-local icons = require("cesaralvarod.icons")
-
-barbecue.setup({
-	show_dirname = false,
-	-- show_basename = false,
-	kinds = icons.kind,
-})
+		require("barbecue").setup({
+			show_dirname = false,
+			kinds = icons.kind,
+		})
+	end,
+}

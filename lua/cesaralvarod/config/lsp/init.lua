@@ -1,4 +1,4 @@
-local icons = require("cesaralvarod.icons")
+local icons = require("cesaralvarod.config.icons")
 
 -- Diagnostic symbols in the sign column (gutter)
 local signs = {
@@ -34,13 +34,13 @@ vim.diagnostic.config({
 
 local border = {
 	{ "🭽", "FloatBorder" },
-	{ "▔", "FloatBorder" },
+	{ "▔",  "FloatBorder" },
 	{ "🭾", "FloatBorder" },
-	{ "▕", "FloatBorder" },
+	{ "▕",  "FloatBorder" },
 	{ "🭿", "FloatBorder" },
-	{ "▁", "FloatBorder" },
+	{ "▁",  "FloatBorder" },
 	{ "🭼", "FloatBorder" },
-	{ "▏", "FloatBorder" },
+	{ "▏",  "FloatBorder" },
 }
 
 -- To instead override globally

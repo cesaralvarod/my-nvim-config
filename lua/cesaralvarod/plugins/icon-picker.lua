@@ -1,8 +1,12 @@
-local has_picker, picker = pcall(require, "icon-picker")
-if not has_picker then
-	return
-end
-
-picker.setup({
-	disable_legacy_commands = true,
-})
+return {
+	"ziontee113/icon-picker.nvim",
+	config = function()
+		require("icon-picker").setup({
+			disable_legacy_commands = true,
+		})
+	end,
+	cmd = "IconPickerNormal",
+	keys = {
+		{ "<leader><leader>i", "<cmd>IconPickerNormal<cr>" },
+	},
+}

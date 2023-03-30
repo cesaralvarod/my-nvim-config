@@ -1,6 +1,13 @@
-local has_hop, hop = pcall(require, "hop")
-if not has_hop then
-	return
-end
-
-hop.setup({})
+return {
+	"phaazon/hop.nvim",
+	config = true,
+	cmd = { "HopPattern", "HopWord", "HopVertical" },
+	keys = {
+		{
+			"ff",
+			"<cmd>HopPattern<cr>",
+		},
+		{ "fw", "<cmd>HopWord<cr>" },
+		{ "fv", "<cmd>HopVertical<cr>" },
+	},
+}

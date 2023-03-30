@@ -1,17 +1,7 @@
-local has_cmp_nvim_lsp, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not has_cmp_nvim_lsp then
-	return
-end
-
-local has_lspconfig, lspconfig = pcall(require, "lspconfig")
-if not has_lspconfig then
-	return
-end
-
-local has_navic, navic = pcall(require, "nvim-navic")
-if not has_navic then
-	return
-end
+local cmp = require("cmp")
+local cmp_nvim_lsp = require("cmp_nvim_lsp")
+local lspconfig = require("lspconfig")
+local navic = require("nvim-navic")
 
 local configs = require("lspconfig.configs")
 
@@ -119,12 +109,7 @@ return setmetatable({
 					diagnostics = {
 						globals = { "vim" },
 					},
-					workspace = {
-						library = {
-							[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-							[vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
-						},
-					},
+					workspace = {},
 				},
 			},
 		}

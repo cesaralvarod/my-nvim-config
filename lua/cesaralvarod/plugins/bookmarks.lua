@@ -1,5 +1,9 @@
-local g = vim.g
-local icons = require("cesaralvarod.icons")
-
-g.bookmark_sign = icons.ui.BookMark
-g.bookmark_highlight_lines = 1
+return {
+	"MattesGroeger/vim-bookmarks",
+	keys = {
+		{
+			"ma",
+			"<cmd>lua require('telescope').extensions.vim_bookmarks.all()<CR>",
+		},
+	},
+}

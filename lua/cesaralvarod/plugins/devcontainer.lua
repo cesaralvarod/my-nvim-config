@@ -1,6 +1,26 @@
-local has_devcontainer, devcontainer = pcall(require, "devcontainer")
-if not has_devcontainer then
-	return
-end
-
-devcontainer.setup({})
+return {
+	"esensar/nvim-dev-container",
+	lazy = true,
+	dependencies = {
+		"nvim-treesitter/nvim-treesitter",
+	},
+	config = true,
+	cmd = {
+		"DevcontainerBuild",
+		"DevcontainerImageRun",
+		"DevcontainerBuildAndRun",
+		"DevcontainerBuildRunAndAttach",
+		"DevcontainerComposeUp",
+		"DevcontainerComposeDown",
+		"DevcontainerComposeRm",
+		"DevcontainerStartAuto",
+		"DevcontainerStartAutoAndAttach",
+		"DevcontainerAttachAuto",
+		"DevcontainerStopAuto",
+		"DevcontainerStopAll",
+		"DevcontainerRemoveAll",
+		"DevcontainerLogs",
+		"DevcontainerOpenNearestConfig",
+		"DevcontainerEditNearestConfig",
+	},
+}
