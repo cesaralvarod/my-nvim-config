@@ -20,7 +20,7 @@ return {
 	"lua-language-server",
 	"typescript-language-server",
 	"vue-language-server",
-	"astro-language-server",
+	"astro",
 	"yaml-language-server",
 	"html-lsp",
 	"css-lsp",

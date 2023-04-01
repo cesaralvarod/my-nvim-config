@@ -37,7 +37,13 @@ return setmetatable({
 	end,
 	tsserver = function()
 		return {
-			root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", "gulpfile.js", "node_modules"),
+			root_dir = lspconfig.util.root_pattern(
+				"package.json",
+				"tsconfig.json",
+				"jsconfig.json",
+				"gulpfile.js",
+				"node_modules"
+			),
 			single_file_support = true,
 		}
 	end,
