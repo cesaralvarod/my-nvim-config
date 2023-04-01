@@ -1,6 +1,6 @@
 local config = function()
 	local null = require("null-ls")
-	local prettier = require("prettier")
+	-- local prettier = require("prettier")
 
 	-- prettier.setup()
 
@@ -21,9 +21,6 @@ local config = function()
 		formatting.trim_newlines.with({
 			disabled_filetypes = { "sql", "mysql" },
 		}),
-		-- formatting.prettier.with({
-		-- 	extra_filetypes = { "php" },
-		-- }),
 		formatting.prettier.with({
 			extra_filetypes = { "astro" },
 		}), -- js, ts, tsx, jsx, css, html, etc files

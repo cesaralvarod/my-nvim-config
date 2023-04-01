@@ -76,9 +76,11 @@ local config = function()
 			format = function(entry, vim_item)
 				vim_item.kind = string.format("%s", icons.kind[vim_item.kind])
 				vim_item.menu = source_mapping[entry.source.name]
+
 				if entry.source.name == "cmp_tabnine" then
 					local detail = (entry.completion_item.data or {}).detail
 					vim_item.kind = ""
+
 					if detail and detail:find(".*%%.*") then
 						vim_item.kind = vim_item.kind .. " " .. detail
 					end

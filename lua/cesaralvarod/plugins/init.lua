@@ -32,7 +32,7 @@ return {
 
 	{ "nacro90/numb.nvim", config = true, lazy = false },
 
-	{ "sheerun/vim-polyglot" },
+	-- { "sheerun/vim-polyglot" },
 
 	{
 		"nvim-lua/popup.nvim",
