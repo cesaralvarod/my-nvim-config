@@ -24,7 +24,9 @@ local config = function()
 		-- formatting.prettier.with({
 		-- 	extra_filetypes = { "php" },
 		-- }),
-		formatting.prettier, -- js, ts, tsx, jsx, css, html, etc files
+		formatting.prettier.with({
+			extra_filetypes = { "astro" },
+		}), -- js, ts, tsx, jsx, css, html, etc files
 		formatting.autopep8, -- python files
 		formatting.stylua, -- lua files
 		formatting.beautysh, -- sh file
