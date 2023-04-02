@@ -60,8 +60,9 @@ local config = function()
 				if res then
 					local client = vim.lsp.get_client_by_id(ctx.client_id)
 
-					if client.name == "intelephense" then
-						client.name = "intelephense"
+					-- Disable LSP servers formatting conflicts
+					if client.name == "lua_ls" or client.name == "tsserver" then
+						client.server_capabilities.documentFormattingProvider = false
 					end
 
 					vim.lsp.util.apply_text_edits(res, bufnr, client and client.offset_encoding or "utf-16")
