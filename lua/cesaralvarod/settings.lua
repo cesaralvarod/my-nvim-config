@@ -78,6 +78,7 @@ opt.spelloptions = "camel"
 -- Neovim UI
 ---------------------------------------------------------
 
+opt.background = "dark"
 opt.number = true -- Show line number
 opt.relativenumber = true -- Relative number
 opt.showmatch = true -- Highlight matching parenthesis
