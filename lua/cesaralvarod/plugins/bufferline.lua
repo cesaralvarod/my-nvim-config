@@ -31,6 +31,12 @@ local config = function()
 				adaptive_size = false,
 			},
 		},
+		highlights = {
+			fill = {
+				-- fg = "#ffffff",
+				-- bg = "#ffffff",
+			},
+		},
 	})
 end
 
