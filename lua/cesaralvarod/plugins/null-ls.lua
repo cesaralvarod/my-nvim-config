@@ -21,9 +21,7 @@ local config = function()
 		formatting.trim_newlines.with({
 			disabled_filetypes = { "sql", "mysql" },
 		}),
-		formatting.prettier.with({
-			extra_filetypes = { "astro" },
-		}), -- js, ts, tsx, jsx, css, html, etc files
+		formatting.prettier, -- js, ts, tsx, jsx, css, html, etc files
 		formatting.autopep8, -- python files
 		formatting.stylua, -- lua files
 		formatting.beautysh, -- sh file
@@ -32,6 +30,7 @@ local config = function()
 		formatting.astyle, -- java, c and c++ files
 		formatting.fixjson, -- json files
 		formatting.rustfmt, -- rust files
+		formatting.rome,
 	}
 
 	local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
@@ -61,7 +60,12 @@ local config = function()
 					local client = vim.lsp.get_client_by_id(ctx.client_id)
 
 					-- Disable LSP servers formatting conflicts
-					if client.name == "lua_ls" or client.name == "tsserver" then
+					if
+						client.name == "lua_ls"
+						or client.name == "tsserver"
+						or client.name == "intelephense"
+						or client.name == "html"
+					then
 						client.server_capabilities.documentFormattingProvider = false
 					end
 
@@ -74,7 +78,7 @@ local config = function()
 		)
 	end
 
-	local formatting = function(bufnr)
+	--[[ 	local formatting = function(bufnr)
 		bufnr = bufnr or vim.api.nvim_get_current_buf()
 
 		-- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
@@ -88,8 +92,7 @@ local config = function()
 				return client.name == "null-ls"
 			end,
 		})
-	end
-
+	end ]]
 	-- Format on save
 	local on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
