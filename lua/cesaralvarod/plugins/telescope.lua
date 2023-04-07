@@ -133,7 +133,7 @@ return {
 		{ "<leader>sc", "<cmd>Telescope colorscheme<cr>" },
 		{ "<leader>sh", "<cmd>Telescope help_tags<cr>" },
 		{ "<leader>sM", "<cmd>Telescope man_pages<cr>" },
-		{ "<leader>sr", "<cmd>Telescope oldfiles<cr>" },
+		{ "<leader>so", "<cmd>Telescope oldfiles<cr>" },
 		{ "<leader>sR", "<cmd>Telescope registers<cr>" },
 		{ "<leader>sk", "<cmd>Telescope keymaps<cr>" },
 		{ "<leader>sC", "<cmd>Telescope commands<cr>" },
