@@ -53,8 +53,9 @@ g.closetag_enable_react_fragment = 1
 --------------------------------------------------------
 
 vim.cmd("autocmd BufNewFile,BufRead *.ejs set filetype=html")
-vim.cmd("autocmd BufEnter,BufRead *.astro set filetype=astro")
-vim.cmd("autocmd BufNewFile,BufRead artisan set filetype=php")
+vim.cmd("autocmd BufNewFile,BufEnter,BufRead *.astro set filetype=astro")
+vim.cmd("autocmd BufNewFile,BufEnter,BufRead *.conf set filetype=conf")
+vim.cmd("autocmd BufNewFile,BufEnter,BufRead artisan set filetype=php")
 
 --------------------------------------------------------
 -- Vim Polyglot
