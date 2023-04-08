@@ -1,7 +1,13 @@
 local config = function()
-	local parser_mapping = require("nvim-treesitter.parsers").filetype_to_parsername
+	-- neovim < 0.9
+	--[[ 	local parser_mapping = require("nvim-treesitter.parsers").filetype_to_parsername
 	parser_mapping.astro = "tsx" --map the astro parser to be used when using tsx files
 	parser_mapping.xml = "html" -- map the html parser to be used when using xml files
+ ]]
+
+	-- neovim > 0.9
+	vim.treesitter.language.register("astro", "tsx")
+	vim.treesitter.language.register("xml", "html")
 
 	-- require("nvim-treesitter.install").prefer_git = true
 	--
