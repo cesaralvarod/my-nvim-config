@@ -1,9 +1,23 @@
-local cmp = require("cmp")
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
 local lspconfig = require("lspconfig")
 local navic = require("nvim-navic")
 
 local configs = require("lspconfig.configs")
+
+-- Problem neovim v0.9.0
+--[[ lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_config, {
+	handlers = {
+		["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+			virtual_text = {
+				spacing = 0,
+				prefix = "",
+			},
+			underline = false,
+			signs = false,
+			update_in_insert = false,
+		}),
+	},
+}) ]]
 
 if not configs.intelephense then
 	configs.intelephense = {
@@ -30,6 +44,11 @@ local capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_cli
 local MY_FQBN = "arduino:avr:nano"
 
 return setmetatable({
+	-- rome = function()
+	-- 	return {
+	-- 		root_dir = lspconfig.util.root_pattern("rome.json"),
+	-- 	}
+	-- end,
 	denols = function()
 		return {
 			root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc", "import_map.json"),
@@ -155,6 +174,9 @@ return setmetatable({
 					if client.server_capabilities.documentSymbolProvider then
 						navic.attach(client, bufnr) -- nvim-navic
 					end
+
+					-- disable semanticTokensProvider from LSP
+					-- client.server_capabilities.semanticTokensProvider = nil
 
 					local active_clients = vim.lsp.get_active_clients()
 

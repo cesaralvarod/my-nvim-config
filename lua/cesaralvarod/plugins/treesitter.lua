@@ -2,15 +2,12 @@ local config = function()
 	-- neovim < 0.9
 	--[[ 	local parser_mapping = require("nvim-treesitter.parsers").filetype_to_parsername
 	parser_mapping.astro = "tsx" --map the astro parser to be used when using tsx files
-	parser_mapping.xml = "html" -- map the html parser to be used when using xml files
- ]]
-
+	parser_mapping.xml = "html" -- map the html parser to be used when using xml files ]]
 	-- neovim > 0.9
 	vim.treesitter.language.register("astro", "tsx")
 	vim.treesitter.language.register("xml", "html")
 
 	-- require("nvim-treesitter.install").prefer_git = true
-	--
 
 	require("nvim-treesitter.configs").setup({
 		ensure_installed = {
@@ -43,7 +40,7 @@ local config = function()
 		},
 		highlight = {
 			enable = true,
-			use_languagetree = true,
+			use_languagetree = false,
 			disable = {},
 			additional_vim_regex_highlighting = false,
 		},
@@ -94,9 +91,9 @@ local config = function()
 		},
 		rainbow = {
 			enable = false,
-			disable = { "html", "css" },
-			extended_mode = false,
+			disable = { "html", "css", "json", "lua", "jsonc" },
 			max_file_lines = nil,
+			extended_mode = false,
 		},
 		context_commentstring = {
 			enable = true,

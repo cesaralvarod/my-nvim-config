@@ -30,7 +30,7 @@ local config = function()
 		formatting.astyle, -- java, c and c++ files
 		formatting.fixjson, -- json files
 		formatting.rustfmt, -- rust files
-		formatting.rome,
+		-- formatting.rome,
 	}
 
 	local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
@@ -65,6 +65,7 @@ local config = function()
 						or client.name == "tsserver"
 						or client.name == "intelephense"
 						or client.name == "html"
+						or client.name == "jsonls"
 					then
 						client.server_capabilities.documentFormattingProvider = false
 					end

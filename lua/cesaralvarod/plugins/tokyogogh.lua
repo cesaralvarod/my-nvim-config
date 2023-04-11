@@ -1,6 +1,7 @@
 return {
-  "cesaralvarod/tokyogogh.nvim",
-  config = function()
-    vim.cmd([[colorscheme tokyogogh]])
-  end,
+	"cesaralvarod/tokyogogh.nvim",
+	dir = "~/workspace/tokyogogh.nvim",
+	config = function()
+		vim.cmd([[colorscheme tokyogogh]])
+	end,
 }
