@@ -30,6 +30,7 @@ local config = function()
 		formatting.astyle, -- java, c and c++ files
 		formatting.fixjson, -- json files
 		formatting.rustfmt, -- rust files
+		formatting.gofmt,
 		-- formatting.rome,
 	}
 
@@ -66,6 +67,7 @@ local config = function()
 						or client.name == "intelephense"
 						or client.name == "html"
 						or client.name == "jsonls"
+						or client.name == "gopls"
 					then
 						client.server_capabilities.documentFormattingProvider = false
 					end
