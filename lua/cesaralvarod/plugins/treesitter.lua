@@ -41,12 +41,12 @@ local config = function()
 		highlight = {
 			enable = true,
 			use_languagetree = false,
-			disable = {},
+			disable = { "http" },
 			additional_vim_regex_highlighting = false,
 		},
 		indent = {
 			enable = true,
-			disable = {},
+			disable = { "http" },
 		},
 		autotag = {
 			enable = true,
