@@ -60,6 +60,7 @@
   "ranger.nvim": { "branch": "main", "commit": "ff61b3bb094dde29e90db26fb88bbc0eeeea0371" },
   "rest.nvim": { "branch": "main", "commit": "4ca39f739919c43b620c6fc9e314fdee136bdd54" },
   "searchbox.nvim": { "branch": "main", "commit": "110949af8963185b4e732b45ae57beb731bfcede" },
+  "splitjoin.vim": { "branch": "main", "commit": "c00fa513974811e7bdf34b3d8a53abbd69c9042c" },
   "telescope-buffer-lines.nvim": { "branch": "main", "commit": "e0bfaf7d030f445376a1037a04e5864fbbd9b205" },
   "telescope-docker.nvim": { "branch": "main", "commit": "e1582dc8c0452833ad3f1c393abc07368cf22665" },
   "telescope-emoji.nvim": { "branch": "master", "commit": "86248d97be84a1ce83f0541500ef9edc99ea2aa1" },
