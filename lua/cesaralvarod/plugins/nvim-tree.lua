@@ -47,7 +47,7 @@ local config = function()
 					},
 				},
 			},
-			special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md" },
+			special_files = { "Cargo.toml", "Makefile", "README.md" },
 			symlink_destination = true,
 		},
 		hijack_directories = {
@@ -205,14 +205,6 @@ return {
 	dependencies = {
 		"DaikyXendo/nvim-material-icon",
 		"nvim-tree/nvim-web-devicons",
-	},
-	lazy = true,
-	keys = {
-		{
-			"nt",
-			"<cmd>NvimTreeToggle<CR>",
-			desc = "Nvim Tree Toggle",
-		},
 	},
 	config = config,
 }
