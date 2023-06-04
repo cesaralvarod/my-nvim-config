@@ -107,12 +107,28 @@ opt.expandtab = true -- Use spaces instead of tabs
 opt.shiftwidth = 2 -- Shift 4 spaces when tab
 opt.tabstop = 2 -- 1 tab == 2 spaces
 opt.softtabstop = 2 -- 1 tab == 2 spaces
-opt.smartindent = true -- Auto indent new lines
-opt.linebreak = true -- Line break when is not space
+opt.smartindent = false -- Auto indent new lines
+opt.autoindent = false
 opt.breakindent = true -- Line break config
+opt.linebreak = true -- Line break when is not space
 opt.whichwrap = "h,l,<,>,[,],~"
 opt.showbreak = "↳ "
 opt.breakindentopt = "shift:2,min:20"
+
+function DisableAutoIndent()
+	vim.o.autoindent = false
+	vim.opt.autoindent = false
+	vim.opt.paste = false
+end
+
+function EnableAutoIndent()
+	vim.o.autoindent = true
+	vim.opt.autoindent = true
+	vim.opt.paste = false
+end
+
+vim.cmd("autocmd InsertEnter * lua DisableAutoIndent()")
+vim.cmd("autocmd InsertLeave * lua EnableAutoIndent()")
 
 ---------------------------------------------------------
 -- Memory, CPU
@@ -123,6 +139,7 @@ opt.updatetime = 300 -- ms to wait for trigger an event
 opt.undodir = cache_dir .. "undo/"
 opt.lazyredraw = true -- Faster scrolling
 opt.undofile = true -- Persistent undo history
+opt.paste = false
 opt.pastetoggle = "<F2>"
 opt.swapfile = false
 opt.autoread = true
