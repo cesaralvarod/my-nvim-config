@@ -1,4 +1,5 @@
 return {
+	"asm-lsp", -- Assembler language suppot
 	"denols",
 	"blade-formatter",
 	"go-debug-adapter",

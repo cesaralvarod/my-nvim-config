@@ -72,6 +72,7 @@
   "template-string.nvim": { "branch": "main", "commit": "e347d83c80bd1ec77e13a37962013199d216a8cd" },
   "todo-comments.nvim": { "branch": "main", "commit": "09b0b17d824d2d56f02ff15967e8a2499a89c731" },
   "tokyonight.nvim": { "branch": "main", "commit": "161114bd39b990995e08dbf941f6821afbdcd666" },
+  "tree-sitter-asm": { "branch": "main", "commit": "36dc26acc7818920de2e103e20a9f42358caf926" },
   "undotree": { "branch": "master", "commit": "485f01efde4e22cb1ce547b9e8c9238f36566f21" },
   "vim-bookmarks": { "branch": "master", "commit": "9cc5fa7ecc23b052bd524d07c85356c64b92aeef" },
   "vim-doge": { "branch": "master", "commit": "b8460c632b8cbdf4e20c0b11de477da0ce54a47d" },
@@ -80,6 +81,7 @@
   "vim-log-highlighting": { "branch": "master", "commit": "1037e26f3120e6a6a2c0c33b14a84336dee2a78f" },
   "vim-matchit": { "branch": "master", "commit": "f52e59b05a937fe3102d431dd23f8ae4d8752ba3" },
   "vim-move": { "branch": "master", "commit": "244a2908ffbca3d09529b3ec24c2c090f489f401" },
+  "vim-s-asm": { "branch": "master", "commit": "e2a30808102139ae409eefecb873baeae06d4b1b" },
   "vim-surround": { "branch": "master", "commit": "3d188ed2113431cf8dac77be61b842acb64433d9" },
   "vim-visual-multi": { "branch": "master", "commit": "724bd53adfbaf32e129b001658b45d4c5c29ca1a" }
 }

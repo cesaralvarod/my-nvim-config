@@ -7,6 +7,14 @@ local config = function()
 	vim.treesitter.language.register("astro", "tsx")
 	vim.treesitter.language.register("xml", "html")
 
+	require("nvim-treesitter.parsers").get_parser_configs().asm = {
+		install_info = {
+			url = "https://github.com/rush-rs/tree-sitter-asm.git",
+			files = { "src/parser.c" },
+			branch = "main",
+		},
+	}
+
 	-- require("nvim-treesitter.install").prefer_git = true
 
 	require("nvim-treesitter.configs").setup({
@@ -146,6 +154,7 @@ return {
 		"JoosepAlviste/nvim-ts-context-commentstring", -- treesitter comments, work with Comment.nvim
 		"axelvc/template-string.nvim", -- treesitter template string
 		"nvim-treesitter/playground",
+		"rush-rs/tree-sitter-asm", -- assembler highlight
 	},
 	config = config,
 }
