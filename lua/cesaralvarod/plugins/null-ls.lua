@@ -68,6 +68,7 @@ local config = function()
 						or client.name == "html"
 						or client.name == "jsonls"
 						or client.name == "gopls"
+						or client.name == "clangd"
 					then
 						client.server_capabilities.documentFormattingProvider = false
 					end

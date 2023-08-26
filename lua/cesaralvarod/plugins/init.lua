@@ -16,7 +16,7 @@ return {
 		lazy = true,
 	},
 
-	{ "j-hui/fidget.nvim", config = true },
+	{ "j-hui/fidget.nvim", branch = "legacy", config = true },
 
 	{
 		"matze/vim-move",
