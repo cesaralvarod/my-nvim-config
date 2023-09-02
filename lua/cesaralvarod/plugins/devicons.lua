@@ -4,7 +4,7 @@ return {
 		"DaikyXendo/nvim-material-icon",
 	},
 	config = function()
-		local material_icons = require("nvim-material-icon")
+		local material_icons = require("nvim-web-devicons")
 
 		material_icons.setup({
 			-- your personnal icons can go here (to override)
@@ -126,7 +126,7 @@ return {
 		})
 
 		require("nvim-web-devicons").setup({
-			override = material_icons.get_icons(),
+			-- override = material_icons.get_icons(),
 		})
 	end,
 }
