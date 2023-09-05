@@ -4,7 +4,7 @@ return {
 		"DaikyXendo/nvim-material-icon",
 	},
 	config = function()
-		local material_icons = require("nvim-web-devicons")
+		local material_icons = require("nvim-material-icon")
 
 		material_icons.setup({
 			-- your personnal icons can go here (to override)
@@ -34,6 +34,12 @@ return {
 				name = "Astro",
 			},
 			[".prettierrc"] = {
+				icon = "",
+				color = "#ea5e5e",
+				cterm_color = "167",
+				name = "Prettier",
+			},
+			[".prettierignore"] = {
 				icon = "",
 				color = "#ea5e5e",
 				cterm_color = "167",
@@ -126,7 +132,7 @@ return {
 		})
 
 		require("nvim-web-devicons").setup({
-			-- override = material_icons.get_icons(),
+			override = material_icons.get_icons(),
 		})
 	end,
 }
