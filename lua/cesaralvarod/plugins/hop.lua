@@ -9,5 +9,6 @@ return {
 		},
 		{ "fw", "<cmd>HopWord<cr>" },
 		{ "fv", "<cmd>HopVertical<cr>" },
+		{ "fl", "<cmd>HopWordCurrentLine<cr>" },
 	},
 }
