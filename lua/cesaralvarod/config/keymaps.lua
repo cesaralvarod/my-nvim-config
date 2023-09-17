@@ -12,9 +12,6 @@ local tnoremap = Utils.tnoremap
 -- local nmap = Utils.nmap
 -- local xmap = Utils.xmap
 
-inoremap("??'", "¿")
-inoremap("!!'", "¡")
-
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -100,20 +97,18 @@ nnoremap("<A-c>", "<Cmd>BufferLinePickClose<CR>")
 -- Pin
 nnoremap("<A-p>", "<Cmd>BufferLineTogglePin<CR>")
 
--- - Move to previous/next
-nnoremap("<A-,>", "<Cmd>BufferLineCyclePrev<CR>")
-nnoremap("<silent><A-.>", "<Cmd>BufferLineCycleNext<CR>")
+-- Move to previous/next
+nnoremap("<A-b>", "<Cmd>BufferLineCyclePrev<CR>")
+nnoremap("<A-w>", "<Cmd>BufferLineCycleNext<CR>")
 
--- - Re-order to previous/next
-nnoremap("<A-<>", ":BufferLineMovePrev<CR>")
-nnoremap("<A->>", ":BufferLineMoveNext<CR>")
+-- Re-order to previous/next
+nnoremap("<A-,>", "<Cmd>BufferLineMovePrev<CR>")
+nnoremap("<A-.>", "<Cmd>BufferLineMoveNext<CR>")
 
--- - Goto buffer in position...
+-- Goto buffer in position...
 for i = 1, 9 do
 	nnoremap(("<A-%s>"):format(i), ("<Cmd>BufferLineGoToBuffer %s<CR>"):format(i))
 end
-
-nnoremap("<A-0>", "<Cmd>BufferLast<CR>")
 
 -- 13. LSP and diagnostics
 
