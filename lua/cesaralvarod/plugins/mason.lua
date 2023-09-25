@@ -11,12 +11,13 @@ local config = function()
 
 	local capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
+	-- neodev
 	neodev.setup()
 
+	-- capabilities
 	capabilities.offsetEncoding = { "utf-16" }
 
 	-- Setup mason
-
 	mason.setup({
 		ui = {
 			border = "none",
@@ -30,7 +31,6 @@ local config = function()
 	})
 
 	-- Setup servers
-
 	mason_lspconfig.setup_handlers({
 		function(server_name) -- default handler (optional)
 			lspconfig[server_name].setup(setups[server_name]())
@@ -51,5 +51,9 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
+		dependencies = {
+			"williamboman/mason.nvim",
+			"folke/neodev.nvim",
+		},
 	},
 }

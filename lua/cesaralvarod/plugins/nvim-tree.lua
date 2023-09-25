@@ -178,11 +178,11 @@ local config = function()
 					{ key = "<Space>k", action = "prev_git_item" },
 					{ key = "<Space>j", action = "next_git_item" },
 					{ key = { "<2-RightMouse>", "<C-]>" }, action = "" }, -- cd
+					{ key = "<Tab>", action = "preview" }, -- preview
 					{ key = "<C-v>", action = "" }, -- vsplit
 					{ key = "<C-x>", action = "" }, -- split
 					{ key = "<C-t>", action = "" }, -- tabnew
 					{ key = "<BS>", action = "" }, -- close_node
-					{ key = "<Tab>", action = "" }, -- preview
 					{ key = "D", action = "" }, -- trash
 					{ key = "[e", action = "" }, -- prev_diag_item
 					{ key = "]e", action = "" }, -- next_diag_item

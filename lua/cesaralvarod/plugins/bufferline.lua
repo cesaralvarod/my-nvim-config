@@ -1,5 +1,6 @@
 local config = function()
 	local icons = require("cesaralvarod.config.icons")
+
 	require("bufferline").setup({
 		options = {
 			theme = "auto",

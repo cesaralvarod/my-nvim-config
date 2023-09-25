@@ -120,8 +120,8 @@ nnoremap("gr", "<Cmd>:lua vim.lsp.buf.references()<CR>")
 nnoremap("gD", "<Cmd>:lua vim.lsp.buf.declaration()<CR>")
 
 nnoremap("gt", "<Cmd>:lua vim.lsp.buf.type_definition()<CR>")
-nnoremap("<leader>rn", "<Cmd>:lua vim.lsp.buf.rename()<CR>")
-nnoremap("<leader>vca", "<Cmd>:lua vim.lsp.buf.code_action()<CR>")
+nnoremap("gR", "<Cmd>:lua vim.lsp.buf.rename()<CR>")
+nnoremap("gq", "<Cmd>:lua vim.lsp.buf.code_action()<CR>")
 nnoremap("<C-f>", "<Cmd>:lua vim.lsp.buf.format({async=true})<CR>")
 nnoremap("<leader>e", "<Cmd>:lua vim.diagnostic.open_float()<CR>")
 
