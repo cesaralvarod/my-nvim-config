@@ -122,7 +122,7 @@ end
 
 return {
 	"jose-elias-alvarez/null-ls.nvim",
-	lazy = false,
+	event = "VeryLazy",
 	priority = 500,
 	config = config,
 }

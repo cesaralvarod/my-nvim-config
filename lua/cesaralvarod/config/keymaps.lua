@@ -23,7 +23,8 @@ inoremap("<c-s>", "<c-o>:w<CR>") -- Save document with Ctrl+s / Insert Mode
 nnoremap("<c-s>", ":w<CR>") -- Save document with Ctrl+s / Normal Mode
 inoremap("<c-a>", "<c-o>:wa<CR>") -- Save all documents with Ctrl+a / Insert Mode
 nnoremap("<c-a>", ":wa<CR>") -- Save all documents with Ctrl+a / Normal Mode
-nnoremap("<leader>lf", "<cmd>lua vim.lsp.buf.format()<CR>") -- Format
+
+nnoremap("<leader>lf", "<cmd>lua vim.lsp.buf.format()<CR>") -- Format buffer
 
 -- 2. Quit document
 
@@ -59,36 +60,51 @@ nnoremap("<C-l>", "<C-w>l") -- RIGHT
 -- vnoremap("<C-j>", ":m '>+1<cr>gv=gv")
 -- vnoremap("<C-k>", ":m '<-2<cr>gv=gv")
 
--- 7. Replace word fast
+-- 7. increment/decrement numbers
+
+nnoremap("<leader>+", "<C-a>") -- increment numbers
+nnoremap("<leader>-", "<C-x>") -- decrement numbers
+
+-- 8. Replace word fast
 
 nnoremap(";a", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 nnoremap(";s", [[:s/\<<C-r><C-w>\>/<C-r><C-w>/g<Left><Left><Left>]])
 
--- 7. Move with cursor in the middle
+-- 9. Move with cursor in the middle
 nnoremap("<C-d>", "<C-d>zz")
 nnoremap("<C-u>", "<C-u>zz")
 
--- 7. Buffers
+-- 10. Buffers
 
 nnoremap("<leader>k", ":bnext<CR>") -- Next buffer
 nnoremap("<leader>j", ":bprevious<CR>") -- Previous buffer
 nnoremap("<leader>0", ":bdelete<CR>") -- Delete buffer
 
--- 8. Yank to end of line
+-- 11. Yank to end of line
 
 nnoremap("Y", "$")
 
--- 9. Splits
+-- 12. Splits
 
-nnoremap("<leader>ws", ":split<CR>")
-nnoremap("<leader>vs", ":vsplit<CR>")
+nnoremap("<leader>sh", ":split<CR>") -- split window horizontally
+nnoremap("<leader>sv", ":vsplit<CR>") -- split window vertically
+nnoremap("<leader>se", ":<C-w>=<CR>") -- make splits equal size width & height
+nnoremap("<leader>sx", "<cmd>close<CR>") -- close current split window
 
--- 10. Terminal
+-- 13. Tabs
+
+nnoremap("<leader>to", "<cmd>tabnew<CR>") -- open new tab
+nnoremap("<leader>tx", "<cmd>tabclose<CR>") -- close tab
+nnoremap("<leader>tn", "<cmd>tabn<CR>") -- go to next tab
+nnoremap("<leader>tp", "<cmd>tabp<CR>") -- go to prev tab
+nnoremap("<leader>tf", "<cmd>tabnew %<CR>") -- open current buffer in new tab
+
+-- 14. Terminal
 
 nnoremap("<A-x>", ":sp term://fish<CR>")
 nnoremap("<A-z>", ":vsp term://fish<CR>")
 
--- 12. Bufferline
+-- 15. Bufferline
 
 -- Picking
 nnoremap("<A-o>", "<Cmd>BufferLinePick<CR>")
@@ -110,7 +126,7 @@ for i = 1, 9 do
 	nnoremap(("<A-%s>"):format(i), ("<Cmd>BufferLineGoToBuffer %s<CR>"):format(i))
 end
 
--- 13. LSP and diagnostics
+-- 16. LSP and diagnostics
 
 nnoremap("<leader>h", "<Cmd>:lua vim.lsp.buf.hover()<CR>")
 nnoremap("<space>K", "<Cmd>:lua vim.lsp.buf.signature_help()<CR>")
@@ -128,11 +144,11 @@ nnoremap("<leader>e", "<Cmd>:lua vim.diagnostic.open_float()<CR>")
 nnoremap("<leader>vp", "<Cmd>lua vim.diagnostic.goto_prev()<CR>")
 nnoremap("<leader>vn", "<Cmd>lua vim.diagnostic.goto_next()<CR>")
 
--- 16.TodoTelescope
+-- 17.TodoTelescope
 
 nnoremap("<leader><tab>", "<cmd>TodoTelescope<CR>")
 
--- 24. Gitsigns
+-- 18. Gitsigns
 
 nnoremap("]h", "<cmd>Gitsigns next_hunk<cr>")
 nnoremap("[h", "<cmd>Gitsigns prev_hunk<cr>")
