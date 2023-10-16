@@ -1,15 +1,21 @@
-return {
-	"windwp/nvim-autopairs",
-	config = function()
-		require("nvim-autopairs").setup({
-			enable_check_bracket_line = false,
-			check_ts = true,
-			ts_config = {
-				lua = { "string", "source" },
-				javascript = { "string", "template_string" },
-				java = false,
+local config = function()
+	local npairs = require("nvim-autopairs")
+
+	-- options
+	local opts = {
+		enable_check_bracket_line = false, -- dont add pairs if it already has a close pair in the same line
+		check_ts = true,
+		ts_config = {
+			lua = {
+				"string",
+				"source",
 			},
-			disable_filetype = { "TelescopePrompt", "spectre_panel" },
+			javascript = {
+				"string",
+				"template_string",
+			},
+			java = false,
+			-- fast wrap when press <A-e>
 			fast_wrap = {
 				map = "<A-e>",
 				chars = { "{", "[", "(", '"', "'" },
@@ -20,6 +26,16 @@ return {
 				highlight = "Search",
 				highlight_grey = "Comment",
 			},
-		})
-	end,
+		},
+	}
+
+	-- setup
+	npairs.setup(opts)
+end
+
+return {
+	"windwp/nvim-autopairs",
+
+	config = config,
+	event = "InsertEnter",
 }

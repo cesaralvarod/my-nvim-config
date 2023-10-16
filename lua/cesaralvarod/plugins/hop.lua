@@ -1,7 +1,7 @@
 return {
 	"phaazon/hop.nvim",
-	config = true,
-	cmd = { "HopPattern", "HopWord", "HopVertical" },
+
+	cmd = { "HopPattern", "HopLine", "HopWord", "HopVertical", "HopWordCurrentLine" },
 	keys = {
 		{
 			"ff",
@@ -10,5 +10,7 @@ return {
 		{ "fw", "<cmd>HopWord<cr>" },
 		{ "fv", "<cmd>HopVertical<cr>" },
 		{ "fl", "<cmd>HopWordCurrentLine<cr>" },
+		{ "fll", "<cmd>HopLine<cr>" },
 	},
+	config = true,
 }

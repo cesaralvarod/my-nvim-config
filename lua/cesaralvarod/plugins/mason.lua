@@ -17,7 +17,7 @@ local config = function()
 	-- capabilities
 	capabilities.offsetEncoding = { "utf-16" }
 
-	-- Setup mason
+	-- setup mason
 	mason.setup({
 		ui = {
 			border = "none",
@@ -45,15 +45,19 @@ return {
 			"williamboman/mason-lspconfig.nvim",
 			"hrsh7th/cmp-nvim-lsp",
 		},
-		lazy = false,
 		priority = 500,
+
 		config = config,
 	},
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			"williamboman/mason.nvim",
-			"folke/neodev.nvim",
 		},
+	},
+
+	-- neovim setup for init.lua and plugin development
+	{
+		"folke/neodev.nvim",
 	},
 }

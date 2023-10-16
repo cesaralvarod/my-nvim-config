@@ -1,5 +1,8 @@
 local config = function()
-	require("spectre").setup({
+	local spectre = require("spectre")
+
+	-- options
+	local opts = {
 		color_devicons = true,
 		open_cmd = "vnew",
 		live_update = false, -- auto excute search again when you write any file in vim
@@ -170,21 +173,36 @@ local config = function()
 		replace_vim_cmd = "cdo",
 		is_open_target_win = true, --open file on opener window
 		is_insert_mode = false, -- start open panel on is_insert_mode
-	})
+	}
+
+	-- setup
+	spectre.setup(opts)
 end
 
 return {
 	"nvim-pack/nvim-spectre",
 	config = config,
 	keys = {
-		{ "<leader>S", "<cmd>lua require('spectre').open()<cr>", desc = "Open Spectre" },
-		{ "<leader>sw", "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", desc = "Open Spectre" },
+		{
+			"<leader>S",
+			"<cmd>lua require('spectre').open()<cr>",
+			desc = "Open Spectre",
+		},
+		{
+			"<leader>sw",
+			"<cmd>lua require('spectre').open_visual({select_word=true})<cr>",
+			desc = "Open Spectre",
+		},
 		{
 			"<leader>sw",
 			mode = "v",
 			"<cmd>lua require('spectre').open_visual({select_word=true})<cr>",
 			desc = "Open Spectre with selected word",
 		},
-		{ "<leader>sp", "<cmd>lua require('spectre').open_file_search()<cr>", desc = "Open Spectre in current file" },
+		{
+			"<leader>sp",
+			"<cmd>lua require('spectre').open_file_search()<cr>",
+			desc = "Open Spectre in current file",
+		},
 	},
 }

@@ -1,4 +1,5 @@
 return {
 	"ibhagwan/fzf-lua",
-	cmd = { "FzfLua" }
+
+	cmd = { "FzfLua" },
 }

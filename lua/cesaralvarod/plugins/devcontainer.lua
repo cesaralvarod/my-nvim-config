@@ -1,10 +1,9 @@
 return {
 	"esensar/nvim-dev-container",
-	lazy = true,
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter",
 	},
-	config = true,
+
 	cmd = {
 		"DevcontainerBuild",
 		"DevcontainerImageRun",
@@ -23,4 +22,5 @@ return {
 		"DevcontainerOpenNearestConfig",
 		"DevcontainerEditNearestConfig",
 	},
+	config = true,
 }

@@ -1,18 +1,28 @@
+local config = function()
+	local alternate = require("alternate-toggler")
+
+	-- setup
+	alternate.setup({
+		alternates = {
+			["=="] = "!=",
+			["==="] = "!==",
+		},
+		event = { "BufReadPost" },
+	})
+end
+
 return {
 	"rmagatti/alternate-toggler",
-	config = function()
-		require("alternate-toggler").setup({
-			alternates = {
-				["=="] = "!=",
-				["==="] = "!==",
-			},
-			event = { "BufReadPost" },
-		})
-	end,
+
+	config = config,
+	-- mappings
 	keys = {
+		-- Alternate Toggler
 		{
 			"<leader><space>",
 			"<cmd>lua require('alternate-toggler').toggleAlternate()<CR>",
+			mode = "n",
+			desc = "Alternate Toggler",
 		},
 	},
 }

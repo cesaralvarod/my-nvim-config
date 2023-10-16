@@ -2,6 +2,8 @@ local config = function()
 	local alpha = require("alpha")
 
 	local dashboard = require("alpha.themes.dashboard")
+
+	-- dashboard header
 	dashboard.section.header.val = {
 		[[  =========================================================  ]],
 		[[ ||  ______                __                             || ]],
@@ -13,6 +15,8 @@ local config = function()
 		[[ ||     \/_/\/_/ \/_/\/_/ \/__,_ /  \/_/  \/____/ \/___/  || ]],
 		[[  =========================================================  ]],
 	}
+
+	-- dashboard buttons
 	dashboard.section.buttons.val = {
 		dashboard.button("n", "  New file", ":ene <BAR> startinsert <CR>"),
 		dashboard.button("f", "  Find file", ":Telescope find_files <CR>"),
@@ -22,6 +26,7 @@ local config = function()
 		dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
 	}
 
+	-- dashboard footer
 	local function footer()
 		-- NOTE: requires the fortune-mod package to work
 		-- local handle = io.popen("fortune")
@@ -39,11 +44,17 @@ local config = function()
 
 	dashboard.opts.opts.noautocmd = true
 	-- vim.cmd([[autocmd User AlphaReady echo 'ready']])
+
+	-- setup
 	alpha.setup(dashboard.opts)
 end
 
 return {
 	"goolord/alpha-nvim",
-	lazy = false,
+	dependencies = {
+		"nvim-tree/nvim-web-devicons",
+	},
+
 	config = config,
+	priority = 200,
 }

@@ -1,5 +1,8 @@
 local config = function()
-	require("todo-comments").setup({
+	local todo = require("todo-comments")
+
+	-- options
+	local opts = {
 		signs = true, -- show icons in the signs column
 		sign_priority = 10, -- sign priority
 		keywords = {
@@ -52,10 +55,14 @@ local config = function()
 			},
 			pattern = [[\b(KEYWORDS):]], -- ripgrep regex
 		},
-	})
+	}
+
+	-- setup
+	todo.setup(opts)
 end
 
 return {
 	"folke/todo-comments.nvim",
+
 	config = config,
 }

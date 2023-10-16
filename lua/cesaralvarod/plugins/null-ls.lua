@@ -124,5 +124,6 @@ return {
 	"jose-elias-alvarez/null-ls.nvim",
 	event = "VeryLazy",
 	priority = 500,
+
 	config = config,
 }

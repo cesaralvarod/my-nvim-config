@@ -15,7 +15,8 @@ local config = function()
 
 	local icons = require("cesaralvarod.config.icons")
 
-	telescope.setup({
+	-- options
+	local opts = {
 		defaults = {
 			vimgrep_arguments = {
 				"rg",
@@ -89,10 +90,12 @@ local config = function()
 				binary = "docker",
 			},
 		},
-	})
+	}
 
-	-- Keymaps
+	-- setup
+	telescope.setup(opts)
 
+	-- mappings
 	vim.keymap.set("n", "<C-p>", function()
 		builtin.grep_string({ search = vim.fn.input("Grep > ") })
 	end)
@@ -112,7 +115,7 @@ return {
 		"lpoto/telescope-docker.nvim", -- docker plugin
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 	},
-	config = config,
+
 	cmd = "Telescope",
 	keys = {
 		{
@@ -146,4 +149,5 @@ return {
 		{ "<leader>fi", "<cmd>Telescope docker images<cr>" },
 		{ "<leader>fcc", "<cmd>Telescope docker compose<cr>" },
 	},
+	config = config,
 }

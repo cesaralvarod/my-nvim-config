@@ -1,10 +1,12 @@
 local config = function()
 	local tree = require("nvim-tree")
 	local tree_config = require("nvim-tree.config")
+
 	local tree_cb = tree_config.nvim_tree_callback
+
 	local icons = require("cesaralvarod.config.icons")
 
-	local config = {
+	local opts = {
 		renderer = {
 			group_empty = true,
 			root_folder_modifier = ":t",
@@ -197,7 +199,8 @@ local config = function()
 		},
 	}
 
-	tree.setup(config)
+	-- setup
+	tree.setup(opts)
 end
 
 return {
@@ -206,5 +209,6 @@ return {
 		"DaikyXendo/nvim-material-icon",
 		"nvim-tree/nvim-web-devicons",
 	},
+
 	config = config,
 }

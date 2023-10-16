@@ -1,16 +1,23 @@
+local config = function()
+	local barbecue = require("barbecue")
+
+	local icons = require("cesaralvarod.config.icons")
+
+	-- setup
+	barbecue.setup({
+		show_dirname = true,
+		kinds = icons.kind,
+	})
+end
+
 return {
 	"utilyre/barbecue.nvim",
-	--branch = "fix/E36", -- NOTE: 👀 barbecue branch resolve error Vim E36, see later if in realease is fixing
+	version = "*",
 	dependencies = {
 		"SmiteshP/nvim-navic",
-		"nvim-tree/nvim-web-devicons",
+		"nvim-tree/nvim-web-devicons", -- optional dependency
 	},
-	config = function()
-		local icons = require("cesaralvarod.config.icons")
 
-		require("barbecue").setup({
-			show_dirname = false,
-			kinds = icons.kind,
-		})
-	end,
+	priority = 200,
+	config = config,
 }

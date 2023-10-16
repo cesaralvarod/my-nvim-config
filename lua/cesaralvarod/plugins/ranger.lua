@@ -1,6 +1,10 @@
 local config = function()
-	require("ranger-nvim").setup()
+	local ranger = require("ranger-nvim")
 
+	-- setup
+	ranger.setup()
+
+	-- mappings
 	vim.api.nvim_set_keymap("n", "<leader>ef", "", {
 		noremap = true,
 		callback = function()
@@ -11,6 +15,9 @@ end
 
 return {
 	"kelly-lin/ranger.nvim",
-	keys = { { "<leader>ef", "<cmd> require('ranger-nvim').open(true)<CR>" } },
+
+	keys = {
+		{ "<leader>ef", "<cmd> require('ranger-nvim').open(true)<CR>" },
+	},
 	config = config,
 }

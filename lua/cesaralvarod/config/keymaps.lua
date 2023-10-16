@@ -148,18 +148,5 @@ nnoremap("<leader>vn", "<Cmd>lua vim.diagnostic.goto_next()<CR>")
 
 nnoremap("<leader><tab>", "<cmd>TodoTelescope<CR>")
 
--- 18. Gitsigns
-
-nnoremap("]h", "<cmd>Gitsigns next_hunk<cr>")
-nnoremap("[h", "<cmd>Gitsigns prev_hunk<cr>")
-
-nnoremap("ghr", "<cmd>Gitsigns reset_hunk<cr>")
-nnoremap("ghp", "<cmd>Gitsigns preview_hunk_inline<cr>")
-nnoremap("ghd", "<cmd>Gitsigns diffthis<cr>")
-nnoremap("ghR", "<cmd>Gitsigns reset_buffer<cr>")
-nnoremap("ghR", "<cmd>Gitsigns reset_buffer<cr>")
-nnoremap("ghs", "<cmd>Gitsigns stage_hunk<cr>")
-nnoremap("ghu", "<cmd>Gitsigns undo_stage_hunk<cr>")
-
--- Nvim-tree
+-- 18. Nvim-tree
 nnoremap("nt", "<cmd>NvimTreeToggle<cr>")

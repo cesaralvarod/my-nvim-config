@@ -3,7 +3,7 @@ return {
 	dependencies = {
 		{ "MunifTanjim/nui.nvim" },
 	},
-	config = true,
+
 	cmd = { "SearchBoxSimple", "SearchBoxReplace", "SearchBoxMatchAll" },
 	keys = {
 		{
@@ -22,4 +22,5 @@ return {
 			desc = "Search Box Match All",
 		},
 	},
+	config = true,
 }
