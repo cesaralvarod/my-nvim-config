@@ -1,16 +1,14 @@
 local config = function()
 	local null = require("null-ls")
-	-- local prettier = require("prettier")
 
 	-- prettier.setup()
 
-	-- BUILTINS
-
-	-- local code_actions = null.builtins.code_actions -- code action sources
-	-- local diagnostics = null.builtins.diagnostics -- diagnostic sources
+	-- builtins
+	local code_actions = null.builtins.code_actions -- code action sources
+	local diagnostics = null.builtins.diagnostics -- diagnostic sources
 	local formatting = null.builtins.formatting -- formatting
-	-- local hover = null.builtins.hover -- hover sources
-	-- local completion = null.builtins.completion -- completion sources
+	local hover = null.builtins.hover -- hover sources
+	local completion = null.builtins.completion -- completion sources
 
 	local sources = {
 
@@ -21,17 +19,24 @@ local config = function()
 		formatting.trim_newlines.with({
 			disabled_filetypes = { "sql", "mysql" },
 		}),
-		formatting.prettier, -- js, ts, tsx, jsx, css, html, etc files
-		formatting.autopep8, -- python files
+
+		formatting.clang_format, -- C, C++ format
+
 		formatting.stylua, -- lua files
+
+		formatting.black, -- python files
+
+		formatting.prettier, -- js, ts, tsx, jsx, css, html, etc files
+		-- formatting.rome,
+
 		formatting.beautysh, -- sh file
-		formatting.clang_format, -- java, cpp, c, cuda files
+
 		formatting.phpcsfixer, -- php files
-		formatting.astyle, -- java, c and c++ files
+
 		formatting.fixjson, -- json files
+
 		formatting.rustfmt, -- rust files
 		formatting.gofmt,
-		-- formatting.rome,
 	}
 
 	local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
@@ -62,13 +67,12 @@ local config = function()
 
 					-- Disable LSP servers formatting conflicts
 					if
-						client.name == "lua_ls"
-						or client.name == "tsserver"
+						client.name == "tsserver"
+						or client.name == "lua_ls" -- troubles with stylua
 						or client.name == "intelephense"
 						or client.name == "html"
 						or client.name == "jsonls"
 						or client.name == "gopls"
-						or client.name == "clangd"
 					then
 						client.server_capabilities.documentFormattingProvider = false
 					end
@@ -82,25 +86,12 @@ local config = function()
 		)
 	end
 
-	--[[ 	local formatting = function(bufnr)
-		bufnr = bufnr or vim.api.nvim_get_current_buf()
-
-		-- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-		vim.lsp.buf.format({
-			bufnr = bufnr,
-			filter = function(client)
-				if client.name == "intelephense" then
-					return client.name == "intelephense"
-				end
-
-				return client.name == "null-ls"
-			end,
-		})
-	end ]]
 	-- Format on save
 	local on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
+			-- clean any auto format
 			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+			-- format on save
 			vim.api.nvim_create_autocmd("BufWritePre", {
 				group = augroup,
 				buffer = bufnr,

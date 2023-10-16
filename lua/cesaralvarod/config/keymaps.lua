@@ -141,8 +141,8 @@ nnoremap("gq", "<Cmd>:lua vim.lsp.buf.code_action()<CR>")
 nnoremap("<C-f>", "<Cmd>:lua vim.lsp.buf.format({async=true})<CR>")
 nnoremap("<leader>e", "<Cmd>:lua vim.diagnostic.open_float()<CR>")
 
-nnoremap("<leader>vp", "<Cmd>lua vim.diagnostic.goto_prev()<CR>")
-nnoremap("<leader>vn", "<Cmd>lua vim.diagnostic.goto_next()<CR>")
+nnoremap("<leader>vp", "<Cmd>:lua vim.diagnostic.goto_prev()<CR>")
+nnoremap("<leader>vn", "<Cmd>:lua vim.diagnostic.goto_next()<CR>")
 
 -- 17.TodoTelescope
 
@@ -150,3 +150,11 @@ nnoremap("<leader><tab>", "<cmd>TodoTelescope<CR>")
 
 -- 18. Nvim-tree
 nnoremap("nt", "<cmd>NvimTreeToggle<cr>")
+
+-- 19. DAP
+
+nnoremap("<leader>db", "<cmd>:lua require('dap').toggle_breakpoint()<CR>") -- add breakpoint at line
+nnoremap("<leader>dr", "<cmd>:lua require('dap').continue()<CR>") -- start or continue the debugger
+nnoremap("<leader>dt", "<cmd>:lua require('dapui').toggle()<CR>") -- start or continue the debugger
+
+nnoremap("<leader>dpr", "<cmd>:lua require('dap-python').test_method()<CR>") -- python dap

@@ -4,20 +4,16 @@ local navic = require("nvim-navic")
 
 local configs = require("lspconfig.configs")
 
--- Problem neovim v0.9.0
---[[ lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_config, {
-	handlers = {
-		["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-			virtual_text = {
-				spacing = 0,
-				prefix = "",
-			},
-			underline = false,
-			signs = false,
-			update_in_insert = false,
-		}),
-	},
-}) ]]
+local organize_imports = function()
+	local params = {
+		command = "_typescript.organizeImports",
+		arguments = {
+			vim.api.nvim_buf_get_name(0),
+		},
+	}
+
+	vim.lsp.buf.execute_command(params)
+end
 
 if not configs.intelephense then
 	configs.intelephense = {
@@ -44,16 +40,18 @@ local capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_cli
 local MY_FQBN = "arduino:avr:nano"
 
 return setmetatable({
-	-- rome = function()
-	-- 	return {
-	-- 		root_dir = lspconfig.util.root_pattern("rome.json"),
-	-- 	}
-	-- end,
+	--[[ rome = function()
+		return {
+			root_dir = lspconfig.util.root_pattern("rome.json"),
+		}
+	end, ]]
+
 	denols = function()
 		return {
 			root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc", "import_map.json"),
 		}
 	end,
+
 	tsserver = function()
 		return {
 			capabilities = capabilities,
@@ -65,8 +63,21 @@ return setmetatable({
 				"node_modules"
 			),
 			single_file_support = true,
+			init_options = {
+				preferences = {
+					disableSuggestions = true,
+				},
+			},
+
+			commands = {
+				OrganizeImports = {
+					organize_imports,
+					description = "Organize Imports",
+				},
+			},
 		}
 	end,
+
 	angularls = function()
 		local project_library_path = "/usr/lib/node_modules/@angular/language-server/" -- global npm
 		local cmd = {
@@ -86,7 +97,8 @@ return setmetatable({
 			end,
 		}
 	end,
-	arduino_language_server = function()
+
+	--[[ 	arduino_language_server = function()
 		return {
 			capabilities = capabilities,
 			root_dir = function(fname)
@@ -100,7 +112,8 @@ return setmetatable({
 				MY_FQBN,
 			},
 		}
-	end,
+	end, ]]
+
 	emmet_ls = function()
 		return {
 			capabilities = capabilities,
@@ -121,13 +134,17 @@ return setmetatable({
 			end,
 		}
 	end,
+
 	lua_ls = function()
 		return {
 			capabilities = capabilities,
 			settings = {
 				Lua = {
+					completion = {
+						callSnippet = "Replace",
+					},
 					runtime = {
-						version = "LuaJIT",
+						version = "LuaJIT", -- in case of neovim
 					},
 					diagnostics = {
 						globals = { "vim" },
@@ -146,14 +163,19 @@ return setmetatable({
 			},
 		}
 	end,
+
 	clangd = function()
 		return {
 			capabilities = capabilities,
 			root_dir = function(fname)
 				return vim.fn.getcwd()
 			end,
+			on_attach = function(client, bufnr)
+				client.server_capabilities.signatureHelpProvider = false
+			end,
 		}
 	end,
+
 	intelephense = function()
 		return {
 			capabilities = capabilities,

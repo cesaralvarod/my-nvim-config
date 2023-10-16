@@ -47,6 +47,7 @@ local config = function()
 		"markdown",
 		"markdown_inline",
 		"regex",
+		"astro",
 	}
 
 	-- setup
