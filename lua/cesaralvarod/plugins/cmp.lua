@@ -246,4 +246,46 @@ return {
 			"rafamadriz/friendly-snippets",
 		},
 	},
+
+	-- format rust
+	{
+		"rust-lang/rust.vim",
+		ft = "rust",
+
+		init = function()
+			vim.g.rustfmt_autosave = 1
+		end,
+	},
+
+	-- rust debugging and tools
+	{
+		"simrat39/rust-tools.nvim",
+		ft = "rust",
+		dependencies = {
+			"neovim/nvim-lspconfig",
+			"hrsh7th/nvim-cmp",
+		},
+		opts = function()
+			local cmp_nvim_lsp = require("cmp_nvim_lsp")
+
+			local capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+			local on_attach = function(client, bufnr)
+				client.offset_encoding = "utf-16"
+			end
+
+			return {
+				server = {
+					on_attach = on_attach,
+					capabilities = capabilities,
+				},
+			}
+		end,
+
+		config = function(_, opts)
+			local rust_tools = require("rust-tools")
+
+			rust_tools.setup(opts)
+		end,
+	},
 }

@@ -182,6 +182,40 @@ return setmetatable({
 			root_dir = require("lspconfig").util.root_pattern(".git", "composer.json"),
 		}
 	end,
+
+	-- unnecessary with rust.vim
+	--[[ 	rust_analyzer = function()
+		return {
+			capabilities = capabilities,
+			filetypes = { "rust" },
+			root_dir = require("lspconfig").util.root_pattern("Cargo.toml"),
+			settings = {
+				["rust-analyzer"] = {
+					cargo = {
+						allFeatures = true,
+					},
+				},
+			},
+		}
+	end, ]]
+
+	gopls = function()
+		return {
+			capabilities = capabilities,
+			cmd = { "gopls" },
+			filetypes = { "go", "gomod", "gowork", "gotmpl" },
+			root_dir = require("lspconfig").util.root_pattern("go.work", "go.mod", ".git"),
+			settings = {
+				gopls = {
+					completeUnimported = true,
+					usePlaceholders = true,
+					analyses = {
+						unusedparams = true,
+					},
+				},
+			},
+		}
+	end,
 }, {
 	__index = function()
 		return function()

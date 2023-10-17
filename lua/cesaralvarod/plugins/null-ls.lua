@@ -35,8 +35,10 @@ local config = function()
 
 		formatting.fixjson, -- json files
 
-		formatting.rustfmt, -- rust files
-		formatting.gofmt,
+		-- go
+		formatting.gofumpt,
+		formatting.goimports_reviser,
+		formatting.golines,
 	}
 
 	local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
@@ -112,9 +114,11 @@ local config = function()
 end
 
 return {
-	"jose-elias-alvarez/null-ls.nvim",
-	event = "VeryLazy",
-	priority = 500,
+	{
+		"jose-elias-alvarez/null-ls.nvim",
+		event = "VeryLazy",
+		priority = 500,
 
-	config = config,
+		config = config,
+	},
 }

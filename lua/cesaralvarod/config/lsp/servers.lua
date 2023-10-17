@@ -38,8 +38,13 @@ return {
 	"beautysh", -- formatting
 
 	-- go
+	"gopls", -- autocomplete and linter
+	"gofumpt", -- formatting
+	"goimports_reviser", -- formatting
+	"golines", -- formatting
 
 	-- rust
+	"rust-analyzer", -- autocomplete and linter
 
 	"dockerfile-language-server", -- docker server
 
@@ -49,7 +54,9 @@ return {
 
 	"yaml-language-server", -- yaml server
 
-	"json-lsp", -- json linter
+	-- json
+	"json-lsp", -- autocomplete and linter
+	"fixjson", -- formatting
 
 	-- "angular-language-server", -- angular
 }
