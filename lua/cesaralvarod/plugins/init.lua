@@ -19,6 +19,4 @@ return {
 	},
 
 	{ "adelarsq/vim-matchit", keys = { "%" } },
-
-	{ "akielaries/vim-s-asm" },
 }

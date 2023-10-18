@@ -33,7 +33,7 @@ local config = function()
 		"vim",
 		"solidity",
 		"graphql",
-		"php", -- vim-polyglot better
+		"php",
 		"java",
 		"c",
 		"cpp",
@@ -154,15 +154,22 @@ local config = function()
 end
 
 return {
-	"nvim-treesitter/nvim-treesitter",
-	dependencies = {
-		"windwp/nvim-ts-autotag", -- tresitter auto close tags
-		"p00f/nvim-ts-rainbow", -- treesiter rainbow pairs
-		"JoosepAlviste/nvim-ts-context-commentstring", -- treesitter comments, work with Comment.nvim
-		"axelvc/template-string.nvim", -- treesitter template string
-		"nvim-treesitter/playground",
-		"rush-rs/tree-sitter-asm", -- assembler highlight
+	{
+		"nvim-treesitter/nvim-treesitter",
+		dependencies = {
+			"windwp/nvim-ts-autotag", -- tresitter auto close tags
+			"p00f/nvim-ts-rainbow", -- treesiter rainbow pairs
+			"JoosepAlviste/nvim-ts-context-commentstring", -- treesitter comments, work with Comment.nvim
+			"axelvc/template-string.nvim", -- treesitter template string
+			"rush-rs/tree-sitter-asm", -- assembler highlight
+		},
+
+		config = config,
 	},
 
-	config = config,
+	{
+		"nvim-treesitter/playground",
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+		cmd = { "TSHighlightCapturesUnderCursor", "TSNodeUnderCursor" },
+	},
 }

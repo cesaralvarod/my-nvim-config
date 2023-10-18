@@ -237,6 +237,7 @@ return {
 			{ "tzachar/cmp-tabnine", build = "./install.sh" },
 		},
 
+		event = "VeryLazy",
 		config = config,
 	},
 

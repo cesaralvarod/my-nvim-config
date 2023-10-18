@@ -8,7 +8,7 @@ return {
 		end,
 	},
 
-	{
+	--[[ {
 		"folke/tokyonight.nvim",
 		lazy = false,
 		priority = 1000,
@@ -19,5 +19,5 @@ return {
 				light_style = "day",
 			})
 		end,
-	},
+	}, ]]
 }
