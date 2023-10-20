@@ -68,8 +68,15 @@ local config = function()
 			end,
 		},
 		window = {
+			completion = {
+				-- border = { "🭽", "▔", "🭾", "▕", "🭿", "▁", "🭼", "▏" },
+				border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+				scrollbar = "║",
+			},
 			documentation = {
-				border = { "🭽", "▔", "🭾", "▕", "🭿", "▁", "🭼", "▏" },
+				-- border = { "🭽", "▔", "🭾", "▕", "🭿", "▁", "🭼", "▏" },
+				border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+				scrollbar = "║",
 			},
 		},
 		formatting = {
@@ -233,19 +240,15 @@ return {
 			"saadparwaiz1/cmp_luasnip", -- Autocomplete snippets lua
 			"petertriho/cmp-git", -- Autocomplete git
 
-			"windwp/nvim-autopairs",
+			"windwp/nvim-autopairs", -- Autocomplete pairs
+
+			"L3MON4D3/LuaSnip", -- snippet engine
+			"rafamadriz/friendly-snippets", -- useful snippets
 			{ "tzachar/cmp-tabnine", build = "./install.sh" },
 		},
 
-		event = "VeryLazy",
+		event = "InsertEnter",
 		config = config,
-	},
-
-	{
-		"L3MON4D3/LuaSnip",
-		dependencies = {
-			"rafamadriz/friendly-snippets",
-		},
 	},
 
 	-- format rust

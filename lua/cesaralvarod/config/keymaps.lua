@@ -90,6 +90,8 @@ nnoremap("<leader>sh", ":split<CR>") -- split window horizontally
 nnoremap("<leader>sv", ":vsplit<CR>") -- split window vertically
 nnoremap("<leader>se", ":<C-w>=<CR>") -- make splits equal size width & height
 nnoremap("<leader>sx", "<cmd>close<CR>") -- close current split window
+nnoremap("<leader>s-", "<C-w>5-<CR>") -- resize window
+nnoremap("<leader>s+", "<C-w>5-<CR>") -- resize window
 
 -- 13. Tabs
 
