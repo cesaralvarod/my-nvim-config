@@ -216,6 +216,12 @@ return setmetatable({
 			},
 		}
 	end,
+
+	--[[ 	jdtls = function()
+		return {
+			capabilities = capabilities,
+		}
+	end, ]]
 }, {
 	__index = function()
 		return function()

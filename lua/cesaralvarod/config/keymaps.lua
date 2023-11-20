@@ -5,7 +5,7 @@ local Utils = require("cesaralvarod.utils")
 
 -- local exprnnoremap = Utils.exprnnoremap
 local nnoremap = Utils.nnoremap
--- local vnoremap = Utils.vnoremap
+local vnoremap = Utils.vnoremap
 -- local xnoremap = Utils.xnoremap
 local inoremap = Utils.inoremap
 local tnoremap = Utils.tnoremap
@@ -14,6 +14,11 @@ local tnoremap = Utils.tnoremap
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+
+-- execute python code
+
+nnoremap("<leader>p", "^vg_y:!python -c '<C-R>\"'<CR>")
+vnoremap("<leader>p", "^vg_y:!python -c '<C-R>\"'<CR>")
 
 -- 1. Save documents
 

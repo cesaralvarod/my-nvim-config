@@ -2,6 +2,7 @@ local config = function()
 	local parsers = require("nvim-treesitter.parsers")
 	local configs = require("nvim-treesitter.configs")
 	local template_string = require("template-string")
+	local comment_string = require("ts_context_commentstring")
 
 	-- neovim < 0.9
 	--[[ 	local parser_mapping = require("nvim-treesitter.parsers").filetype_to_parsername
@@ -50,8 +51,7 @@ local config = function()
 		"astro",
 	}
 
-	-- setup
-	configs.setup({
+	local setup = {
 		ensure_installed = ensure_installed,
 		highlight = {
 			enable = true,
@@ -110,10 +110,6 @@ local config = function()
 			max_file_lines = nil,
 			extended_mode = false,
 		},
-		context_commentstring = {
-			enable = true,
-			enable_autocmd = false,
-		},
 		playground = {
 			enable = true,
 			disable = {},
@@ -132,7 +128,10 @@ local config = function()
 				show_help = "?",
 			},
 		},
-	})
+	}
+
+	-- setup
+	configs.setup(setup)
 
 	template_string.setup({
 		filetypes = {
@@ -151,6 +150,10 @@ local config = function()
 			tsx = [["]],
 		},
 	})
+
+	comment_string.setup({
+		enable_autocmd = false,
+	})
 end
 
 return {
@@ -162,6 +165,7 @@ return {
 			"JoosepAlviste/nvim-ts-context-commentstring", -- treesitter comments, work with Comment.nvim
 			"axelvc/template-string.nvim", -- treesitter template string
 			"rush-rs/tree-sitter-asm", -- assembler highlight
+			-- "gbprod/php-enhanced-treesitter.nvim", -- sql embedded in files php
 		},
 
 		config = config,
