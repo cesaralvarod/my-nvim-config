@@ -242,7 +242,7 @@ return {
 
 			"windwp/nvim-autopairs", -- Autocomplete pairs
 
-			"L3MON4D3/LuaSnip", -- snippet engine
+			{ "L3MON4D3/LuaSnip", version = "v2*", build = "make install_jsregexp" }, -- snippet engine
 			"rafamadriz/friendly-snippets", -- useful snippets
 			{ "tzachar/cmp-tabnine", build = "./install.sh" },
 		},

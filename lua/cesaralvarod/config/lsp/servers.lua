@@ -59,4 +59,6 @@ return {
 	"fixjson", -- formatting
 
 	-- "angular-language-server", -- angular
+
+	"jdtls", -- java autocomplete
 }

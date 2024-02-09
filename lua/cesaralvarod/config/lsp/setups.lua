@@ -179,7 +179,7 @@ return setmetatable({
 	intelephense = function()
 		return {
 			capabilities = capabilities,
-			root_dir = require("lspconfig").util.root_pattern(".git", "composer.json"),
+			root_dir = lspconfig.util.root_pattern(".git", "composer.json"),
 		}
 	end,
 
@@ -204,7 +204,7 @@ return setmetatable({
 			capabilities = capabilities,
 			cmd = { "gopls" },
 			filetypes = { "go", "gomod", "gowork", "gotmpl" },
-			root_dir = require("lspconfig").util.root_pattern("go.work", "go.mod", ".git"),
+			root_dir = lspconfig.util.root_pattern("go.work", "go.mod", ".git"),
 			settings = {
 				gopls = {
 					completeUnimported = true,
@@ -217,11 +217,20 @@ return setmetatable({
 		}
 	end,
 
-	--[[ 	jdtls = function()
+	jdtls = function()
 		return {
 			capabilities = capabilities,
+			root_dir = lspconfig.util.root_pattern(
+				"build.xml", -- Ant
+				"pom.xml", -- Maven
+				"settings.gradle", -- Gradle
+				"settings.gradle.kts", -- Gradle
+				-- Multi-module projects
+				"build.gradle",
+				"build.gradle.kts"
+			),
 		}
-	end, ]]
+	end,
 }, {
 	__index = function()
 		return function()
