@@ -1,9 +1,42 @@
+local on_attach = function(bufnr)
+	local api = require("nvim-tree.api")
+	local preview = require("nvim-tree-preview")
+
+	local function opts(desc)
+		return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+	end
+
+	api.config.mappings.default_on_attach(bufnr)
+
+	-- mappings
+	vim.keymap.set("n", "h", api.node.navigate.parent_close, opts("Close Directory"))
+	vim.keymap.set("n", "l", api.node.open.edit, opts("Open"))
+	vim.keymap.del("n", "<C-v>", { buffer = bufnr })
+	vim.keymap.del("n", "<C-x>", { buffer = bufnr })
+	vim.keymap.set("n", "v", api.node.open.vertical, opts("Open: Vertical Split"))
+	vim.keymap.set("n", "s", api.node.open.horizontal, opts("Open: Horizontal Split"))
+	vim.keymap.set("n", "u", api.tree.change_root_to_parent, opts("Up"))
+	vim.keymap.set("n", "P", preview.watch, opts("Preview (Watch)"))
+	vim.keymap.set("n", "<Esc>", preview.unwatch, opts("Close Preview/Unwatch"))
+	vim.keymap.set("n", "<Tab>", function()
+		local ok, node = pcall(api.tree.get_node_under_cursor)
+		if ok and node then
+			if node.type == "directory" then
+				api.node.open.edit()
+			else
+				preview.node(node, { toggle_focus = true })
+			end
+		end
+	end, opts("Preview"))
+end
+
 local config = function()
 	local tree = require("nvim-tree")
 
 	local icons = require("cesaralvarod.config.icons")
 
 	local opts = {
+		on_attach = on_attach,
 		renderer = {
 			group_empty = true,
 			root_folder_modifier = ":t",
@@ -130,13 +163,6 @@ local config = function()
 			prefix = "[" .. icons.ui.Search .. "]: ",
 			always_show_folders = false,
 		},
-		-- tab = {
-		-- 	sync = {
-		-- 		open = false,
-		-- 		close = false,
-		-- 		ignore = {},
-		-- 	},
-		-- },
 		log = {
 			enable = false,
 			truncate = false,
@@ -166,11 +192,37 @@ local config = function()
 	tree.setup(opts)
 end
 
+local preview_config = function()
+	local preview = require("nvim-tree-preview")
+
+	preview.setup({
+		keymaps = {
+			["<Esc>"] = { action = "close", unwatch = true },
+			["<Tab>"] = { action = "toggle_focus" },
+			["<CR>"] = { open = "edit" },
+			["<C-t>"] = { open = "tab" },
+			["v"] = { open = "vertical" },
+			["s"] = { open = "horizontal" },
+		},
+		min_width = 10,
+		min_height = 5,
+		max_width = 85,
+		max_height = 25,
+		wrap = false, -- Whether to wrap lines in the preview window
+		border = "rounded", -- Border style for the preview window
+	})
+end
+
 return {
 	"DaikyXendo/nvim-tree.lua",
 	dependencies = {
 		"DaikyXendo/nvim-material-icon",
 		"nvim-tree/nvim-web-devicons",
+		{
+			"b0o/nvim-tree-preview.lua",
+			dependencies = "nvim-lua/plenary.nvim",
+			config = preview_config,
+		},
 	},
 
 	config = config,
