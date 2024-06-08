@@ -136,7 +136,8 @@ end
 return {
 	"nvim-tree/nvim-web-devicons",
 	dependencies = {
-		"DaikyXendo/nvim-material-icon",
+		-- "DaikyXendo/nvim-material-icon",
+		"Allianaab2m/nvim-material-icon-v3",
 	},
 
 	config = config,

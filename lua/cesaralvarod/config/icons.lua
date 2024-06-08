@@ -38,7 +38,7 @@ return {
 		Unit = "󰑭",
 		-- Value = "",
 		Value = "",
-    Variable = "󰀫",
+		Variable = "󰀫",
 	},
 	git = {
 		LineAdded = "",
