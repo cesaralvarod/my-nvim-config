@@ -1,9 +1,15 @@
 local on_attach = function(bufnr)
 	local api = require("nvim-tree.api")
-	local preview = require("nvim-tree-preview")
+	-- local preview = require("nvim-tree-preview")
 
 	local function opts(desc)
-		return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+		return {
+			desc = "nvim-tree: " .. desc,
+			buffer = bufnr,
+			noremap = true,
+			silent = true,
+			nowait = true,
+		}
 	end
 
 	api.config.mappings.default_on_attach(bufnr)
@@ -16,7 +22,7 @@ local on_attach = function(bufnr)
 	vim.keymap.set("n", "v", api.node.open.vertical, opts("Open: Vertical Split"))
 	vim.keymap.set("n", "s", api.node.open.horizontal, opts("Open: Horizontal Split"))
 	vim.keymap.set("n", "u", api.tree.change_root_to_parent, opts("Up"))
-	vim.keymap.set("n", "P", preview.watch, opts("Preview (Watch)"))
+	--[[ 	vim.keymap.set("n", "P", preview.watch, opts("Preview (Watch)"))
 	vim.keymap.set("n", "<Esc>", preview.unwatch, opts("Close Preview/Unwatch"))
 	vim.keymap.set("n", "<Tab>", function()
 		local ok, node = pcall(api.tree.get_node_under_cursor)
@@ -27,7 +33,7 @@ local on_attach = function(bufnr)
 				preview.node(node, { toggle_focus = true })
 			end
 		end
-	end, opts("Preview"))
+	end, opts("Preview"))  ]]
 end
 
 local config = function()
@@ -218,11 +224,11 @@ return {
 	dependencies = {
 		"DaikyXendo/nvim-material-icon",
 		"nvim-tree/nvim-web-devicons",
-		{
+		--[[ 	{
 			"b0o/nvim-tree-preview.lua",
 			dependencies = "nvim-lua/plenary.nvim",
 			config = preview_config,
-		},
+		}, ]]
 	},
 
 	config = config,

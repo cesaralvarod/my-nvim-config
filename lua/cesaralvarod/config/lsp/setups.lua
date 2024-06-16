@@ -249,7 +249,7 @@ return setmetatable({
 					-- disable semanticTokensProvider from LSP
 					-- client.server_capabilities.semanticTokensProvider = nil
 
-					local active_clients = vim.lsp.get_active_clients()
+					local active_clients = vim.lsp.get_clients({ bufnr = bufnr })
 
 					if lspconfig.util.root_pattern("deno.json", "deno.jsonc", "import_map.json")(vim.fn.getcwd()) then
 						for _, client_ in pairs(active_clients) do
