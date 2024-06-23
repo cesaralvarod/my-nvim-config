@@ -31,6 +31,14 @@ nnoremap("<c-a>", ":wa<CR>") -- Save all documents with Ctrl+a / Normal Mode
 
 nnoremap("<leader>lf", "<cmd>lua vim.lsp.buf.format()<CR>") -- Format buffer
 
+-- format on save
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = "",
+	callback = function()
+		vim.lsp.buf.format()
+	end,
+})
+
 -- 2. Quit document
 
 nnoremap("<leader>q", ":wq<CR>") -- Save and quit document with Space+q / Normal Mode

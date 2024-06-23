@@ -4,11 +4,11 @@ local config = function()
 	-- prettier.setup()
 
 	-- builtins
-	local code_actions = null.builtins.code_actions -- code action sources
-	local diagnostics = null.builtins.diagnostics -- diagnostic sources
+	-- local code_actions = null.builtins.code_actions -- code action sources
+	-- local diagnostics = null.builtins.diagnostics -- diagnostic sources
 	local formatting = null.builtins.formatting -- formatting
-	local hover = null.builtins.hover -- hover sources
-	local completion = null.builtins.completion -- completion sources
+	-- local hover = null.builtins.hover -- hover sources
+	-- local completion = null.builtins.completion -- completion sources
 
 	local sources = {
 
@@ -114,11 +114,11 @@ local config = function()
 end
 
 return {
-	{
+	--[[ 	{
 		"jose-elias-alvarez/null-ls.nvim",
 		event = "VeryLazy",
 		priority = 500,
 
 		config = config,
-	},
+	}, ]]
 }
