@@ -90,8 +90,9 @@ return setmetatable({
     return {
       capabilities = capabilities,
       root_dir = lspconfig.util.root_pattern(
-        ".eslintrc", ".eslintrc.js", ".eslintrc.json", ".eslintrc.yaml", "eslint.config.mjs", ".git"
-      ) or vim.fn.getcwd(),
+        ".eslintrc", ".eslintrc.js", ".eslintrc.json", ".eslintrc.yaml", "eslint.config.mjs", "eslint.config.js",
+        'eslint.config.cjs', '.git'
+      ),
       settings = {
         codeAction = {
           disableRuleComment = {
