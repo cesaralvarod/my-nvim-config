@@ -2,25 +2,18 @@ local config = function()
   local material_icons = require("nvim-material-icon")
   local devicons = require("nvim-web-devicons")
 
-  material_icons.setup({
-    -- your personal icons can go here (to override)
+  material_icons.setup {
     override = {
       zsh = {
         icon = "",
         color = "#428850",
         cterm_color = "65",
-        name = "Zsh",
-      },
-      fish = {
-        icon = "",
-        color = "#428850",
-        cterm_color = "65",
-        name = "Fish",
-      },
+        name = "Zsh"
+      }
     },
     color_icons = true,
     default = true,
-  })
+  }
 
   material_icons.set_icon({
     astro = {
@@ -95,6 +88,12 @@ local config = function()
       cterm_color = "32",
       name = "Tailwind",
     },
+    ["tailwind.config.ts"] = {
+      icon = "󱏿",
+      color = "#0087c9",
+      cterm_color = "32",
+      name = "Tailwind",
+    },
     [".eslintrc"] = {
       icon = "",
       color = "#4bc2c3",
@@ -138,19 +137,11 @@ local config = function()
       name = "Eslint",
     },
   })
-
-  -- setup
-  devicons.setup({
-    override = material_icons.get_icons(),
-  })
 end
 
 return {
-  "nvim-tree/nvim-web-devicons",
-  dependencies = {
-    -- "DaikyXendo/nvim-material-icon",
-    "Allianaab2m/nvim-material-icon-v3",
+  {
+    "DaikyXendo/nvim-material-icon",
+    config = config
   },
-
-  config = config,
 }
