@@ -25,7 +25,7 @@ if not configs.intelephense then
   configs.intelephense = {
     default_config = {
       cmd = { "intelephense", "--stdio" },
-      filetypes = { "php" },
+      filetypes = { "php", "blade" },
       root_dir = function(fname)
         return vim.loop.cwd()
       end,
@@ -193,6 +193,7 @@ return setmetatable({
         "eruby",
         "vue",
         "php",
+        "blade"
       },
       root_dir = function(fname)
         return vim.fn.getcwd()
@@ -244,7 +245,8 @@ return setmetatable({
   intelephense = function()
     return {
       capabilities = capabilities,
-      root_dir = lspconfig.util.root_pattern(".git", "composer.json"),
+      root_dir = lspconfig.util.root_pattern(".git", "composer.json", "composer.lock"),
+      filetypes = { "php", "blade" },
     }
   end,
 
