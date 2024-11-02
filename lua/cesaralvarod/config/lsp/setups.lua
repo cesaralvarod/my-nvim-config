@@ -16,17 +16,46 @@ local organize_imports = function()
 end
 
 -- Configurar EFM para usar Prettier
-local prettier = {
-  formatCommand = "prettier --stdin-filepath ${INPUT}",
-  formatStdin = true
+-- local prettier         = {
+--   formatCommand = "prettier --stdin-filepath ${INPUT}",
+--   formatStdin = true
+-- }
+
+-- FORMAT EFM language server
+
+-- NOTE: https://github.com/creativenull/efmls-configs-nvim/blob/main/doc/SUPPORTED_LIST.md
+
+local prettier = require("efmls-configs.formatters.prettier")
+local stylua = require("efmls-configs.formatters.stylua")
+local blade_formatter = require("efmls-configs.formatters.blade_formatter")
+local astyle = require("efmls-configs.formatters.astyle")
+local autopep8 = require("efmls-configs.formatters.autopep8")
+local php_cs_fixer = require("efmls-configs.formatters.php_cs_fixer")
+local beautysh = require("efmls-configs.formatters.beautysh")
+
+local efm_languages = {
+  javascript = { prettier },
+  javascriptreact = { prettier },
+  typescript = { prettier },
+  typescriptreact = { prettier },
+  json = { prettier },
+  html = { prettier },
+  css = { prettier },
+  scss = { prettier },
+  yaml = { prettier },
+  markdown = { prettier },
+  lua = { stylua },
+  blade = { blade_formatter },
+  c = { astyle },
+  cpp = { astyle },
+  python = { autopep8 },
+  php = {
+    php_cs_fixer,
+  },
+  bash = { beautysh },
 }
 
--- prettier to blade language
-local prettier_blade = {
-  -- NOTE: install prettier-plugin-blade
-  formatCommand = "prettier --write ${INPUT} --plugin @shufo/prettier-plugin-blade",
-  formatStdin = true
-}
+--
 
 if not configs.intelephense then
   configs.intelephense = {
@@ -50,14 +79,21 @@ end
 
 local capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-local MY_FQBN = "arduino:avr:nano"
+-- arduino
+-- local MY_FQBN = "arduino:avr:nano"
 
 return setmetatable({
-  --[[ rome = function()
-		return {
-			root_dir = lspconfig.util.root_pattern("rome.json"),
-		}
-	end, ]]
+  -- EFM
+  efm = function()
+    return {
+      init_options = { documentFormatting = true },
+      settings = {
+        rootMarkers = { ".git/" },
+        languages = efm_languages,
+      },
+      filetypes = vim.tbl_keys(efm_languages),
+    }
+  end,
 
   denols = function()
     return {
@@ -88,8 +124,6 @@ return setmetatable({
           description = "Organize Imports",
         },
       },
-
-
     }
   end,
 
@@ -97,21 +131,27 @@ return setmetatable({
     return {
       capabilities = capabilities,
       root_dir = lspconfig.util.root_pattern(
-        ".eslintrc", ".eslintrc.js", ".eslintrc.json", ".eslintrc.yaml", "eslint.config.mjs", "eslint.config.js",
-        'eslint.config.cjs', '.git'
+        ".eslintrc",
+        ".eslintrc.js",
+        ".eslintrc.json",
+        ".eslintrc.yaml",
+        "eslint.config.mjs",
+        "eslint.config.js",
+        "eslint.config.cjs",
+        ".git"
       ),
       settings = {
         codeAction = {
           disableRuleComment = {
             enable = true,
-            location = "separateLine"
+            location = "separateLine",
           },
           showDocumentation = {
-            enable = true
+            enable = true,
           },
         },
         format = {
-          enable = false
+          enable = false,
         },
         lint = {
           enable = true,
@@ -120,35 +160,7 @@ return setmetatable({
             ["no-console"] = "off",
           },
         },
-      }
-    }
-  end,
-
-
-  efm = function()
-    return {
-      init_options = { documentFormatting = true },
-      settings = {
-        rootMarkers = { ".git/" },
-        languages = {
-          javascript = { prettier },
-          javascriptreact = { prettier },
-          typescript = { prettier },
-          typescriptreact = { prettier },
-          json = { prettier },
-          html = { prettier },
-          css = { prettier },
-          scss = { prettier },
-          yaml = { prettier },
-          markdown = { prettier },
-          php = { prettier },
-          blade = { prettier_blade }
-        }
       },
-      filetypes = {
-        "javascript", "javascriptreact", "typescript", "typescriptreact", "json", "html", "css", "scss", "yaml",
-        "markdown", "php", "blade"
-      }
     }
   end,
 
@@ -172,22 +184,6 @@ return setmetatable({
     }
   end,
 
-  --[[ 	arduino_language_server = function()
-		return {
-			capabilities = capabilities,
-			root_dir = function(fname)
-				return vim.fn.getcwd()
-			end,
-			cmd = {
-				"arduino-language-server",
-				"-cli-config",
-				"$HOME/.arduino15/arduino-cli.yaml",
-				"-fqbn",
-				MY_FQBN,
-			},
-		}
-	end, ]]
-
   emmet_ls = function()
     return {
       capabilities = capabilities,
@@ -202,7 +198,7 @@ return setmetatable({
         "eruby",
         "vue",
         "php",
-        "blade"
+        "blade",
       },
       root_dir = function(fname)
         return vim.fn.getcwd()
@@ -234,16 +230,17 @@ return setmetatable({
           hint = {
             enable = true,
           },
-          format = {
-            enable = true,
-            defaultConfig = {
-              indent_style = "space",
-              indent_size = "2",
-              quote_style = "double",
-              trailing_newline = true,
-              insert_final_newline = true,
-            },
-          },
+          -- formatter
+          -- format = {
+          --   enable = true,
+          --   defaultConfig = {
+          --     indent_style = "space",
+          --     indent_size = "2",
+          --     quote_style = "double",
+          --     trailing_newline = true,
+          --     insert_final_newline = true,
+          --   },
+          -- },
         },
       },
     }
@@ -275,22 +272,6 @@ return setmetatable({
     }
   end,
 
-  -- unnecessary with rust.vim
-  --[[ 	rust_analyzer = function()
-		return {
-			capabilities = capabilities,
-			filetypes = { "rust" },
-			root_dir = require("lspconfig").util.root_pattern("Cargo.toml"),
-			settings = {
-				["rust-analyzer"] = {
-					cargo = {
-						allFeatures = true,
-					},
-				},
-			},
-		}
-	end, ]]
-
   gopls = function()
     return {
       capabilities = capabilities,
@@ -313,9 +294,9 @@ return setmetatable({
     return {
       capabilities = capabilities,
       root_dir = lspconfig.util.root_pattern(
-        "build.xml",           -- Ant
-        "pom.xml",             -- Maven
-        "settings.gradle",     -- Gradle
+        "build.xml",       -- Ant
+        "pom.xml",         -- Maven
+        "settings.gradle", -- Gradle
         "settings.gradle.kts", -- Gradle
         -- Multi-module projects
         "build.gradle",
