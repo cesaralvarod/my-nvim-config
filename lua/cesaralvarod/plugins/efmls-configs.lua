@@ -1,3 +1,3 @@
 return {
-  "creativenull/efmls-configs-nvim"
+	"creativenull/efmls-configs-nvim",
 }
