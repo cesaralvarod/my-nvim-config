@@ -21,6 +21,13 @@ local prettier = {
   formatStdin = true
 }
 
+-- prettier to blade language
+local prettier_blade = {
+  -- NOTE: install prettier-plugin-blade
+  formatCommand = "prettier --write ${INPUT} --plugin @shufo/prettier-plugin-blade",
+  formatStdin = true
+}
+
 if not configs.intelephense then
   configs.intelephense = {
     default_config = {
@@ -133,12 +140,14 @@ return setmetatable({
           css = { prettier },
           scss = { prettier },
           yaml = { prettier },
-          markdown = { prettier }
+          markdown = { prettier },
+          php = { prettier },
+          blade = { prettier_blade }
         }
       },
       filetypes = {
         "javascript", "javascriptreact", "typescript", "typescriptreact", "json", "html", "css", "scss", "yaml",
-        "markdown"
+        "markdown", "php", "blade"
       }
     }
   end,
@@ -225,6 +234,16 @@ return setmetatable({
           hint = {
             enable = true,
           },
+          format = {
+            enable = true,
+            defaultConfig = {
+              indent_style = "space",
+              indent_size = "2",
+              quote_style = "double",
+              trailing_newline = true,
+              insert_final_newline = true,
+            },
+          },
         },
       },
     }
@@ -245,7 +264,7 @@ return setmetatable({
   intelephense = function()
     return {
       capabilities = capabilities,
-      root_dir = lspconfig.util.root_pattern(".git", "composer.json", "composer.lock"),
+      root_dir = lspconfig.util.root_pattern(".git", "composer.json"),
       filetypes = { "php", "blade" },
     }
   end,
@@ -255,8 +274,6 @@ return setmetatable({
       capabilities = capabilities,
     }
   end,
-
-
 
   -- unnecessary with rust.vim
   --[[ 	rust_analyzer = function()
