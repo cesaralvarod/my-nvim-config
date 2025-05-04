@@ -17,8 +17,8 @@ vim.g.maplocalleader = " "
 
 -- execute python code
 
-nnoremap("<leader>p", "^vg_y:!python -c '<C-R>\"'<CR>")
-vnoremap("<leader>p", "^vg_y:!python -c '<C-R>\"'<CR>")
+nnoremap("<leader>py", "^vg_y:!python -c '<C-R>\"'<CR>")
+vnoremap("<leader>py", "^vg_y:!python -c '<C-R>\"'<CR>")
 
 -- 1. Save documents
 
@@ -159,7 +159,11 @@ nnoremap("<leader>e", "<Cmd>:lua vim.diagnostic.open_float()<CR>")
 nnoremap("<leader>vp", "<Cmd>:lua vim.diagnostic.goto_prev()<CR>")
 nnoremap("<leader>vn", "<Cmd>:lua vim.diagnostic.goto_next()<CR>")
 
--- 17.TodoTelescope
+nnoremap("<leader>oi", "<Cmd>:lua TSOrganizeImports()<CR>")
+nnoremap("<leader>rf", "<Cmd>:lua TSRenameFile()<CR>")
+nnoremap("<leader>si", "<Cmd>:lua TSSortImports()<CR>")
+
+-- e7.TodoTelescope
 
 nnoremap("<leader><tab>", "<cmd>TodoTelescope<CR>")
 
@@ -177,3 +181,78 @@ nnoremap("<leader>dpr", "<cmd>:lua require('dap-python').test_method()<CR>") -- 
 -- incremental rename
 
 nnoremap("<leader>rn", ":IncRename ")
+
+-------------------------------------------------------
+---
+--- LSP COMMANDS
+---
+-------------------------------------------------------
+
+-- typescript organize imports
+function TSOrganizeImports()
+	local params = {
+		command = "_typescript.organizeImports",
+		arguments = { vim.fn.expand("%:p") }, -- Archivo actual
+	}
+
+	vim.lsp.buf.execute_command(params)
+end
+
+-- typescript rename files
+function TSRenameFile()
+	local old_name = vim.fn.expand("%:p") -- Ruta completa del archivo actual
+	local new_name = vim.fn.input("Nuevo nombre: ", old_name, "file") -- Nuevo nombre del archivo
+
+	if new_name == "" or new_name == old_name then
+		return
+	end
+
+	-- Llamar al comando de renombrado de archivo
+	local params = {
+		command = "_typescript.renameFile",
+		arguments = { old_name, new_name },
+	}
+
+	vim.lsp.buf.execute_command(params)
+
+	-- Renombrar el archivo físicamente
+	os.rename(old_name, new_name)
+
+	-- Abrir el nuevo archivo
+	vim.cmd("edit " .. new_name)
+
+	-- Cerrar el buffer antiguo
+	vim.cmd("bdelete " .. old_name)
+end
+
+function TSSortImports()
+	local bufnr = vim.api.nvim_get_current_buf()
+	local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
+
+	local import_lines = {}
+	local other_lines = {}
+	local in_import_block = false
+
+	-- Separar imports y el resto del código
+	for _, line in ipairs(lines) do
+		if line:match("^import") then
+			table.insert(import_lines, line)
+			in_import_block = true
+		elseif in_import_block and line == "" then
+			table.insert(import_lines, line) -- Mantener líneas en blanco entre imports
+		else
+			table.insert(other_lines, line)
+		end
+	end
+
+	-- Ordenar los imports alfabéticamente
+	table.sort(import_lines, function(a, b)
+		return a:lower() < b:lower()
+	end)
+
+	-- Reemplazar el buffer con los imports ordenados + resto del código
+	local new_lines = vim.list_extend(import_lines, other_lines)
+	vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, new_lines)
+
+	print("✔ Imports ordenados")
+end
